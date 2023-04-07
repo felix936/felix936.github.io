@@ -130,7 +130,7 @@ div.nav:hover, a.nav:hover {
 div.icon {
     display: inline-block;
     text-align: center;
-    border-radius: 5vh;
+    border-radius: calc((6vh + 6vw) / 2);
     overflow: hidden;
     margin-top: 2%;
     margin-left: 1%;
@@ -138,12 +138,12 @@ div.icon {
 }
 
 .icon a {
-    width: 10vh;
-    height: 10vh;
+    width: calc((6vh + 6vw) / 2);
+    height: calc((6vh + 6vw) / 2);
     background-color: darkslategrey;
     color: #ffffff;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: calc((4vh + 4vw) / 2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,6 +175,10 @@ div.icon {
 
 div.nav:hover, a.nav:hover {
     width: 32%;
+}
+
+.cv {
+    margin: 2vw;
 }
 
 div.cvleft-title {
@@ -219,6 +223,7 @@ table, tr, th, td, caption {
 }
 
 input, textarea {
+    margin: 1vw;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -232,7 +237,7 @@ input, textarea {
 
 input.name {
     display: inline-block;
-    width: calc(24% - 3px);
+    width: calc(25% - 0.25vw);
 }
 
 fieldset{

@@ -5,39 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Felix Burger>">
     <meta name = "description" content="Projects by Felix Burger">
-    <link rel="icon" href="../icon-rounded.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="icon" href="../../icon-rounded.png" type="image/x-icon">
+    <link rel="stylesheet" href="project-styles.css" type="text/css">
+    <script src="https://kit.fontawesome.com/2a210ebde2.js" crossorigin="anonymous"></script>
     <title>Projects</title>
 </head>
 <body>
     <header>
-        <div class="parent"  style="text-align: left; align-content: center;">
-            <div class="home"><a href="/"><img src="../icon-rounded.png" alt="Home" width="342" height="316"></a></div>
+        <div class="parent" style="text-align: left; align-content: center; background-color: white; z-index: 1;">
+            <div class="home"><a href="/"><img src="../../icon-rounded.png" alt="Home" width="342" height="316"></a></div>
             <div class="title-header"><h1>Felix Burger</h1></div></div>
     </header>
-    <br>
     <nav>
     <div class="parent" style="text-align: center;">
         <a href="/about/" class="nav">About</a>
         <a href="/photo/" class="nav">Photos</a>
         <a href="/projects/" class="nav">Projects</a>
     </div></nav>
+    <main class="article">
 
-    <main>
-        
+
+
+
+         <div class="main-share">
+            <input type="checkbox" id="share_button">
+            <label for="share_button">
+                <span class="sharebtn">
+                    <i class="far fa-share-square"></i>
+                </span>
+            </label>
+    
+            <div class="sm_list">
+                <a class="facebook" id="facebook">
+                    <i style="transform: translateX(-10%);" class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a class="twitter" id="twitter">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a  class="linkedin" id="linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a class="reddit" id="reddit">
+                    <i class="fa-brands fa-reddit-alien"></i>
+                </a>
+                <a class="whatsapp" id="whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a class="email" id="email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="article-header">My awesome project</div>
+        <div class="article-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</div>
+        <div class="article-date">Published: 04/06/2023</div>
+        <div class="article-image-big"><img src="https://picsum.photos/1600/800" alt="Article Image"></div>
+        <div class="article-image-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+        <div class="article-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit ullam, debitis deleniti, unde rerum est optio eius nisi hic earum rem voluptatibus nesciunt reprehenderit magni similique aliquam molestias consequatur ipsum. Laborum inventore, aperiam in optio ipsum dolorum. Maxime sint dolore necessitatibus obcaecati laudantium impedit ipsum provident cum mollitia beatae ea eos, quisquam pariatur voluptatum incidunt illum, culpa nihil, in quasi. Nisi et sapiente natus? Saepe perferendis ullam deserunt, dolore dolorum laudantium repellendus corrupti praesentium quas neque vero, quisquam mollitia totam optio omnis reiciendis! Aspernatur laboriosam numquam similique quisquam non voluptatem?</div>
+        <div class="article-subheader">Here is even more text</div>
+        <div class="article-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit ullam, debitis deleniti, unde rerum est optio eius nisi hic earum rem voluptatibus nesciunt reprehenderit magni similique aliquam molestias consequatur ipsum. Laborum inventore, aperiam in optio ipsum dolorum. Maxime sint dolore necessitatibus obcaecati laudantium impedit ipsum provident cum mollitia beatae ea eos, quisquam pariatur voluptatum incidunt illum, culpa nihil, in quasi. Nisi et sapiente natus? Saepe perferendis ullam deserunt, dolore dolorum laudantium repellendus corrupti praesentium quas neque vero, quisquam mollitia totam optio omnis reiciendis! Aspernatur laboriosam numquam similique quisquam non voluptatem?</div>
+        <div class="rectangle"> <!--inline image with text around-->
+            <div class="inline-image-left"><img class= "inline-image" src="https://picsum.photos/1400/900" alt="random Image"></div>
+            <p class="inline-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium velit tempora maxime quis eum iste rerum perspiciatis corrupti voluptatem, ex nesciunt dolorum placeat aspernatur eveniet, veritatis magni quaerat aut blanditiis?
+                Nobis, adipisci. Neque laborum tempore aliquam quis. Voluptas eos commodi error ipsum incidunt in adipisci, sequi quidem aut, ut doloremque minima? Vero sunt fugit blanditiis ex! Maiores quis illum quasi!
+                Officia vero ad enim aliquam! Repellat ea quibusdam vero quos vel deleniti nobis necessitatibus odio. Eius tenetur quam, reprehenderit dolorum corrupti fugiat voluptates eaque pariatur assumenda veniam quaerat incidunt laudantium!</p>
+        </div>
+        <div class="rectangle"> <!--inline image with text around-->
+            <div class="inline-image-right"><img class= "inline-image" src="https://picsum.photos/680/450" alt="random Image"></div>
+            <p class="inline-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium velit tempora maxime quis eum iste rerum perspiciatis corrupti voluptatem, ex nesciunt dolorum placeat aspernatur eveniet, veritatis magni quaerat aut blanditiis?
+                Nobis, adipisci. Neque laborum tempore aliquam quis. Voluptas eos commodi error ipsum incidunt in adipisci, sequi quidem aut, ut doloremque minima? Vero sunt fugit blanditiis ex! Maiores quis illum quasi!
+                Officia vero ad enim aliquam! Repellat ea quibusdam vero quos vel deleniti nobis necessitatibus odio. Eius tenetur quam, reprehenderit dolorum corrupti fugiat voluptates eaque pariatur assumenda veniam quaerat incidunt laudantium!</p>
+        </div>
+
     </main>
 
     <footer>
-        <div class="parent">
-            <div class="icon"><a href="https://github.com/felix936"><img src="../icons/github_black.png" alt="github"></a></div>
-            <div class="icon"><a href="mailto:felix.b.burger@gmx.de"><img src="../icons/mail_black.png" alt="email"></a></div>
-            <div class="icon"><a href="tel:+4917642622072"><img src="../icons/phone_black.png" alt="phone"></a></div>
-            <div class="icon"><a href="https://www.youtube.com/@felixburger"><img src="../icons/youtube_black.png" alt="youtube"></a></div>
-            <div class="icon"><a href="https://www.linkedin.com/in/felixburger"><img src="../icons/linkedin_black.png" alt="linkedin"></a></div></div>
+        <div class="parent" style="width: 100%;">
+            <div class="icon"><a href="https://github.com/felix936"><i class="fa-brands fa-github"></i></a></div>
+            <div class="icon"><a href="mailto:felix.b.burger@gmx.de"><i class="fa-solid fa-envelope"></i></a></div>
+            <div class="icon"><a href="tel:+4917642622072"><i class="fa-solid fa-phone"></i></a></div>
+            <div class="icon"><a href="https://www.youtube.com/@felixburger"><i class="fa-brands fa-youtube"></i></a></div>
+            <div class="icon"><a href="https://www.linkedin.com/in/felixburger"><i class="fa-brands fa-linkedin"></i></a></div></div>
         <div class="parent">
             <a class="footerlinks" href="../index.html#contact">Contact</a>
             <a class="footerlinks" href="../index.html#cv">Curriculum Vitae</a>
             <a class="footerlinks" href="https://youtu.be/a3Z7zEc7AXQ">Impressum</a></div>
     </footer>
 </body>
+<script>
+    document.getElementById("facebook").href = "https://www.facebook.com/sharer/sharer.php?u" + window.location.href;
+    document.getElementById("twitter").href = "https://twitter.com/intent/tweet?url=" + + window.location.href +"&text=Check%20out%20this%20project%20by%20Felix%20Burger";
+    document.getElementById("linkedin").href = "https://www.linkedin.com/shareArticle?mini=true&url=" + window.location.href;
+    document.getElementById("reddit").href = "https://reddit.com/submit?url=" + window.location.href + "&title=Check%20out%20this%20project%20by%20Felix%20Burger";
+    document.getElementById("whatsapp").href = " https://wa.me/?text=Check%20out%20this%20project%20by%20Felix%20Burger%3A%20" + window.location.href;
+    document.getElementById("email").href = "mailto:?subject=Check%20out%20this%20Project%20by%20Felix%20Burger&body=Here%20is%20the%20link%20to%20his%20project%3A%20" + window.location.href + ".";
+</script>
 </html>

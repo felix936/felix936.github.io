@@ -45,12 +45,10 @@ header {
     text-align: center;
     align-items: center;
     margin-top: 0;
-    background-color: #ffffff;
 }
 
 .title-header h1 {
     font-size: 2.5rem;
-    background-color: #ffffff;
 }
 
 footer {

@@ -28,6 +28,19 @@ nav {
     max-height: 20vh;
 }
 
+
+hr {
+    border-width: 0;
+    border-radius: 0.75vh;
+    color: #92D050;
+    background-color: #92D050;
+    width: 80%;
+    height: 1.5vh;
+    margin: 3.5vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 header {
     margin-top: 1rem;
     width: 100%;
@@ -76,8 +89,6 @@ div.home{
     position: absolute;
     left: 0vh;
     top: 0vh;
-    margin-left: none;
-    padding-left: none;
     display: inline-block;
     text-align: left;
     width: 11vh;
@@ -349,6 +360,13 @@ img.article-image {
     cursor: pointer;
 }
 
+
+.picture-header {
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    font-size: 5vw;
+}
 
 .headerleft {
     text-align: left;

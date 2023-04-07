@@ -56,7 +56,7 @@ div.title-header {
     width: 100%;
     padding-left: 15vh;
     display: flex;
-    height: 11vh;
+    min-height: 11vh;
     align-items: center;
     justify-items: center;
 }
@@ -93,7 +93,9 @@ div.home{
     text-align: left;
     width: 11vh;
     height: 11vh;
+    max-width: 50px;
     background-color: #ffffff;
+    z-index: 1;
 }
 
 .home img{
@@ -104,10 +106,10 @@ div.home{
 }
 
 div.home:hover{
-    left: -1vh;
-    top: -1vh;
+    left: max(-1vh, 4.5px);
+    top: max(-1vh, 4.5px);
     width: 13vh;
-    height: 13vh;
+    max-width: 60px;
     height: auto;
 }
 

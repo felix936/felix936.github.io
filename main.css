@@ -39,7 +39,7 @@ header {
 }
 
 div.title-header {
-    font-size: 2.5rem;
+    font-size: 5vh;
     width: 70%;
     margin-left: 15%;
     display: flex;

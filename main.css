@@ -202,6 +202,7 @@ div.cvright {
     font-size: 1.3rem;
     display: inline-block;
     width: calc(90% - 150px);
+    height: max-content;
     position: relative;
     left: 2%;
     text-align: left;

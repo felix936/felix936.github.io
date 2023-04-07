@@ -41,7 +41,7 @@ header {
 div.title-header {
     font-size: calc((5vw + 5vh) / 2);
     width: 100%;
-    padding-left: 17vh;
+    padding-left: 15vh;
     display: flex;
     height: 11vh;
     align-items: center;

@@ -68,16 +68,19 @@ img {
     margin-right: 10%;
 }
 
+a {
+    text-decoration: none;
+}
+
 div.home{
     position: absolute;
     left: 0vh;
     top: 0vh;
-    margin-left: none;
-    padding-left: none;
     display: inline-block;
     text-align: left;
     width: 11vh;
     height: 11vh;
+    max-width: 50px;
     background-color: #ffffff;
 }
 
@@ -89,17 +92,11 @@ div.home{
 }
 
 div.home:hover{
-    left: -1vh;
-    top: -1vh;
+    left: max(-1vh, 4.5px);
+    top: max(-1vh, 4.5px);
     width: 13vh;
-    height: 13vh;
+    max-width: 60px;
     height: auto;
-}
-
-div {
-    position: relative;
-    top: 0px;
-    vertical-align: top;
 }
 
 div.nav, a.nav{

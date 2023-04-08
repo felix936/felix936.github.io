@@ -1,5 +1,7 @@
 <?php
 
+phpinfo();
+
 if (isset($_POST['submit'])) {
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -12,5 +14,6 @@ if (isset($_POST['submit'])) {
     $txt = "You have recieved a mail from ".$firstName." ".$lastName.". \n\n".$subject." \n".$message;
 
     mail ($mailTo, $subject, $txt, $headers);
-    header("")
 }
+
+?>

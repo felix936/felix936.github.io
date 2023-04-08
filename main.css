@@ -275,10 +275,10 @@ button.submit {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 200px;
+    width: 50%;
     font-size: 1.5rem;
     border-radius: 0.2em;
-    padding: 0.2rem;
+    padding: 0.5rem;
 }
 
 .vl {

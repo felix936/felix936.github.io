@@ -12,4 +12,5 @@ if (isset($_POST['submit'])) {
     $txt = "You have recieved a mail from ".$firstName." ".$lastName.". \n\n".$subject." \n".$message;
 
     mail ($mailTo, $subject, $txt, $headers);
+    header("")
 }

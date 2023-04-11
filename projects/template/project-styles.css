@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+/* Basics */
+
 body {
     margin: 0;
     padding: none;
@@ -15,19 +17,25 @@ body {
     font-style: normal;
 }
 
-nav {
-    margin-top: none;
-    position: sticky;
-    top: 0px;
-    z-index: 100;
-    background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
-    padding-bottom: 5vh;
-    font-size: 1.5rem;
-    width: 100%;
+img {
+    width: 80%;
     height: auto;
-    max-height: 20vh;
+    border-radius: 1.3rem;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
+a {
+    text-decoration: none;
+}
+
+div {
+    position: relative;
+    top: 0px;
+    vertical-align: top;
+}
+
+/* Header with Felix Burger and logo */
 header {
     margin-top: 1rem;
     width: 100%;
@@ -43,7 +51,7 @@ div.title-header {
     width: 100%;
     padding-left: 15vh;
     display: flex;
-    height: 11vh;
+    min-height: 11vh;
     align-items: center;
     justify-items: center;
 }
@@ -51,25 +59,6 @@ div.title-header {
 .title-header h1 {
     margin-left: auto;
     margin-right: auto;
-}
-
-footer {
-    width: 100%;
-    height: 10%;
-    background-color: #568525;
-    margin-top: 3vh;
-}
-
-img {
-    width: 80%;
-    height: auto;
-    border-radius: 1.3rem;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-a {
-    text-decoration: none;
 }
 
 div.home{
@@ -82,6 +71,7 @@ div.home{
     height: 11vh;
     max-width: 50px;
     background-color: #ffffff;
+    z-index: 1;
 }
 
 .home img{
@@ -97,6 +87,21 @@ div.home:hover{
     width: 13vh;
     max-width: 60px;
     height: auto;
+}
+
+/*Navigation-Menu*/
+
+nav {
+    margin-top: none;
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+    background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+    padding-bottom: 5vh;
+    font-size: 1.5rem;
+    width: 100%;
+    height: auto;
+    max-height: 20vh;
 }
 
 div.nav, a.nav{
@@ -116,17 +121,22 @@ div.nav:hover, a.nav:hover {
     width: 32%;
 }
 
-.parent {
-    text-align: center;
+/* Footer */
+
+footer {
+    width: 100%;
+    background-color: #568525;
 }
 
 div.icon {
     display: inline-block;
     text-align: center;
     border-radius: calc((6vh + 6vw) / 2);
+    overflow: hidden;
     margin-top: 2%;
     margin-left: 1%;
     margin-right: 1%;
+    margin-bottom: 2%;
 }
 
 .icon a {
@@ -148,23 +158,31 @@ div.icon {
     color: darkslategrey;
 }
 
-.footerlinks {
-    display: inline-block;
-    left: 1%;
-    top: 1%;
-    color: white;
-    font-size: 80%;
-    text-decoration: none;
-    padding: 0.7rem;
-    position: relative;
-    border-radius: 0;
-    margin: 1rem;
-    font-size: 1rem;
+/* Horizontal rule */
+hr {
+    border-width: 0;
+    border-radius: 0.75vh;
+    color: #92D050;
+    background-color: #92D050;
+    width: 80%;
+    height: 1.5vh;
+    margin: 3.5vh;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.footerlinks:hover {
-    color: rgb(220, 220, 220);
+/* Parent Elements */
+
+.parent {
+    text-align: center;
 }
+
+.parentleft {
+    text-align: left;
+    height: 100%;
+}
+
+/* Specific CSS for Project-Articles */
 
 .article {
     width: 80%;

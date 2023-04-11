@@ -433,7 +433,7 @@ div.indexicon {
     padding: 0;
     padding-top: 5vh;
     width: min(100px, 10vw);
-    font-size: min(100px, 10vw);
+    font-size: min(80px, 80vw);
     margin: 0;
 }
 

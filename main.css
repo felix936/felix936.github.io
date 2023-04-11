@@ -19,14 +19,6 @@ body {
     font-style: normal;
 }
 
-img {
-    width: 80%;
-    height: auto;
-    border-radius: 1.3rem;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
 a {
     text-decoration: none;
 }
@@ -39,17 +31,16 @@ div {
 
 /* Header with Felix Burger and logo */
 header {
-    margin-top: 1rem;
     width: 100%;
     min-height: 11vh;
     text-align: center;
     align-content: center;
     background-color: #ffffff;
     z-index: 1;
+    margin: 2vh 0 2vh 0;
 }
 
 div.title-header {
-    font-size: calc((5vw + 5vh) / 2);
     width: 100%;
     padding-left: 15vh;
     display: flex;
@@ -59,6 +50,7 @@ div.title-header {
 }
 
 .title-header h1 {
+    font-size: calc((5vw + 5vh) / 2);
     margin-left: auto;
     margin-right: auto;
 }
@@ -158,19 +150,6 @@ div.icon {
 .icon a:hover {
     background-color: white;
     color: darkslategrey;
-}
-
-/* Horizontal rule */
-hr {
-    border-width: 0;
-    border-radius: 0.75vh;
-    color: #92D050;
-    background-color: #92D050;
-    width: 80%;
-    height: 1.5vh;
-    margin: 3.5vh;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* Parent Elements */

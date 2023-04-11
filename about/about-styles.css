@@ -1,0 +1,107 @@
+@import url("../main.css");
+
+/* Curriculum Vitae Styles */
+.cv {
+    margin: 2vw;
+}
+
+div.cvleft-title {
+    font-size: 1.3rem;
+    left: 1%;
+    font-weight: bold;
+    display: inline-block;
+    width: calc(140px + 5%);
+    text-align: left;
+}
+
+div.cvleft-year {
+    font-size: 1rem;
+    left: 1%;
+    font-weight: normal;
+    color: #5c1f7d;
+    display: inline-block;
+    width: calc(140px + 5%);
+    text-align: left;
+}
+
+div.cvright {
+    font-size: 1.3rem;
+    display: inline-block;
+    width: calc(90% - 150px);
+    height: max-content;
+    position: relative;
+    left: 2%;
+    text-align: left;
+    padding-bottom: 1rem;
+    line-height: 1.5rem;
+}
+
+dl {
+    margin-top: 0px;
+}
+
+.vl {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-left: 0.3rem solid #92D050;
+    position: absolute;
+    left: relative;
+    top: relative;
+    display: inline-block;
+}
+
+/* Contact Form Styles */
+
+#contact {
+    width: min(80%, 800px);
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: none;
+}
+
+input, textarea {
+    margin: 0;
+    margin-top: 2vh;
+    display: block;
+    padding: 1vw;
+    font-size: 1rem;
+    border-radius: 0.2em;
+    border: 0.5px solid #696969;
+    background-color: rgba(194, 194, 194, 0.2);
+    width: 100%;
+}
+
+
+p.name-box {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+input.name {
+    width: calc(50% - 0.5vw);
+    margin: 0;
+    margin-top: 2vh;
+    padding: 1vw;
+}
+
+fieldset{
+    border: none;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+}
+
+button.submit {
+    margin-top: 2vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    font-size: 5vh;
+    border-radius: 0.2em;
+    padding: 0.5rem;
+}

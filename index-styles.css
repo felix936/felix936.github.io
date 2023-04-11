@@ -1,0 +1,59 @@
+@import url("main.css");
+
+/* Startpage*/
+
+.indexarticle{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.indexsection {
+    display: flex;
+    align-items: center;
+    margin-top: 10vh;
+    border-radius: 2vh;
+    height: auto;
+    padding: 2vw;
+    background-color: rgb(240, 240, 240);
+}
+
+.indexsectionline {
+    margin-left: 2vw;
+    margin-right: 2vw;
+    border-left: 0.3rem solid #92D050;
+}
+
+.indexsection h2{
+    font-size: 2rem;
+    line-height: 2.75rem;
+}
+
+.indexsection p{
+    margin: 2vh;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+img.indeximg {
+    width: 30%;
+    object-fit: contain;
+    margin: 0;
+    border-radius: 0;
+}
+
+div.indexicon i{
+    padding: 0;
+    padding-top: 5vh;
+    width: min(100px, 10vw);
+    font-size: min(80px, 8vw);
+    margin: 0;
+}
+
+.skilllist {
+    list-style-type: none;
+}
+
+#indexsectiontwo, #indexsectionthree, #indexsectionfour {
+    align-items: flex-start;
+}

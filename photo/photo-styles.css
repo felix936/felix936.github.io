@@ -1,0 +1,29 @@
+@import url("../main.css");
+
+img {
+    width: 80%;
+    height: auto;
+    border-radius: 1.3rem;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* Horizontal rule */
+hr {
+    border-width: 0;
+    border-radius: 0.75vh;
+    color: #92D050;
+    background-color: #92D050;
+    width: 80%;
+    height: 1.5vh;
+    margin: 3.5vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.picture-header {
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    font-size: 5vw;
+}

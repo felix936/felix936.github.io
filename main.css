@@ -432,8 +432,8 @@ img.indeximg {
 div.indexicon {
     padding: 0;
     padding-top: 5vh;
-    width: min(10vw, 100px);
-    font-size: min(10vw, 100px);
+    width: min(100px, 10vw);
+    font-size: min(100px, 10vw);
     margin: 0;
 }
 

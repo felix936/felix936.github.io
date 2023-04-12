@@ -18,7 +18,7 @@ div.cvleft-year {
     font-size: 1rem;
     left: 1%;
     font-weight: normal;
-    color: #5c1f7d;
+    color: var(--cvleftyearcolor);
     display: inline-block;
     width: calc(140px + 5%);
     text-align: left;

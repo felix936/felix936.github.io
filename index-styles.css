@@ -15,7 +15,7 @@
     border-radius: 2vh;
     height: auto;
     padding: 2vw;
-    background-color: rgb(240, 240, 240);
+    background-color: var(--articlebackground);
 }
 
 .indexsectionline {

@@ -6,17 +6,26 @@
     box-sizing: border-box;
 }
 
-/* Basics */
+:root {
+    --white: #ffffff;
+    --black: #000000;
+
+    --lightgrey: rgb(230,230,230);
+    --darkgrey: rgb(50, 50, 50);
+
+    /* with JS we set the the variables to fit the theme */
+}
+
 
 body {
     margin: 0;
     padding: none;
     line-height: 1.75rem;
     text-align: left;
-    background-color: white;
-    color: black;
     font-family: "Sans serif", Arial, sans-serif;
     font-style: normal;
+    background-color: var(--background);
+    color: var(--foreground);
 }
 
 a {
@@ -35,7 +44,6 @@ header {
     min-height: 11vh;
     text-align: center;
     align-content: center;
-    background-color: #ffffff;
     z-index: 1;
     margin: 2vh 0 2vh 0;
 }
@@ -56,14 +64,13 @@ div.title-header {
 
 div.home{
     position: absolute;
-    left: 0vh;
-    top: 0vh;
+    left: 1vh;
+    top: 1vh;
     display: inline-block;
     text-align: left;
     width: 11vh;
     height: 11vh;
     max-width: 50px;
-    background-color: #ffffff;
     z-index: 1;
 }
 
@@ -82,6 +89,20 @@ div.home:hover{
     height: auto;
 }
 
+button.dark-mode-toggle{
+    position: absolute;
+    right: 3.5vh;
+    top: 3.5vh;
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    font-size: 4vh;
+    z-index: 1;
+    border: none;
+    color: var(--foreground);
+    background: var(--background);
+}
+
 /*Navigation-Menu*/
 
 nav {
@@ -89,7 +110,7 @@ nav {
     position: sticky;
     top: 0px;
     z-index: 100;
-    background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+    background-image: var(--lineargradient);
     padding-bottom: 5vh;
     font-size: 1.5rem;
     width: 100%;

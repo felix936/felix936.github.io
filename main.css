@@ -42,7 +42,6 @@ header {
 
 div.title-header {
     width: 100%;
-    padding-left: 15vh;
     display: flex;
     min-height: 11vh;
     align-items: center;
@@ -118,6 +117,7 @@ div.nav:hover, a.nav:hover {
 /* Footer */
 
 footer {
+    margin-top: 5vh;
     width: 100%;
     background-color: #568525;
 }
@@ -161,4 +161,22 @@ div.icon {
 .parentleft {
     text-align: left;
     height: 100%;
+}
+
+div.contactme {
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+.contactme a {
+    text-align: center;
+    background-color: #92D050;
+    padding: 2vh;
+    width: auto;
+    font-size: 5vh;
+    font-weight: bolder;
+    color: darkslategrey;
+    border-radius: 1vh;
 }

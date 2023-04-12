@@ -10,6 +10,7 @@
     background-color: var(--articlebackground);
     border-radius: 1vw;
     padding: 0.5rem;
+    padding-bottom: 5vh;
     margin-top: 2vh;
     margin-bottom: 2vh;
     overflow: hidden;

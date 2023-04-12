@@ -185,18 +185,19 @@ div.icon {
 }
 
 div.contactme {
-    margin-top: 5vh;
-    margin-bottom: 10vh;
+    margin: 10vh;
     display: flex;
     justify-content: center;
 }
 
 .contactme a {
+    display: flex;
+    align-self: center;
     text-align: center;
     background-color: #92D050;
     padding: 2vh;
     width: auto;
     font-size: 5vh;
-    color: black;
+    color: var(--darkgrey);
     border-radius: 1vh;
 }

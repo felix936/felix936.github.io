@@ -197,6 +197,6 @@ div.contactme {
     padding: 2vh;
     width: auto;
     font-size: 5vh;
-    color: darkslategrey;
+    color: var(--darkgrey);
     border-radius: 1vh;
 }

@@ -1,0 +1,57 @@
+@import url(../main.css);
+
+/* Contact Form Styles */
+
+#contact {
+    width: min(80%, 800px);
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: none;
+}
+
+input, textarea {
+    margin: 0;
+    margin-top: 2vh;
+    display: block;
+    padding: 1vw;
+    font-size: 1rem;
+    border-radius: 0.2em;
+    border: 0.5px solid #696969;
+    background-color: rgba(194, 194, 194, 0.2);
+    width: 100%;
+}
+
+
+p.name-box {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+input.name {
+    width: calc(50% - 0.5vw);
+    margin: 0;
+    margin-top: 2vh;
+    padding: 1vw;
+}
+
+fieldset{
+    border: none;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+}
+
+button.submit {
+    margin-top: 2vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    font-size: 5vh;
+    border-radius: 0.2em;
+    padding: 0.5rem;
+}

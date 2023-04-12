@@ -1,0 +1,69 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Felix Burger>">
+    <meta name = "description" content="The personal Webpage of Felix Burger">
+    <title>Felix Burger</title>
+    <link rel="icon" href="../icon-rounded.png" type="image/x-icon">
+    <link rel="stylesheet" href="contact-styles.css" type="text/css">
+    <script src="https://kit.fontawesome.com/2a210ebde2.js" crossorigin="anonymous"></script>
+    <script data-goatcounter="https://felixburger.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+    <header>
+        <div class="parent" style="text-align: left">
+            <div class="home"><a href="/"><img src="../icon-rounded.png" alt="Home"></a></div>
+            <div class="title-header"><h1>Felix Burger</h1></div></div>
+    </header>
+    <nav>
+    <div class="parent" style="text-align: center;">
+        <a href="/about/" class="nav">About</a>
+        <a href="/photo/" class="nav">Photos</a>
+        <a href="/projects/" class="nav">Projects</a>
+    </div></nav>
+    <main>
+        <article id="contact">
+            <br><br><br>
+            <fieldset><legend><h2>Contact me</h2></legend>
+            <form action="https://api.web3forms.com/submit" method="POST"><br>
+                <input type="hidden" name="access_key" value="e29ef791-d36e-4247-8b79-7acc4b0a3860">
+                <input type="hidden" name="from_name" value="Personal Webpage">
+                <fieldset><legend>Personal Info</legend>
+                <p class="name-box">
+                <label for="firstName"></label>
+                <input class="name" type="text" name="firstName" id="firstName" placeholder="First Name" required style="margin-right: 1vw;">
+                <label for="lastName"></label>
+                <input class="name" type="text" name="lastName" id="lastName" placeholder="Last Name" required></p>
+                <p>
+                <label for="email"></label>
+                <input type="email" name="email" id="email" placeholder="E-Mail" required></p>
+                <br>
+                </fieldset><fieldset><legend>Message</legend>
+                <p>
+                <label for="subject"></label>
+                <input type="text" name="subject" id="subject" placeholder="Subject" required></p>
+                <p>
+                <label for="message"></label>
+                <textarea name="message" id="message" cols="60" rows="15" placeholder="Your message" required></textarea></p>
+                </fieldset>
+                <button class="submit" type="submit">Submit</button>
+                <input type="hidden" name="redirect" value="https://felix936.github.io/">
+            </form>
+            </fieldset>
+        </article>
+    </main>
+
+    <footer>
+        <div class="parent" style="width: 100%;">
+            <div class="icon"><a href="https://github.com/felix936"><i class="fa-brands fa-github"></i></a></div>
+            <div class="icon"><a href="mailto:felix.b.burger@gmx.de"><i class="fa-solid fa-envelope"></i></a></div>
+            <div class="icon"><a href="tel:+4917642622072"><i class="fa-solid fa-phone"></i></a></div>
+            <div class="icon"><a href="https://www.youtube.com/@felixburger"><i class="fa-brands fa-youtube"></i></a></div>
+            <div class="icon"><a href="https://www.linkedin.com/in/felixburger"><i class="fa-brands fa-linkedin"></i></a></div></div>
+    </footer>
+</body>
+
+</html>

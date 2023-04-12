@@ -185,8 +185,8 @@ div.icon {
 }
 
 div.contactme {
-    height: auto;
-    margin: 10vh;
+    height: 9vh;
+    margin: 5vh;
     padding: 0;
     display: flex;
     justify-content: center;

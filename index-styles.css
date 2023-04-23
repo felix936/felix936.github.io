@@ -11,7 +11,7 @@
 .indexsection {
     display: flex;
     align-items: center;
-    margin-top: 10vh;
+    margin-top: 5vh;
     border-radius: 2vh;
     height: auto;
     padding: 2vw;
@@ -21,18 +21,27 @@
 .indexsectionline {
     margin-left: 2vw;
     margin-right: 2vw;
-    border-left: 0.3rem solid #92D050;
+    border-left: max(0.3vw, 2px) solid #92D050;
+}
+
+div.indexsectionpicturetext{
+    width: 65%;
+}
+
+div.indexsectiontext{
+    width: 80%;
 }
 
 .indexsection h2{
-    font-size: 2rem;
-    line-height: 2.75rem;
+    font-size: min(calc((8vw + 8vh) / 2), 2rem);
+    line-height: min(calc((10vw + 10vh) / 2), 3rem);
+    overflow-wrap: break-word;
 }
 
 .indexsection p{
-    margin: 2vh;
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: min(calc((5vw + 5vh) / 2), 1.5rem);
+    line-height: min(calc((7vw + 7vh) / 2), 2.25rem);
+    overflow-wrap: break-word;
 }
 
 img.indeximg {

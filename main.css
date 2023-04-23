@@ -41,70 +41,64 @@ div {
 /* Header with Felix Burger and logo */
 header {
     width: 100%;
-    min-height: 11vh;
     text-align: center;
     align-content: center;
     z-index: 1;
     margin: 2vh 0 2vh 0;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
 div.title-header {
-    width: 100%;
     display: flex;
-    min-height: 11vh;
-    align-items: center;
-    justify-items: center;
+    align-self: center;
+    justify-self: center;
 }
 
 .title-header h1 {
-    font-size: calc((5vw + 5vh) / 2);
-    margin-left: auto;
-    margin-right: auto;
+    font-size: min(10vw, 100px);
+    line-height: normal;
 }
 
-div.home{
-    position: absolute;
-    left: 1vh;
-    top: 1vh;
-    display: inline-block;
-    text-align: left;
-    width: 11vh;
-    height: 11vh;
-    max-width: 50px;
+div.home, .home a{
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    width: min(12vw, 120px);
+    height: auto;
     z-index: 1;
+    margin-left: 2vw;
 }
 
 .home img{
-    display: inline-block;
-    text-align: left;
     width: 100%;
     height: auto;
 }
 
 div.home:hover{
-    left: max(-1vh, 4.5px);
-    top: max(-1vh, 4.5px);
-    width: 13vh;
-    max-width: 60px;
+    width: min(15vw, 150px);
     height: auto;
 }
 
 button.dark-mode-toggle{
-    position: absolute;
-    right: 3.5vh;
-    top: 3.5vh;
-    display: inline-block;
-    text-align: center;
+    display: flex;
     align-items: center;
-    font-size: 4vh;
+    font-size: min(3.5vw, 35px);
+    margin-right: 2vw;
     z-index: 1;
     border: none;
     color: var(--foreground);
     background: var(--background);
 }
 
-/*Navigation-Menu*/
+button.dark-mode-toggle:hover{
+    cursor: pointer;
+}
 
+
+
+/*Navigation-Menu*/
 nav {
     margin-top: none;
     position: sticky;
@@ -112,27 +106,39 @@ nav {
     z-index: 100;
     background-image: var(--lineargradient);
     padding-bottom: 5vh;
-    font-size: 1.5rem;
+    font-size: min(calc((5vw + 5vh) / 2), 1.5rem);
     width: 100%;
-    height: auto;
-    max-height: 20vh;
+    display: flex;
+    justify-content: space-around;
 }
 
-div.nav, a.nav{
+nav a{
     color: white;
     background-color: #568525;
     text-decoration: none;
-    text-align: center;
     width: 28%;
-    padding: 0.3rem 0.2rem;
-    margin-top: none;
-    display: inline-block;
-    border-radius: 2.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4rem;
+    padding: calc((0.5vw + 0.5vh) / 2) 0;
     position: relative;
+    overflow: hidden;
 }
 
-div.nav:hover, a.nav:hover {
+nav a:hover {
     width: 32%;
+}
+
+nav.small{
+    visibility: hidden; 
+    display: none;}
+
+/* Changing text to font if window to small)*/
+
+@media screen and (max-width:350px){
+    nav.normal { display: none !important; }
+    nav.small  { visibility: visible; display: flex;}
 }
 
 /* Footer */
@@ -185,7 +191,6 @@ div.icon {
 }
 
 div.contactme {
-    height: 9vh;
     margin: 5vh;
     padding: 0;
     display: flex;
@@ -195,10 +200,11 @@ div.contactme {
 
 .contactme a {
     text-align: center;
-    background-color: #92D050;
+    background-color: #568525;
     padding: 2vh;
     width: auto;
-    font-size: 5vh;
-    color: var(--darkgrey);
+    font-size: min(calc((10vw + 10vh) / 2), 2rem);
+    line-height: normal;
+    color: white;
     border-radius: 1vh;
 }

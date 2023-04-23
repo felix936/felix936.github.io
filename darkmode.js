@@ -6,7 +6,7 @@ const enableDarkMode = () => {
     document.documentElement.style.setProperty('--background', 'var(--black)');
     document.documentElement.style.setProperty('--lineargradient', 'linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0))');
     document.documentElement.style.setProperty('--articlebackground', 'var(--darkgrey)');
-    document.documentElement.style.setProperty('--cvleftyearcolor', '#d5adeb');
+    document.documentElement.style.setProperty('--cvleftyearcolor', '#ab0e8e');
     localStorage.setItem('darkMode', 'enabled');
 }
 const disableDarkMode = () => {

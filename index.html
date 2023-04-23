@@ -14,23 +14,26 @@
 </head>
 <body>
     <header>
-        <div class="parent" style="text-align: left">
             <div class="home"><a href="/"><img src="icon-rounded.png" alt="Home"></a></div>
             <div class="title-header"><h1>Felix Burger</h1></div>
-            <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="toggle dark mode"><i class="fa-solid fa-circle-half-stroke"></i></button></div>
+            <button title="Change theme" id="dark-mode-toggle" class="dark-mode-toggle" aria-label="toggle dark mode"><i class="fa-solid fa-circle-half-stroke"></i></button>
     </header>
-    <nav>
-    <div class="parent" style="text-align: center;">
+    <nav class="normal">
         <a href="/about/" class="nav">About</a>
         <a href="/photo/" class="nav">Photos</a>
         <a href="/projects/" class="nav">Projects</a>
-    </div></nav>
+    </nav>
+    <nav class="small">
+        <a href="/about/" class="nav"><i class="fa-solid fa-user"></i></a>
+        <a href="/photo/" class="nav"><i class="fa-solid fa-camera"></i></a>
+        <a href="/projects/" class="nav"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+    </nav>
     <main>
         <article class="indexarticle">
             <section class="indexsection" id="indexsectionone">
                 <img src="/img/felix.png" alt="A picture of me:)" class="indeximg">
                 <div class="indexsectionline" id="indexsectionlineone"></div>
-                <div>
+                <div class="indexsectionpicturetext">
                     <h2>Hey, I'm Felix Burger!</h2>
                     <p>A student based in Germany.</p>
                     <p>I'm passionate about athletics, programming, photography and travelling.</p>
@@ -39,7 +42,7 @@
             <section class="indexsection" id="indexsectiontwo">
                 <div class="indexicon"><i class="fa-solid fa-user-graduate"></i></div>
                 <div class="indexsectionline" id="indexsectionlinetwo"></div>
-                <div>
+                <div  class="indexsectiontext">
                     <h2>2012 Enrollment</h2>
                     <p>I attended the Copernicus Elementary School, since there were children of different ages in my class, I learned early to work independently.</p>
                     <br>
@@ -50,7 +53,7 @@
             <section class="indexsection" id="indexsectionthree">
                 <div class="indexicon"><i class="fa-solid fa-briefcase"></i></div>
                 <div class="indexsectionline" id="indexsectionlinethree"></div>
-                <div>
+                <div class="indexsectiontext">
                     <h2>2021 Student Intern at [p3]</h2>
                     <p>The p3-Werkstatt gGmbH is an innovative carpentry workshop that prepares refugees for an apprenticeship. It was a very exciting and educational experience, where I learned a lot about hydroponic systems and working in a team, as well as showing my creativity. In countless interactions with refugees from different cultures, I learned a lot about the challenges they face starting a new life in a foreign country.</p>
                     <br>
@@ -64,7 +67,7 @@
             <section class="indexsection" id="indexsectionfour">
                 <div class="indexicon"><i class="fa-solid fa-gears"></i></div>
                 <div class="indexsectionline" id="indexsectionlinefour"></div>
-                <div>
+                <div class="indexsectiontext">
                     <h2>Skills and Expertise</h2>
                     <p>I know the basics of: </p>
                     <ul class="skilllist">

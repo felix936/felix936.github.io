@@ -253,13 +253,13 @@ span.comment {
 /* Styles for Share-Function*/
 
 div.main-share{
-width: 8vh;
-height: 8vh;
+width: calc((6vh + 6vw) / 2);
+height: calc((6vh + 6vw) / 2);
 position: fixed;
 top: 46vh;
-left: calc(5% - 4vh);
+left: calc(5% - calc((3vh + 3vw) / 2));
 display: flex;
-font-size: 4vh;
+font-size: calc((3vh + 3vw) / 2);
 justify-content: center;
 align-items: center;
 z-index: 1000;
@@ -278,8 +278,8 @@ border-radius: 50%;
 }
 
 span{
-width: 8vh;
-height: 8vh;
+width: calc((6vh + 6vw) / 2);
+height: calc((6vh + 6vw) / 2);
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
@@ -291,18 +291,18 @@ cursor: pointer;
 }
 
 .sm_list{
-width: 8vh;
-height: 8vh;
+width: calc((6vh + 6vw) / 2);
+height: calc((6vh + 6vw) / 2);
 }
 
 .sm_list a{
-width: 8vh;
-height: 8vh;
+width: calc((6vh + 6vw) / 2);
+height: calc((6vh + 6vw) / 2);
 border-radius: 50%;
 text-decoration: none;
 color: #fff;
 transition: all .3s;
-font-size: 4vh;
+font-size:calc((4vh + 4vw) / 2);
 display: flex;
 align-content: center;
 justify-content: center;
@@ -312,38 +312,38 @@ cursor: pointer;
 #share_button:checked ~ .sm_list a:nth-child(1){
 background-color: #3B5998;
 transition-delay: 0.2s;
-transform: translateY(-3em);
+transform: translateY(-2em);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(2){
 background-color: #1DA1F2;
 transition-delay: 0.2s;
-transform: translateY(3em);
+transform: translateY(2em);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(3){
 background-color: #0e76a8;
 transition-delay: 0.3s;
-transform: translateY(6em);
+transform: translateY(4em);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(4){
 background-color: 	#FF5700;
 transition-delay: 0.3s;
-transform: translateY(-6em);
+transform: translateY(-4em);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(5){
 background-color: #25D366;
 transition-delay: 0.4s;
-transform: translateY(9em);
+transform: translateY(6em);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(6){
 background-color: darkslategrey;
 color: rgb(230, 230, 230);
 transition-delay: 0.4s;
-transform: translateY(-9em);
+transform: translateY(-6em);
 }
 
 /* Hovering Effects */
@@ -352,7 +352,7 @@ transform: translateY(-9em);
 background-color: #ffffff;
 color: #3B5998;
 transition-delay: 0.2s;
-transform: translateY(-3em);
+transform: translateY(-2em);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(2):hover{

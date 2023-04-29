@@ -96,9 +96,56 @@ div.inline-image-right {
     padding-top: 0;
 }
 
+div.code {
+    margin-left: 10%;
+    padding: 1vw;
+    width: 80%;
+    border-radius: 1vw;
+    background-color: black;
+    white-space: nowrap;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: column;
+}
+.code p {
+    color: #ffffff;
+}
 
 
+.code::-webkit-scrollbar {
+    display: none;
+}
 
+.code {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+div.copy-code {
+    position: sticky;
+    left: calc(100% - 0.2rem - 3.6rem);
+    margin: 0.2rem;
+    padding: 0;
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    align-items: center;
+}
+.copy-code button {
+    background-color: var(--darkgrey);
+    border: none;
+    height: 1rem;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.copy-code i {
+    color: var(--lightgrey);
+    font-size: 0.8rem;
+}
 
 
 /* Styles for Share-Function*/

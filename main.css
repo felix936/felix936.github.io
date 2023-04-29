@@ -144,7 +144,6 @@ nav.small{
 /* Footer */
 
 footer {
-    margin-top: 5vh;
     width: 100%;
     background-color: #568525;
 }
@@ -194,6 +193,7 @@ div.contactme {
     margin: 5vh;
     padding: 0;
     display: flex;
+    height: calc(4vh + min(calc((10vw + 10vh) / 2), 2rem));
     justify-content: center;
     align-items: center;
 }

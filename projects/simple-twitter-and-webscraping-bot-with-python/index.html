@@ -69,7 +69,7 @@
     <div class="article-description">How to program a Bot that is able to fetch Website-Data and post it on Twitter <br><br>Note: The code on this article doesn't work anymore, because Twitter deprecated API V1 and now switched to V2</div>
     <div class="article-date">Published: 14.10.2022</div>
     <div class="article-image-big"><img src="Twitterbot.png" alt="Twitter-Bot Symbol"></div>
-    <div class="article-text">I always wanted to build my own Twitter-Bot. A while ago I found the Website <a class="article-link" href="https://energy-charts.info">"energy-charts.info"</a>, a website, which publishes live energy data. It was really interesting, so I thought to my self, why not make a Twitter-Bot, so more people are able to inform themselves, about how much renewable energy is produced in their country.</div>
+    <div class="article-text">I always wanted to build my own Twitter-Bot. A while ago I found the Website <a class="article-link" href="https://energy-charts.info">"energy-charts.info"</a>, a website, which publishes live energy data. It was really interesting, so I thought to myself, why not make a Twitter-Bot, so more people are able to inform themselves, about how much renewable energy is produced in their country.</div>
     <div class="article-subheader">Getting started</div>
     <div class="article-text">Before I could start programming, I first had to register on the Twitter Developer Portal to get access to the API, because i wanted to upload pictures of the data i applied for "Elevated Access". After some trying I send my first tweet via the API: <br><br>"This is my first tweet!", with a picture of a cat. <br>This is the code i used:<br></div>
     <div class="code">
@@ -373,7 +373,7 @@ def data_scraper():
     renewable = fossil = atom = 0
     print(df)
 
-    #we no iterate through the rows, check the source and add them up
+    #we now iterate through the rows, check the source and add them up
     for x in range(len(df['z']) - 1):
         if df['z'][x + 1] == 140:
             renewable += df['y'][x + 1]

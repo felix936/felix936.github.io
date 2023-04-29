@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Felix Burger>">
+    <meta name = "description" content="Building a simple Twitter and Webscraping Bot by Felix Burger">
+    <link rel="icon" href="../../icon-rounded.png" type="image/x-icon">
+    <link rel="stylesheet" href="../article-styles.css" type="text/css">
+    <script src="https://kit.fontawesome.com/2a210ebde2.js" crossorigin="anonymous"></script>
+    <script data-goatcounter="https://felixburger.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+    <title>Projects</title>
+</head>
+<body>
+    <header>
+        <div class="home"><a href="/"><img src="../../icon-rounded.png" alt="Home"></a></div>
+        <div class="title-header"><h1>Felix Burger</h1></div>
+        <button title="Change theme" id="dark-mode-toggle" class="dark-mode-toggle" aria-label="toggle dark mode"><i class="fa-solid fa-circle-half-stroke"></i></button>
+    </header>
+    <nav class="normal">
+        <a href="/about/" class="nav">About</a>
+        <a href="/photo/" class="nav">Photos</a>
+        <a href="/projects/" class="nav">Projects</a>
+    </nav>
+    <nav class="small">
+        <a href="/about/" class="nav"><i class="fa-solid fa-user"></i></a>
+        <a href="/photo/" class="nav"><i class="fa-solid fa-camera"></i></a>
+        <a href="/projects/" class="nav"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+    </nav>
+
+    <main class="article">
+
+
+         <div class="main-share">
+            <input type="checkbox" id="share_button">
+            <label for="share_button">
+                <span class="sharebtn">
+                    <i class="far fa-share-square"></i>
+                </span>
+            </label>
+    
+            <div class="sm_list">
+                <a class="facebook" id="facebook">
+                    <i style="transform: translateX(-10%);" class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a class="twitter" id="twitter">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a  class="linkedin" id="linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a class="reddit" id="reddit">
+                    <i class="fa-brands fa-reddit-alien"></i>
+                </a>
+                <a class="whatsapp" id="whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a class="email" id="email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+
+
+
+
+    <div class="article-header">Simple Twitter and Webscraping Bot</div>
+    <div class="article-description">How to program a Bot that is able to fetch Website-Data and post it on Twitter <br><br>Note: The code on this article doesn't work anymore, because Twitter deprecated API V1 and now switched to V2</div>
+    <div class="article-date">Published: 14.10.2022</div>
+    <div class="article-image-big"><img src="Twitterbot.png" alt="Twitter-Bot Symbol"></div>
+    <div class="article-text">I always wanted to build my own Twitter-Bot. A while ago I found the Website <a class="article-link" href="https://energy-charts.info">"energy-charts.info"</a>, a website, which publishes live energy data. It was really interesting, so I thought to my self, why not make a Twitter-Bot, so more people are able to inform themselves, about how much renewable energy is produced in their country.</div>
+    <div class="article-subheader">Getting started</div>
+    <div class="article-text">Before I could start programming, I first had to register on the Twitter Developer Portal to get access to the API, because i wanted to upload pictures of the data i applied for "Elevated Access". After some trying I send my first tweet via the API: <br><br>"This is my first tweet!", with a picture of a cat. <br>This is the code i used:<br></div>
+    <div class="code">
+        <div class="codeheader">
+        <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
+        <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+        <hr class="hrcode">
+        <div><pre><code>
+import tweepy, twitter_keys
+
+consumer_key = twitter_keys.consumer_key
+consumer_secret = twitter_keys.consumer_secret
+access_token = twitter_keys.access_token
+access_token_secret = twitter_keys.access_token_secret
+
+
+def api():
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+
+return tweepy.API(auth)
+
+def tweet(api: tweepy.API, message: str, image_path = None):
+if image_path:
+    api.update_status_with_media(message, image_path)
+else:
+    api.update_status(message)
+    
+print('Tweeted succesfully')
+
+if __name__ == '__main__':
+    api = api()
+    tweet(api, 'Hello World!', 'cat.png')
+    </code></pre></div></div>
+    <div class="article-text">Now the next step was to program a simple Webscraping-Bot. I did this with <a class="article-link" href="https://selenium-python.readthedocs.io/">Selenium</a>. To get started with Selenium I first installed the Python Selenium-Library and downloaded the chrome webdriver. After having some problems initally, I then got it to work and started of bz visiting the Homepage of <a class="article-link" href="https://energy-charts.info">"energy-charts.info"</a> grabbed the h1-Heading and took a screenshot of the Site.</div>
+    <div class="code">
+        <div class="codeheader">
+        <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
+        <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+        <hr class="hrcode">
+        <div><pre id="code-test"><code>
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+options = Options()
+options.BinaryLocation = 'BINARY_LOCATION'
+driver_path = 'DRIVER_PATH'
+
+def data_scraper():
+    url = 'https://www.energy-charts.info'
+    image = 'PATH_TO_THE_IMAGE_WE_WILL_TAKE'
+    browser = webdriver.Chrome(options = options, service=Service(executable_path = driver_path))
+    browser.set_window_size(1280, 735)
+    browser.get(url)
+    #opens website
+    browser.save_screenshot(image)
+    
+    #locating the title and getting its text
+    title = browser.find_element(By.XPATH, '//*[@id="homepage"]/section[1]/div/div/div[2]/h1').text
+
+    #shows me the image i took
+    browser.get("file://" + image)
+    browser.implicitly_wait(5)
+    browser.close()
+    print(title)
+    
+if __name__ == '__main__':
+    data_scraper()
+    </code></pre></div>
+    <hr class="hrcode">
+    <div class="output"><pre><code>
+Output:<br>Welcome to the Energy-Charts
+    </code></pre></div></div>
+    <br>
+    <div class="rectangle"> <!--inline image with text around-->
+        <div class="inline-image-left"><img class= "inline-image" src="energy-charts-home.png" alt="energy-charts homepage" loading="lazy"></div>
+        <p class="inline-text">It works! The h1-Heading of the page is "Welcome to the Energy-Charts" and it took the screenshot you can see on the left. Now that we have the basics down, we can start coding the actual Bot.</p>
+    </div>
+    <div class="article-subheader">Programming our finished Bot</div>
+    <p class="article-text">We start of by importing all our libraries and setting selenium up.</p>
+    <div class="code">
+        <div class="codeheader">
+        <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
+        <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+        <hr class="hrcode">
+        <div><pre><code>
+import tweepy, twitter_keys, time, os, glob
+import pandas as pd
+#initalize webdriver
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+options = Options()
+options.BinaryLocation = 'usr/share/chromium'
+driver_path = '/usr/bin/chromedriver'
+</code></pre></div></div>
+
+    <p class="article-text">After that we then initalize the Twitter-API by authenticating with our custom keys: </p>
+    <div class="code">
+        <div class="codeheader">
+        <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
+        <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+        <hr class="hrcode">
+        <div><pre><code>
+def initalize():
+    #initalize Twitter
+    consumer_key = twitter_keys.consumer_key
+    consumer_secret = twitter_keys.consumer_secret
+    access_token = twitter_keys.access_token
+    access_token_secret = twitter_keys.access_token_secret
+
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+    api = tweepy.API(auth, wait_on_rate_limit = True)
+    return api
+</code></pre></div></div>
+<div class="article-text">The data_scraper Function First asks us, which interval we want to tweet about and about the timespan. It then visits the specific site on <a class="article-link" href="https://energy-charts.info">"energy-charts.info"</a>. There it takes a screenshot and downloads a csv with all the raw-data. It then reads the CSV-File and adds up all the numbers, to find out how much renewable, nuclear and fossil power was generated in that period.</div>
+<div class="code">
+    <div class="codeheader">
+    <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
+    <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+    <hr class="hrcode">
+    <div><pre><code>
+def data_scraper():
+    #You can first choose the interval and timespan
+    interval = ["day", "month", "quarter", "halfyear", "year"]
+    while True:
+        input_interval = input_interval1 = input("Which interval? (day, month, quarter, halfyear, year) ")
+        if input_interval in interval:
+            break
+        else:
+            print("Error: There is no such interval, choose from: day, month, quarter, halfyear, year: ")
+    if input_interval == "day":
+        input_interval1 = "datetimepicker"
+    input_time = input("Enter the " + str(input_interval) + " (if day timeformat dd.mm.yyyy) : ")
+    input_span = input("Enter the time span: ")
+    url = 'https://www.energy-charts.info/charts/energy_pie/chart.htm?l=de&c=DE&show_labels=1&interval=' + str(input_interval) + '&' + str(input_interval1) + '=' + input_time
+    image = '/home/felix_xrdp/python/API/energy-charts/electricity-generation.png'
+    browser = webdriver.Chrome(options = options, service=Service(executable_path = driver_path))
+    browser.set_window_size(1280, 735)
+
+    #open the url in the browser
+    browser.get(url)
+
+    #close menu
+    browser.find_element(By.XPATH, '//*[@id="modalBody"]/div/div/div[1]/button').click()
+    
+    #scroll down and take a screenshot
+    browser.execute_script("window.scrollBy(0,10);")
+    browser.save_screenshot(image)
+
+    #get the page title, the title will later be used as text for our tweet
+    title = browser.find_element(By.XPATH, '//*[@id="pagetitle"]').text + input_span
+
+            
+    #open menu, because we now wanna download the rawdata in to a csv-file
+    browser.find_element(By.XPATH, '//*[@id="chartToggle"]').click()
+    browser.find_element(By.XPATH, '/html/body/main/div/div/div[2]/div/div/div/div/div/div[2]/div/div/a[5]').click()
+    
+    #set the export format to csv
+    browser.find_element(By.XPATH, '/html/body/main/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[5]/div/div[1]/div[2]/select/option[6]').click()
+
+    #click on the download button
+    browser.find_element(By.XPATH, '//*[@id="collapseExport"]/div/div[1]/div[2]/div/button/span/i').click()
+    
+    #we now downloaded the csv-file into our downloads, but we now change its path and rename it
+    files = glob.glob('/home/felix_xrdp/Downloads/*.csv')
+    print(files)
+
+    #it gets the old file name by check which file is the latest in our downloads
+    old_name = max(files, key=os.path.getctime)
+    print(old_name)
+
+    #rename the file
+    new_name = '/home/felix_xrdp/python/API/energy-charts/electricity-generation.csv'
+    os.rename(old_name, new_name)
+    
+    #open image with new path and display, to validate
+    browser.get("file://" + image)
+    browser.implicitly_wait(5)
+    browser.close()
+</code></pre></div></div>
+    <div class="article-text">We have now downloaded a CSV-File from the website, that contains all the raw-data. The file we downloaded is structured like this:</div>
+    <div class="article-table">
+    <table>
+        <tr>
+            <th></th>
+            <th>Category</th>
+            <th>y</th>
+            <th>z</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>NaN</td>
+            <td>NaN</td>
+            <td>NaN</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Renewable Waste</td>
+            <td>14.52</td>
+            <td>140.0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Run-of-river</td>
+            <td>42.22</td>
+            <td>140.0</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Storage Water</td>
+            <td>1.72</td>
+            <td>140.0</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Biomass</td>
+            <td>116.79</td>
+            <td>140.0</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Wind Offshore</td>
+            <td>50.93</td>
+            <td>140.0</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Wind Onshore</td>
+            <td>202.59</td>
+            <td>140.0</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Solar</td>
+            <td>108.19</td>
+            <td>140.0</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Geothermal</td>
+            <td>0.44</td>
+            <td>140.0</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Nuclear</td>
+            <td>63.06</td>
+            <td>120.0</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Lignite</td>
+            <td>265.99</td>
+            <td>100.0</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Natural Gas</td>
+            <td>125.44</td>
+            <td>100.0</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>Hard Coal</td>
+            <td>48.27</td>
+            <td>100.0</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Oil</td>
+            <td>1.45</td>
+            <td>100.0</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Non-renewable Waste</td>
+            <td>16.73</td>
+            <td>100.0</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>Other</td>
+            <td>1.53</td>
+            <td>100.0</td>
+            
+    </tr>
+    </table></div>
+    <div class="article-text">First of all you probably noticed, that the first line just says "NaN", so there is no number, thats why we will later skip the first row. The "y"-column displays how many Gigawatt hours this energy source produced on this day. When looking at the table longer, you will also notice, that renewable energies have the number "140" in the "z"-column, while nuclear power has "120" and all the fossil fuels have the number "100". So we need to iterate through the rows and check the number in the "z-column", so we can add up the power produced by renewable, nuclear and fossil sources.</div>
+    <div class="code">
+        <div class="codeheader">
+        <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
+        <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+        <hr class="hrcode">
+        <div><pre><code>
+    #we open the table with pandas
+    df = pd.read_csv(r'/home/felix_xrdp/python/API/energy-charts/electricity-generation.csv')
+    renewable = fossil = atom = 0
+    print(df)
+
+    #we no iterate through the rows, check the source and add them up
+    for x in range(len(df['z']) - 1):
+        if df['z'][x + 1] == 140:
+            renewable += df['y'][x + 1]
+        elif df['z'][x + 1] == 120:
+            atom += df['y'][x + 1]
+        elif df['z'][x + 1] == 100:
+            fossil += df['y'][x + 1]
+    return title, image, url, renewable, atom, fossil
+</code></pre></div></div>
+<div class="article-text">With the tweet-function we sent the tweet and the screenshot we take.</div>
+<div class="code">
+    <div class="codeheader">
+    <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
+    <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+    <hr class="hrcode">
+    <div><pre><code>
+def tweet(api, text, image):
+    api.update_status_with_media(text, image)
+    print("tweet successfully sent!")
+</code></pre></div></div>
+    <div class="article-text">We now created all the individual functions, the execution function now ties them all together.</div>
+    <div class="code">
+        <div class="codeheader">
+        <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
+        <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+        <hr class="hrcode">
+        <div><pre><code>
+def execution():
+    #it calls the initalize function
+    api = initalize()
+
+    #with data_scraper it gets the variables and takes the screenshot, we will need for our tweet
+    title, image, url, renewable, atom, fossil = data_scraper()
+
+    #we change the number from and Gigawatt Hours to Terrawatt hours and round them to 2 decimal places
+    renewable = renewable / 1000
+    renewable = round(renewable, 2)
+    atom = atom / 1000
+    atom = str(round(atom, 2))
+    fossil = fossil / 1000
+    fossil = str(round(fossil, 2))
+    text = str(title) + '\r\n' +  str(renewable) + ' TWh Erneuerbare Energien (EE)\r\n' + str(atom) + ' TWh Kernenergie\r\n' + str(fossil) + ' TWh Fossile Energien\r\n' + str(url)
+    print(text)
+
+    input_tweet = input("Do you wanna Tweet this? [y/n]")
+
+    #maybe you want to change the text or image-path:
+    if input_tweet == "n":
+        input_text = input("Do you wanna change the text? [new text/n]")
+        if input_text == "n":
+            pass
+        else:
+            text = input_text
+        input_image = input("Do you wanna change the image? [new image-path/n]")
+        if input_image == "n":
+            pass
+        else:
+            image = input_image
+        if input("Send it like this? [y/n]") == "n":
+            quit()
+    tweet(api, text, image)
+
+    </code></pre></div></div>
+    <div class="article-text">Now we just call the execution function and our script is finished!</div>
+    <div class="code">
+        <div class="codeheader">
+        <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
+        <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+        <hr class="hrcode">
+        <div><pre><code>
+if __name__ == '__main__':
+    execution()
+
+</code></pre></div>
+    <hr class="hrcode">
+    <div class="output"><pre><code>
+Output:<br>Which interval? (day, month, quarter, halfyear, year) <span class="input">day</span>
+Enter the day (if day timeformat dd.mm.yyyy): <span class="input">22.10.2022</span>
+Enter the time span: <span class="input">\n</span>
+                   Category       y      z
+0                       NaN     NaN    NaN
+1         Erneuerbarer Müll   14.52  140.0
+2                Laufwasser   42.22  140.0
+3            Speicherwasser    1.72  140.0
+4                  Biomasse  116.79  140.0
+5             Wind Offshore   50.93  140.0
+6              Wind Onshore  202.59  140.0
+7                     Solar  108.19  140.0
+8                Geothermie    0.44  140.0
+9               Kernenergie   63.06  120.0
+10               Braunkohle  265.99  100.0
+11                   Erdgas  125.44  100.0
+12               Steinkohle   48.27  100.0
+13                       Öl    1.45  100.0
+14  Nicht-erneuerbarer Müll   16.73  100.0
+15                   Andere    1.58  100.0
+Öffentliche Nettostromerzeugung in Deutschland am 22. Oktober 2022
+0.54 TWh Erneuerbare Energien (EE)
+0.06 TWh Kernenergie
+0.46 TWh Fossile Energien
+https://www.energy-charts.info/charts/energy_pie/chart.htm?l=de&c=DE&show_labels=1&interval=day&datetimepicker=22.10.2022
+Do you wanna Tweet this? [y/n] <span class="input">y</span>
+tweet successfully sent!
+    </code></pre></div></div>
+    <p class="article-subheader">And that's our tweet:</p>
+    <div class="embed"><blockquote class="twitter-tweet"><p lang="de" dir="ltr">Öffentliche Nettostromerzeugung in Deutschland am 22. Oktober 2022<br>0.54 TWh Erneuerbare Energien (EE)<br>0.06 TWh Kernenergie<br>0.49 TWh Fossile Energien<a href="https://t.co/JmHVMk98Bv">https://t.co/JmHVMk98Bv</a> <a href="https://t.co/JeFnmmZn1w">pic.twitter.com/JeFnmmZn1w</a></p>&mdash; Energy-Charts Bot (@energychartsbot) <a href="https://twitter.com/energychartsbot/status/1584174231717572608?ref_src=twsrc%5Etfw">October 23, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+    <p class="article-subheader">Other Tweets I tweeted automatically:</p>
+    <div class="embed">
+        <blockquote class="twitter-tweet"><p lang="de" dir="ltr">Anteile der Erneuerbaren Energien (EE) an der elektrischen Last in Woche 42 vom 17.10. bis 23.10.2022.<a href="https://t.co/59qO7VvF2j">https://t.co/59qO7VvF2j</a> <a href="https://t.co/9Psqk4Lr8R">pic.twitter.com/9Psqk4Lr8R</a></p>&mdash; Energy-Charts Bot (@energychartsbot) <a href="https://twitter.com/energychartsbot/status/1584583558337007616?ref_src=twsrc%5Etfw">October 24, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <div class="embed">
+        <blockquote class="twitter-tweet"><p lang="de" dir="ltr">Gesamter geplanter Stromhandel zwischen Deutschland und seinen Nachbarländern im März 2023 01.03.-31.03.<br>Deutschland Import: 4.4 TWh Export: 6.4 TWh<a href="https://t.co/JuhM70LBw5">https://t.co/JuhM70LBw5</a> <a href="https://t.co/9Ae0SY89eO">pic.twitter.com/9Ae0SY89eO</a></p>&mdash; Energy-Charts Bot (@energychartsbot) <a href="https://twitter.com/energychartsbot/status/1651608398126018560?ref_src=twsrc%5Etfw">April 27, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+
+    <!-- To later copy the text we need to give all the snippets an id -->
+    <script type="text/javascript">
+        var codeSnippets = document.querySelectorAll('button.copy-code');
+        for (var i = 0; i < codeSnippets.length; i++){
+            codeSnippets[i].id = 'copy-code' + i;
+        }
+        </script>
+
+    <!-- We check if line contains an '#', the character for a comment in python, then we set the style to comment -->
+    <script type="text/javascript">
+        const Snippets = document.querySelectorAll('pre');
+        for (let x = 0; x < Snippets.length; x++){
+            var Snippet = Snippets[x];
+            var codeLines = Snippets[x].getElementsByTagName("code")[0].innerHTML.split("\n");
+            for (let i = 0; i < codeLines.length; i++){
+                if(codeLines[i].indexOf("#") !== -1){
+                    codeLines[i] = "<span class='comment'>" + codeLines[i] + "</span>";
+                }
+        } Snippet.getElementsByTagName("code")[0].innerHTML = codeLines.join("\n");}
+    </script>
+
+    <!-- Copy a Code-Snippet -->
+    <script type="text/javascript">
+        function copy_code(clicked_id){
+            var copyText = document.getElementById(clicked_id).parentElement.parentElement.parentElement.getElementsByTagName('code')[0];
+            var copyText = copyText.textContent;
+            navigator.clipboard.writeText(copyText);
+            document.getElementById(clicked_id).innerHTML = '<i class="fa-solid fa-clipboard-check"></i>&nbsp;Copied';
+            setTimeout(function () {
+                document.getElementById(clicked_id).innerHTML = '<i class="fa-solid fa-clipboard"></i>&nbspCopy';
+            }, 1000)
+        }
+        </script>
+        <script src="../../darkmode.js"></script>
+    </main>
+    <div class="contactme"><a href="/contact">Contact me!&nbsp;<i class="fa-solid fa-message"></i></a></div>
+    <footer>
+        <div class="parent" style="width: 100%;">
+            <div class="icon"><a href="https://github.com/felix936"><i class="fa-brands fa-github"></i></a></div>
+            <div class="icon"><a href="mailto:felix.b.burger@gmx.de"><i class="fa-solid fa-envelope"></i></a></div>
+            <div class="icon"><a href="tel:+4917642622072"><i class="fa-solid fa-phone"></i></a></div>
+            <div class="icon"><a href="https://www.youtube.com/@felixburger"><i class="fa-brands fa-youtube"></i></a></div>
+            <div class="icon"><a href="https://www.linkedin.com/in/felixburger"><i class="fa-brands fa-linkedin"></i></a></div></div>
+    </footer>
+    <script type="text/javascript">
+        document.getElementById("facebook").href = "https://www.facebook.com/sharer/sharer.php?u" + window.location.href;
+        document.getElementById("twitter").href = "https://twitter.com/intent/tweet?url=" + window.location.href +"&text=Check%20out%20this%20project%20by%20Felix%20Burger";
+        document.getElementById("linkedin").href = "https://www.linkedin.com/shareArticle?mini=true&url=" + window.location.href;
+        document.getElementById("reddit").href = "https://reddit.com/submit?url=" + window.location.href + "&title=Check%20out%20this%20project%20by%20Felix%20Burger";
+        document.getElementById("whatsapp").href = " https://wa.me/?text=Check%20out%20this%20project%20by%20Felix%20Burger%3A%20" + window.location.href;
+        document.getElementById("email").href = "mailto:?subject=Check%20out%20this%20Project%20by%20Felix%20Burger&body=Here%20is%20the%20link%20to%20his%20project%3A%20" + window.location.href + ".";
+    </script>
+</body>
+</html>

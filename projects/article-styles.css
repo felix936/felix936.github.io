@@ -2,6 +2,14 @@
 
 /* Specific CSS for Project-Articles */
 
+a.article-link {
+    color: var(--foreground);
+    position: relative;
+    display: inline;
+    border: none;
+    text-decoration: underline;
+}
+
 .article {
     width: 80%;
     height: auto;
@@ -22,6 +30,7 @@
     padding-top: calc((1.5vw + 1.5vh) / 2);
     font-size: 2.5rem;
     font-weight: bolder;
+    clear: both;
 }
 
 .article-subheader{
@@ -29,6 +38,7 @@
     padding-top: 1.5rem;
     font-size: 2rem;
     font-weight: bold;
+    clear: both;
 }
 
 .article-description {
@@ -46,14 +56,18 @@
     font-size: 1.2rem;
     padding: 1vw;
     padding-top: 1rem;
+    clear: both;
 }
 
 .article-image-big img{
-    width: calc(100% - 2rem);
+    max-width: calc(100% - 2rem);
+    max-height: 50vh;
     height: auto;
+    width: auto;
+    display: block;
     margin-top: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .article-image-caption {
@@ -77,8 +91,8 @@ div.inline-image-left {
     width: 40%;
     height: auto;
     margin: none;
-    margin-right: 1rem;
-    margin-left: 1rem;
+    margin-right: 2vw;
+    margin-left: 2vw;
 }
 
 div.inline-image-right {
@@ -86,8 +100,8 @@ div.inline-image-right {
     width: 40%;
     height: auto;
     margin: none;
-    margin-right: 1rem;
-    margin-left: 1rem;
+    margin-right: 2vw;
+    margin-left: 2vw;
 }
 
 .inline-text {
@@ -132,7 +146,29 @@ div.codeheader {
     padding: 0px 1vw 1vw 0px;
 }
 
+div.output {
+    background-color: var(--background);
+    white-space: nowrap;
+    overflow-x: scroll;
+    font-size: 1rem;
+}
+
+div.output .input {
+    color: blue;
+    width: auto;
+    height: auto;
+    position: relative;
+    transform: none;
+    background-color: var(--background);
+    font-size: 1em;
+    z-index: 0;
+    display: inline;
+    top: 0;
+    left: 0;
+}
+
 hr.hrcode {
+    width: calc(100% - 2vw);
     border-width: 0.5vh 0px 0px 0px;
     border-color: var(--foreground);
     margin-bottom: 1vh; 
@@ -176,6 +212,43 @@ div.programming-language {
     font-weight: bold;
 }
 
+div.embed {
+    display: flex;
+    justify-content: center;
+}
+
+div.article-table {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-x: scroll;
+    text-align: center;
+}
+
+.article-table table, td, th {
+    border: 1px black solid;
+    padding: 0.5vw;
+}
+
+.article-table table, td, th {
+    border-collapse: collapse;
+}
+
+span.comment {
+    width: auto;
+    height: auto;
+    top: 0;
+    left: 0;
+    transform: none;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-size: 1em;
+    z-index: 0;
+    cursor: default;
+    position: relative;
+    color: rgb(125,125,125);
+    display: inline;
+}
 
 /* Styles for Share-Function*/
 

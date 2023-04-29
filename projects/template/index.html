@@ -87,20 +87,33 @@
         </div>
 
         <div class="code">
-            <div class="copy-code"><button id="copy-code1" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"> Copy</i></button></div>
-            <div><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, nemo. Explicabo et quaerat deleniti similique dolorem sit natus fuga. Explicabo sequi reiciendis tenetur enim veniam similique illum est quod ullam.<br>Heelo</p></div>
+            <div class="codeheader">
+            <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
+            <div class="copy-code"><button id="copy-code1" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+            <hr class="hrcode">
+            <div><pre><code>for fizzbuzz in range(51):
+    if fizzbuzz % 3 == 0 and fizzbuzz % 5 == 0:
+        print("fizzbuzz")
+        continue
+    elif fizzbuzz % 3 == 0:
+        print("fizz")
+        continue
+    elif fizzbuzz % 5 == 0:
+        print("buzz")
+        continue
+    print(fizzbuzz)</code></pre></div>
         </div>
 
         <script type="text/javascript">
             function copy_code(clicked_id){
-                var copyText = document.getElementById(clicked_id).parentElement.parentElement.getElementsByTagName('p')[0];
-                var copyText = copyText.innerHTML.replace("<br>", "\n");
+                var copyText = document.getElementById(clicked_id).parentElement.parentElement.parentElement.getElementsByTagName('code')[0];
+                var copyText = copyText.textContent;
                 navigator.clipboard.writeText(copyText);
-                document.getElementById(clicked_id).innerHTML = '<i class="fa-solid fa-clipboard-check"> COPIED</i>';
-                document.getElementById(clicked_id).parentElement.style.left = "calc(100% - 0.2rem - 4.6rem)";
+                document.getElementById(clicked_id).innerHTML = '<i class="fa-solid fa-clipboard-check"></i>&nbsp;Copied';
+                document.getElementById(clicked_id).parentElement.style.left = "calc(100% - 0.2rem - 4.2rem)";
                 setTimeout(function () {
                     document.getElementById(clicked_id).parentElement.style.left = "calc(100% - 0.2rem - 3.6rem)";
-                    document.getElementById(clicked_id).innerHTML = '<i class="fa-solid fa-clipboard"> COPY</i>';
+                    document.getElementById(clicked_id).innerHTML = '<i class="fa-solid fa-clipboard"></i>&nbspCopy';
                 }, 1000)
             }
         </script>
@@ -115,13 +128,13 @@
             <div class="icon"><a href="https://www.youtube.com/@felixburger"><i class="fa-brands fa-youtube"></i></a></div>
             <div class="icon"><a href="https://www.linkedin.com/in/felixburger"><i class="fa-brands fa-linkedin"></i></a></div></div>
     </footer>
+    <script type="text/javascript">
+        document.getElementById("facebook").href = "https://www.facebook.com/sharer/sharer.php?u" + window.location.href;
+        document.getElementById("twitter").href = "https://twitter.com/intent/tweet?url=" + window.location.href +"&text=Check%20out%20this%20project%20by%20Felix%20Burger";
+        document.getElementById("linkedin").href = "https://www.linkedin.com/shareArticle?mini=true&url=" + window.location.href;
+        document.getElementById("reddit").href = "https://reddit.com/submit?url=" + window.location.href + "&title=Check%20out%20this%20project%20by%20Felix%20Burger";
+        document.getElementById("whatsapp").href = " https://wa.me/?text=Check%20out%20this%20project%20by%20Felix%20Burger%3A%20" + window.location.href;
+        document.getElementById("email").href = "mailto:?subject=Check%20out%20this%20Project%20by%20Felix%20Burger&body=Here%20is%20the%20link%20to%20his%20project%3A%20" + window.location.href + ".";
+    </script>
 </body>
-<script>
-    document.getElementById("facebook").href = "https://www.facebook.com/sharer/sharer.php?u" + window.location.href;
-    document.getElementById("twitter").href = "https://twitter.com/intent/tweet?url=" + window.location.href +"&text=Check%20out%20this%20project%20by%20Felix%20Burger";
-    document.getElementById("linkedin").href = "https://www.linkedin.com/shareArticle?mini=true&url=" + window.location.href;
-    document.getElementById("reddit").href = "https://reddit.com/submit?url=" + window.location.href + "&title=Check%20out%20this%20project%20by%20Felix%20Burger";
-    document.getElementById("whatsapp").href = " https://wa.me/?text=Check%20out%20this%20project%20by%20Felix%20Burger%3A%20" + window.location.href;
-    document.getElementById("email").href = "mailto:?subject=Check%20out%20this%20Project%20by%20Felix%20Burger&body=Here%20is%20the%20link%20to%20his%20project%3A%20" + window.location.href + ".";
-</script>
 </html>

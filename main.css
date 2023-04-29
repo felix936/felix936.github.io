@@ -139,6 +139,8 @@ nav.small{
 @media screen and (max-width:350px){
     nav.normal { display: none !important; }
     nav.small  { visibility: visible; display: flex;}
+    div.inline-image-left {width: calc(100% - 2vw) !important;}
+    div.inline-image-right {width: calc(100% - 2vw) !important;}
 }
 
 /* Footer */

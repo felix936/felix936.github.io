@@ -256,8 +256,9 @@ div.main-share{
 width: calc((6vh + 6vw) / 2);
 height: calc((6vh + 6vw) / 2);
 position: fixed;
-top: 46vh;
-left: calc(5% - calc((3vh + 3vw) / 2));
+top: 50vh;
+right: 5%;
+transform: translate(+50%, -50%);
 display: flex;
 font-size: calc((3vh + 3vw) / 2);
 justify-content: center;

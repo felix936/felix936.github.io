@@ -250,15 +250,19 @@ span.comment {
     display: inline;
 }
 
+@media screen and (max-width:350px){
+    .article {width: 95%;}
+}
+
 /* Styles for Share-Function*/
 
 div.main-share{
 width: calc((6vh + 6vw) / 2);
 height: calc((6vh + 6vw) / 2);
 position: fixed;
-top: 50vh;
-right: 5%;
-transform: translate(+50%, -50%);
+top: 90vh;
+left: 5%;
+transform: translate(-50%, -50%);
 display: flex;
 font-size: calc((3vh + 3vw) / 2);
 justify-content: center;
@@ -319,32 +323,32 @@ transform: translateY(-2em);
 #share_button:checked ~ .sm_list a:nth-child(2){
 background-color: #1DA1F2;
 transition-delay: 0.2s;
-transform: translateY(2em);
+transform: translateY(-4em);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(3){
 background-color: #0e76a8;
 transition-delay: 0.3s;
-transform: translateY(4em);
+transform: translateY(-6em);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(4){
 background-color: 	#FF5700;
 transition-delay: 0.3s;
-transform: translateY(-4em);
+transform: translateY(-8em);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(5){
 background-color: #25D366;
 transition-delay: 0.4s;
-transform: translateY(6em);
+transform: translateY(-10em);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(6){
 background-color: darkslategrey;
 color: rgb(230, 230, 230);
 transition-delay: 0.4s;
-transform: translateY(-6em);
+transform: translateY(-12em);
 }
 
 /* Hovering Effects */

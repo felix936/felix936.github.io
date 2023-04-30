@@ -136,7 +136,7 @@ nav.small{
 
 /* Changing text to font if window to small)*/
 
-@media screen and (max-width:350px){
+@media screen and (max-width:360px){
     nav.normal { display: none !important; }
     nav.small  { visibility: visible; display: flex;}
     div.inline-image-left {width: calc(100% - 2vw) !important;}

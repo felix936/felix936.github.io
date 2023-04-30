@@ -6,7 +6,7 @@
     <meta name="author" content="Felix Burger>">
     <meta name = "description" content="Projects by Felix Burger">
     <link rel="icon" href="../../icon-rounded.png" type="image/x-icon">
-    <link rel="stylesheet" href="project-styles.css" type="text/css">
+    <link rel="stylesheet" href="../article-styles.css" type="text/css">
     <script src="https://kit.fontawesome.com/2a210ebde2.js" crossorigin="anonymous"></script>
     <script data-goatcounter="https://felixburger.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -69,9 +69,11 @@
         <div class="article-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</div>
         <div class="article-date">Published: 04/06/2023</div>
         <div class="article-image-big"><img src="https://picsum.photos/1600/800" alt="Article Image"></div>
-        <div class="article-image-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+        <div class="article-image-big-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
         <div class="article-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit ullam, debitis deleniti, unde rerum est optio eius nisi hic earum rem voluptatibus nesciunt reprehenderit magni similique aliquam molestias consequatur ipsum. Laborum inventore, aperiam in optio ipsum dolorum. Maxime sint dolore necessitatibus obcaecati laudantium impedit ipsum provident cum mollitia beatae ea eos, quisquam pariatur voluptatum incidunt illum, culpa nihil, in quasi. Nisi et sapiente natus? Saepe perferendis ullam deserunt, dolore dolorum laudantium repellendus corrupti praesentium quas neque vero, quisquam mollitia totam optio omnis reiciendis! Aspernatur laboriosam numquam similique quisquam non voluptatem?</div>
         <div class="article-subheader">Here is even more text</div>
+        <div class="article-image"><img src="https://picsum.photos/1600/800" alt="Image"></div>
+        <div class="article-image-caption">Another picture, smaller than number 1</div>
         <div class="article-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit ullam, debitis deleniti, unde rerum est optio eius nisi hic earum rem voluptatibus nesciunt reprehenderit magni similique aliquam molestias consequatur ipsum. Laborum inventore, aperiam in optio ipsum dolorum. Maxime sint dolore necessitatibus obcaecati laudantium impedit ipsum provident cum mollitia beatae ea eos, quisquam pariatur voluptatum incidunt illum, culpa nihil, in quasi. Nisi et sapiente natus? Saepe perferendis ullam deserunt, dolore dolorum laudantium repellendus corrupti praesentium quas neque vero, quisquam mollitia totam optio omnis reiciendis! Aspernatur laboriosam numquam similique quisquam non voluptatem?</div>
         <div class="rectangle"> <!--inline image with text around-->
             <div class="inline-image-left"><img class= "inline-image" src="https://picsum.photos/1400/900" alt="random Image"></div>
@@ -89,9 +91,11 @@
         <div class="code">
             <div class="codeheader">
             <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
-            <div class="copy-code"><button id="copy-code1" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+            <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
             <hr class="hrcode">
-            <div><pre><code>for fizzbuzz in range(51):
+            <div><pre><code class="python-code">
+for fizzbuzz in range(16):
+    #We check if fizzbuzz can be divided by 3 and 5 and if this will give us an natural number
     if fizzbuzz % 3 == 0 and fizzbuzz % 5 == 0:
         print("fizzbuzz")
         continue
@@ -101,22 +105,211 @@
     elif fizzbuzz % 5 == 0:
         print("buzz")
         continue
-    print(fizzbuzz)</code></pre></div>
-        </div>
+    print(fizzbuzz)
 
-        <script type="text/javascript">
-            function copy_code(clicked_id){
-                var copyText = document.getElementById(clicked_id).parentElement.parentElement.parentElement.getElementsByTagName('code')[0];
-                var copyText = copyText.textContent;
-                navigator.clipboard.writeText(copyText);
-                document.getElementById(clicked_id).innerHTML = '<i class="fa-solid fa-clipboard-check"></i>&nbsp;Copied';
-                document.getElementById(clicked_id).parentElement.style.left = "calc(100% - 0.2rem - 4.2rem)";
-                setTimeout(function () {
-                    document.getElementById(clicked_id).parentElement.style.left = "calc(100% - 0.2rem - 3.6rem)";
-                    document.getElementById(clicked_id).innerHTML = '<i class="fa-solid fa-clipboard"></i>&nbspCopy';
-                }, 1000)
-            }
+</code></pre></div>
+    <hr class="hrcode">
+    <div class="output"><pre><code>
+Output:
+fizzbuzz
+1
+2
+fizz
+4
+buzz
+fizz
+7
+8
+fizz
+buzz
+11
+fizz
+13
+14
+fizzbuzz
+# This # doesn't get translated to a comment, because it isn't in the python-code
+    </code></pre></div></div>
+        <div class="code">
+            <div class="codeheader">
+            <div class="programming-language"><i class="fa-brands fa-html5"></i>&nbsp;HTML</div>
+            <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+            <hr class="hrcode">
+            <div><pre><code class="html-code">
+&lt;html>
+&lt;head>
+&lt;title>Title of your page here&lt;/title>
+&lt;/head>
+&lt;body>
+All the stuff you want on your page goes between the body tags.
+&lt;/body>
+&lt;/html>
+&lt;!-- I'm a comment! -->
+
+</code></pre></div></div>
+        <div class="code">
+            <div class="codeheader">
+            <div class="programming-language"><i class="fa-brands fa-css3"></i>&nbsp;CSS</div>
+            <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+            <hr class="hrcode">
+            <div><pre><code class="css-code">
+p {
+    text-align: center;
+    color: red;
+    } 
+/* I am a comment! */
+
+</code></pre></div></div>
+
+
+        <div class="code">
+            <div class="codeheader">
+            <div class="programming-language"><i class="fa-brands fa-js"></i>&nbsp;JavaScript</div>
+            <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+            <hr class="hrcode">
+            <div><pre><code class="js-code">
+if (hour &lt; 18) {
+    greeting = "Good day";
+    }
+
+//I'm a comment
+</code></pre></div></div>
+
+
+        <div class="code">
+            <div class="codeheader">
+            <div class="programming-language"><i class="fa-brands fa-java"></i>&nbsp;Java</div>
+            <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+            <hr class="hrcode">
+            <div><pre><code class="java-code">
+if (hour &lt; 18) {
+    greeting = "Good day";
+    }
+
+//I'm a comment
+</code></pre></div></div>
+
+
+        <div class="code">
+            <div class="codeheader">
+            <div class="programming-language"><i class="fa-solid fa-code"></i>&nbsp;SQL</div>
+            <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+            <hr class="hrcode">
+            <div><pre><code class="sql-code">
+CREATE TABLE Persons (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+);
+
+--I'm a comment
+</code></pre></div></div>
+
+
+        <div class="code">
+            <div class="codeheader">
+            <div class="programming-language"><i class="fa-solid fa-code"></i>&nbsp;C#</div>
+            <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
+            <hr class="hrcode">
+            <div><pre><code class="c-code">
+int x = 20;
+int y = 18;
+if (x > y) 
+{
+    Console.WriteLine("x is greater than y");
+}
+
+//I'm a comment
+</code></pre></div></div>
+
+
+    <!-- To later copy the text we need to give all the snippets an id -->
+    <script type="text/javascript">
+        var codeSnippets = document.querySelectorAll('button.copy-code');
+        for (var i = 0; i < codeSnippets.length; i++){
+            codeSnippets[i].id = 'copy-code' + i;
+        }
         </script>
+
+    <!-- Copy a Code-Snippet -->
+    <script type="text/javascript">
+        function copy_code(clicked_id){
+            var copyText = document.getElementById(clicked_id).parentElement.parentElement.parentElement.getElementsByTagName('code')[0];
+            var copyText = copyText.textContent;
+            navigator.clipboard.writeText(copyText);
+            document.getElementById(clicked_id).innerHTML = '<i class="fa-solid fa-clipboard-check"></i>&nbsp;Copied';
+            setTimeout(function () {
+                document.getElementById(clicked_id).innerHTML = '<i class="fa-solid fa-clipboard"></i>&nbspCopy';
+            }, 1000)
+        }
+        </script>
+
+    <!-- We check if line contains an '#', the character for a comment in python, then we set the style to comment -->
+    <script type="text/javascript">
+        const PythonSnippets = document.querySelectorAll('.python-code');
+        for (let x = 0; x < PythonSnippets.length; x++){
+            var Snippet = PythonSnippets[x];
+            var codeLines = Snippet.innerHTML.split("\n");
+            for (let i = 0; i < codeLines.length; i++){
+                if(codeLines[i].indexOf("#") !== -1){
+                    codeLines[i] = "<span class='comment'>" + codeLines[i] + "</span>";
+                }
+        } Snippet.innerHTML = codeLines.join("\n");}
+    </script>
+
+    <!-- We check if line contains an the characters for a comment in html, then we set the style to comment -->
+    <script type="text/javascript">
+        const HTMLSnippets = document.querySelectorAll('.html-code');
+        for (let x = 0; x < HTMLSnippets.length; x++){
+            var Snippet = HTMLSnippets[x];
+            var codeLines = Snippet.innerHTML.split("\n");
+            for (let i = 0; i < codeLines.length; i++){
+                if(codeLines[i].indexOf("&lt;!--") !== -1){
+                    codeLines[i] = "<span class='comment'>" + codeLines[i] + "</span>";
+                }
+        } Snippet.innerHTML = codeLines.join("\n");}
+    </script>
+
+    <!-- We check if line contains an the characters for a comment in css, then we set the style to comment -->
+    <script type="text/javascript">
+        const CSSSnippets = document.querySelectorAll('.css-code');
+        for (let x = 0; x < CSSSnippets.length; x++){
+            var Snippet = CSSSnippets[x];
+            var codeLines = Snippet.innerHTML.split("\n");
+            for (let i = 0; i < codeLines.length; i++){
+                if(codeLines[i].indexOf("/*") !== -1){
+                    codeLines[i] = "<span class='comment'>" + codeLines[i] + "</span>";
+                }
+        } Snippet.innerHTML = codeLines.join("\n");}
+    </script>
+
+    <!-- We check if line contains the characters for a comment in JavaScript or Java, then we set the style to comment -->
+    <script type="text/javascript">
+        const JavaScriptSnippets = document.querySelectorAll(".js-code, .java-code, .c-code");
+        for (let x = 0; x < JavaScriptSnippets.length; x++){
+            var Snippet = JavaScriptSnippets[x];
+            var codeLines = Snippet.innerHTML.split("\n");
+            for (let i = 0; i < codeLines.length; i++){
+                if(codeLines[i].indexOf("//") !== -1){
+                    codeLines[i] = "<span class='comment'>" + codeLines[i] + "</span>";
+                }
+        } Snippet.innerHTML = codeLines.join("\n");}
+    </script>
+
+    <!-- We check if line contains the characters for a comment in SQK, then we set the style to comment -->
+    <script type="text/javascript">
+        const SQLSnippets = document.querySelectorAll(".sql-code");
+        for (let x = 0; x < SQLSnippets.length; x++){
+            var Snippet = SQLSnippets[x];
+            var codeLines = Snippet.innerHTML.split("\n");
+            for (let i = 0; i < codeLines.length; i++){
+                if(codeLines[i].indexOf("--") !== -1){
+                    codeLines[i] = "<span class='comment'>" + codeLines[i] + "</span>";
+                }
+        } Snippet.innerHTML = codeLines.join("\n");}
+    </script>
+
         <script src="../../darkmode.js"></script>
     </main>
     <div class="contactme"><a href="/contact">Contact me!&nbsp;<i class="fa-solid fa-message"></i></a></div>
@@ -129,6 +322,12 @@
             <div class="icon"><a href="https://www.linkedin.com/in/felixburger"><i class="fa-brands fa-linkedin"></i></a></div></div>
     </footer>
     <script type="text/javascript">
+        function copy_url(){
+            navigator.clipboard.writeText(window.location.href);
+            document.getElementById("copy-url").innerHTML = '<i class="fa-solid fa-clipboard-check"></i>';
+            setTimeout(function () {
+                document.getElementById("copy-url").innerHTML = '<i class="fa-solid fa-clipboard"></i>';
+            }, 2000)}
         document.getElementById("facebook").href = "https://www.facebook.com/sharer/sharer.php?u" + window.location.href;
         document.getElementById("twitter").href = "https://twitter.com/intent/tweet?url=" + window.location.href +"&text=Check%20out%20this%20project%20by%20Felix%20Burger";
         document.getElementById("linkedin").href = "https://www.linkedin.com/shareArticle?mini=true&url=" + window.location.href;

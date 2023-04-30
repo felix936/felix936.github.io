@@ -23,6 +23,7 @@ a.article-link {
     margin-bottom: 2vh;
     overflow-wrap: break-word;
     line-height: normal;
+    overflow: hidden;
 }
 
 .article-header {
@@ -60,22 +61,41 @@ a.article-link {
 }
 
 .article-image-big img{
-    max-width: calc(100% - 2rem);
-    max-height: 50vh;
+    max-width: 100%;
+    max-height: 75vh;
     height: auto;
     width: auto;
     display: block;
     margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 1vh;
+}
+
+.article-image-big-caption {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.article-image img{
+    max-width: 100%;
+    max-height: 50vh;
+    height: auto;
+    width: auto;
+    display: block;
+    margin: auto;
+    border-radius: 1vh;
 }
 
 .article-image-caption {
-    width: calc(100% - 2rem);
+    max-width: 100%;
+    max-height: 50vh;
     text-align: center;
     font-size: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    line-height: 1.5rem;
+    margin: auto;
 }
 
 img.inline-image {
@@ -87,11 +107,8 @@ img.inline-image {
 }
 
 div.inline-image-left, div.inline-image-right {
-    width: calc(100% - 2vw);
-    height: auto;
-    margin: none;
-    margin-right: 2vw;
-    margin-left: 2vw;
+    padding: 0vw 1vw 0 1vw;
+    margin: 0;
 }
 
 div.inline-image-right {
@@ -163,6 +180,7 @@ div.output .input {
     display: inline;
     top: 0;
     left: 0;
+    filter: none;
 }
 
 hr.hrcode {
@@ -250,8 +268,12 @@ span.comment {
 
 @media screen and (min-width:480px){
     .article {width: 90%;}
-    div.inline-image-left {width: 40%;}
-    div.inline-image-right {width: 40%;}
+    div.inline-image-left {max-width: 40%;}
+    div.inline-image-right {max-width: 40%;}
+    div.inline-image-left img {max-height: 70vh; max-width: auto;}
+    div.inline-image-right img {max-height: 70vh; max-width: auto;}
+    .article-image img {max-width: 60%; max-height: 40vh;}
+    .article-image-caption {max-width: 60%; max-height: 40vh;}
 }
 
 @media screen and (min-width:1080px){
@@ -265,15 +287,15 @@ span.comment {
 /* Styles for Share-Function*/
 
 div.main-share{
-width: 3rem;
-max-width: 10vw;
+height: 3rem;
+max-height: 10vh;
 aspect-ratio: 1/1;
 position: fixed;
-top: 90vh;
+top: 92vh;
 left: min(7.5vw, 2.25rem);
 transform: translate(-50%, -50%);
 display: flex;
-font-size: min(1.5rem, 5vw);
+font-size: min(1.5rem, 5vh);
 justify-content: center;
 align-items: center;
 z-index: 1000;
@@ -292,8 +314,8 @@ border-radius: 50%;
 }
 
 span{
-width: 3rem;
-max-width: 10vw;
+height: 3rem;
+max-height: 10vh;
 aspect-ratio: 1/1;
 top: 50%;
 left: 50%;
@@ -308,20 +330,20 @@ cursor: pointer;
 }
 
 .sm_list{
-width: 3rem;
-max-width: 10vw;
+height: 3rem;
+max-height: 10vh;
 aspect-ratio: 1/1;
 }
 
 .sm_list a{
-width: 3rem;
-max-width: 10vw;
+height: 3rem;
+max-height: 10vh;
 aspect-ratio: 1/1;
 border-radius: 50%;
 text-decoration: none;
 color: #fff;
 transition: all .3s;
-font-size: min(1.5rem, 5vw);;
+font-size: min(1.5rem, 5vh);;
 display: flex;
 align-content: center;
 justify-content: center;
@@ -329,72 +351,83 @@ cursor: pointer;
 }
 
 #share_button:checked ~ .sm_list a:nth-child(1){
-background-color: #3B5998;
-transition-delay: 0.2s;
-transform: translateY(-12vh);
+    background-color: darkslategrey;
+    color: rgb(230, 230, 230);
+    transition-delay: 0.4s;
+    transform: translateY(-12vh);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(2){
-background-color: #1DA1F2;
+background-color: #3B5998;
 transition-delay: 0.2s;
 transform: translateY(-24vh);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(3){
-background-color: #0e76a8;
-transition-delay: 0.3s;
+background-color: #1DA1F2;
+transition-delay: 0.2s;
 transform: translateY(-36vh);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(4){
-background-color: 	#FF5700;
+background-color: #0e76a8;
 transition-delay: 0.3s;
 transform: translateY(-48vh);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(5){
-background-color: #25D366;
-transition-delay: 0.4s;
+background-color: 	#FF5700;
+transition-delay: 0.3s;
 transform: translateY(-60vh);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(6){
-background-color: darkslategrey;
-color: rgb(230, 230, 230);
+background-color: #25D366;
 transition-delay: 0.4s;
 transform: translateY(-72vh);
 }
 
-/* Hovering Effects */
-
-#share_button:checked ~ .sm_list a:nth-child(1):hover{
-background-color: #ffffff;
-color: #3B5998;
-transition-delay: 0.2s;
-transform: translateY(-2em);
+#share_button:checked ~ .sm_list a:nth-child(7){
+background-color: darkslategrey;
+color: rgb(230, 230, 230);
+transition-delay: 0.4s;
+transform: translateY(-84vh);
 }
 
+/* Hovering Effects */
+
+
+#share_button:checked ~ .sm_list a:nth-child(1):hover{
+    background-color: rgb(230, 230, 230);
+    color: darkslategrey;
+    }
+
 #share_button:checked ~ .sm_list a:nth-child(2):hover{
+background-color: #ffffff;
+color: #3B5998;
+}
+
+#share_button:checked ~ .sm_list a:nth-child(3):hover{
 color: #1DA1F2;
 background-color: #fff;
 }
 
-#share_button:checked ~ .sm_list a:nth-child(3):hover{
+#share_button:checked ~ .sm_list a:nth-child(4):hover{
 color: #0e76a8;
 background-color: #fff;
 }
 
-#share_button:checked ~ .sm_list a:nth-child(4):hover{
+#share_button:checked ~ .sm_list a:nth-child(5):hover{
 color: 	#FF5700;
 background-color: #fff;
 }
 
-#share_button:checked ~ .sm_list a:nth-child(5):hover{
+#share_button:checked ~ .sm_list a:nth-child(6):hover{
 color: #25D366;
 background-color: #fff;
 }
 
-#share_button:checked ~ .sm_list a:nth-child(6):hover{
+#share_button:checked ~ .sm_list a:nth-child(7):hover{
 background-color: rgb(230, 230, 230);
 color: darkslategrey;
 }

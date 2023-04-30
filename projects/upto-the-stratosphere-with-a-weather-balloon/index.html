@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Felix Burger>">
+    <meta name = "description" content="Projects by Felix Burger">
+    <link rel="icon" href="../../icon-rounded.png" type="image/x-icon">
+    <link rel="stylesheet" href="../article-styles.css" type="text/css">
+    <script src="https://kit.fontawesome.com/2a210ebde2.js" crossorigin="anonymous"></script>
+    <script data-goatcounter="https://felixburger.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+    <title>Projects</title>
+</head>
+<body>
+    <header>
+        <div class="home"><a href="/"><img src="../../icon-rounded.png" alt="Home"></a></div>
+        <div class="title-header"><h1>Felix Burger</h1></div>
+        <button title="Change theme" id="dark-mode-toggle" class="dark-mode-toggle" aria-label="toggle dark mode"><i class="fa-solid fa-circle-half-stroke"></i></button>
+    </header>
+    <nav class="normal">
+        <a href="/about/" class="nav">About</a>
+        <a href="/photo/" class="nav">Photos</a>
+        <a href="/projects/" class="nav">Projects</a>
+    </nav>
+    <nav class="small">
+        <a href="/about/" class="nav"><i class="fa-solid fa-user"></i></a>
+        <a href="/photo/" class="nav"><i class="fa-solid fa-camera"></i></a>
+        <a href="/projects/" class="nav"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+    </nav>
+
+    <main class="article">
+
+
+         <div class="main-share">
+            <input type="checkbox" id="share_button">
+            <label for="share_button">
+                <span class="sharebtn">
+                    <i class="far fa-share-square"></i>
+                </span>
+            </label>
+    
+            <div class="sm_list">
+                <a class="facebook" id="facebook">
+                    <i style="transform: translateX(-10%);" class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a class="twitter" id="twitter">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a  class="linkedin" id="linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a class="reddit" id="reddit">
+                    <i class="fa-brands fa-reddit-alien"></i>
+                </a>
+                <a class="whatsapp" id="whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a class="email" id="email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+
+
+
+
+        <div class="article-header">Up into the stratosphere with a weather balloon</div>
+        <div class="article-description">How we built our own small space probe and sent it up to the edge of space.</div>
+        <div class="article-date">Published: 30.09.2022</div>
+        <div class="article-image-big"><img src="picture-from-stratosphere.png" alt="A picture from the strosphere"></div>
+        <div class="article-image-big-caption">Sending your own probe to space is no easy task, but definitely worth it.</div>
+        <div class="article-text">When I was a little kid, I used to dream about being an astronaut. Unlike many others, however, I never quite let go of that dream. So when our school's 50th anniversary was coming up and we were still looking for great projects.  Some of us students and teachers came up with the idea of sending a weather balloon with a self-made probe attached to it into the stratosphere.  I was immediately hooked on the idea because of my passion for space and engineering.<br> The idea was to attach our probe to a weather balloon that would fly to an altitude of about 40 000 metres before bursting due to the low air pressure. On its flight, we would record various measurement data and film the flight.</div>
+        <div class="article-subheader">Planning out our probe</div>
+        <div class="article-image-big"><img src="technical-drawing.jpeg" alt="Technical Drawing of our probe"></div>
+        <div class="article-image-big-caption">We started by specifying our goals and designing our Probe</div>
+        <div class="article-text">To plan something you first have to set your goals, after some back and forth we agreed to record the following data:<ul style="margin-left: 5vw;">
+            <li>Temperature (inside and outside the probe)</li>
+            <li>Humidity</li>
+            <li>GPS</li>
+            <li>Air pressure</li>
+            <li>different wavelengths</li>
+            <li>Ozone</li>
+            <li>2 cameras</li>
+            <li>...and a tracker to locate the probe, when it has landed</li></ul><br></div>
+        <div class="rectangle"> <!--inline image with text around-->
+            <div class="inline-image-left"><img class= "inline-image" src="soldering-our-parts.jpeg" alt="Soldering our Parts together"></div>
+            <p class="inline-text">After we got all the sensors and connected them to the Arduino, we wrote a script that records the different measuring points and saves them on an SD card. Then we started building the probe. The probe consists of a thick Styrofoam cardboard to keep the electronics warm inside. We also mounted two "wings" on the sides, with the goal of stabilising the flight behaviour of the probe, and attached a bracket to the front of the probe for some experiments. These include various alkanes, chlorophyll, an analogue thermometer and a chocolate marshmallow that will burst at low air pressure. Of course, the "Wentztronaut" was also there, our mascot, a Lego astronaut with our logo. After testing everything again, we started to attach a parachute to our probe so that the probe could land softly after the balloon would burst. Now there was only one step remaining: <br> Filling our balloon with helium! In order not to damage the balloon, we were only allowed to touch the balloon with gloves during the filling process.</p>
+        </div>
+        <div class="article-subheader">Releasing the balloon</div>
+        <div class="article-image-big"><img src="weather-balloon-and-probe-released.jpeg" alt="Our weather balloon and probe released"></div>
+        <div class="article-image-big-caption">Our weather balloon filled with helium</div><br>
+        <div class="rectangle"> <!--inline image with text around-->
+            <div class="inline-image-right"><img class= "inline-image" src="weather-balloon-and-probe-released.jpeg" alt="The weather balloon and probe flying away"></div>
+            <p class="inline-text">When the balloon was filled with helium, we brought in some spectators and after a countdown we released the balloon and it flew away majestically together with the probe. After we could no longer see the balloon, we had to wait a few hours. We were totally relieved when we finally got news from our tracker. The balloon had landed somewhere in the Black Forest, so we drove there and after a short hike we were at the spot where the balloon had landed. However, this place was not a meadow as we had hoped, but a forest. After some searching, we found our balloon and the probe in a treetop about 25 metres above the ground. We tried to shake the tree, but nothing happened. So we had to go back without the probe and think of a plan.</p>
+        </div>
+    </main>
+    <div class="contactme"><a href="/contact">Contact me!&nbsp;<i class="fa-solid fa-message"></i></a></div>
+    <footer>
+        <div class="parent" style="width: 100%;">
+            <div class="icon"><a href="https://github.com/felix936"><i class="fa-brands fa-github"></i></a></div>
+            <div class="icon"><a href="mailto:felix.b.burger@gmx.de"><i class="fa-solid fa-envelope"></i></a></div>
+            <div class="icon"><a href="tel:+4917642622072"><i class="fa-solid fa-phone"></i></a></div>
+            <div class="icon"><a href="https://www.youtube.com/@felixburger"><i class="fa-brands fa-youtube"></i></a></div>
+            <div class="icon"><a href="https://www.linkedin.com/in/felixburger"><i class="fa-brands fa-linkedin"></i></a></div></div>
+    </footer>
+    <script type="text/javascript">
+        function copy_url(){
+            navigator.clipboard.writeText(window.location.href);
+            document.getElementById("copy-url").innerHTML = '<i class="fa-solid fa-clipboard-check"></i>';
+            setTimeout(function () {
+                document.getElementById("copy-url").innerHTML = '<i class="fa-solid fa-clipboard"></i>';
+            }, 2000)}
+        document.getElementById("facebook").href = "https://www.facebook.com/sharer/sharer.php?u" + window.location.href;
+        document.getElementById("twitter").href = "https://twitter.com/intent/tweet?url=" + window.location.href +"&text=Check%20out%20this%20project%20by%20Felix%20Burger";
+        document.getElementById("linkedin").href = "https://www.linkedin.com/shareArticle?mini=true&url=" + window.location.href;
+        document.getElementById("reddit").href = "https://reddit.com/submit?url=" + window.location.href + "&title=Check%20out%20this%20project%20by%20Felix%20Burger";
+        document.getElementById("whatsapp").href = " https://wa.me/?text=Check%20out%20this%20project%20by%20Felix%20Burger%3A%20" + window.location.href;
+        document.getElementById("email").href = "mailto:?subject=Check%20out%20this%20Project%20by%20Felix%20Burger&body=Here%20is%20the%20link%20to%20his%20project%3A%20" + window.location.href + ".";
+    </script>
+    <script src="../../darkmode.js"></script>
+</body>
+</html>

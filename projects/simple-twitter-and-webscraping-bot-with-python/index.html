@@ -41,6 +41,9 @@
             </label>
     
             <div class="sm_list">
+                <a class="copy-url" id="copy-url" onClick="copy_url()">
+                    <i class="fa-solid fa-clipboard"></i>
+                </a>
                 <a class="facebook" id="facebook">
                     <i style="transform: translateX(-10%);" class="fa-brands fa-facebook-f"></i>
                 </a>
@@ -59,6 +62,7 @@
                 <a class="email" id="email">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
+                </a>
             </div>
         </div>
 
@@ -66,7 +70,7 @@
 
 
     <div class="article-header">Simple Twitter and Webscraping Bot</div>
-    <div class="article-description">How to program a Bot that is able to fetch Website-Data and post it on Twitter <br><br>Note: The code on this article doesn't work anymore, because Twitter deprecated API V1 and now switched to V2</div>
+    <div class="article-description">How to program a Bot that is able to fetch Website-Data and post it on Twitter <br><br>Note: Some of the code on this site may not longer work, because Twitter deprecated API V1 and now switched to V2</div>
     <div class="article-date">Published: 14.10.2022</div>
     <div class="article-image-big"><img src="Twitterbot.png" alt="Twitter-Bot Symbol"></div>
     <div class="article-text">I always wanted to build my own Twitter-Bot. A while ago I found the Website <a class="article-link" href="https://energy-charts.info">"energy-charts.info"</a>, a website, which publishes live energy data. It was really interesting, so I thought to myself, why not make a Twitter-Bot, so more people are able to inform themselves, about how much renewable energy is produced in their country.</div>
@@ -77,7 +81,7 @@
         <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
         <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
         <hr class="hrcode">
-        <div><pre><code>
+        <div><pre><code class="python-code">
 import tweepy, twitter_keys
 
 consumer_key = twitter_keys.consumer_key
@@ -87,18 +91,13 @@ access_token_secret = twitter_keys.access_token_secret
 
 
 def api():
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
-
-return tweepy.API(auth)
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+    return tweepy.API(auth)
 
 def tweet(api: tweepy.API, message: str, image_path = None):
-if image_path:
     api.update_status_with_media(message, image_path)
-else:
-    api.update_status(message)
-    
-print('Tweeted succesfully')
+    print('Tweeted succesfully')
 
 if __name__ == '__main__':
     api = api()
@@ -110,7 +109,7 @@ if __name__ == '__main__':
         <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
         <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
         <hr class="hrcode">
-        <div><pre id="code-test"><code>
+        <div><pre id="code-test"><code class="python-code">
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -156,7 +155,7 @@ Output:<br>Welcome to the Energy-Charts
         <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
         <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
         <hr class="hrcode">
-        <div><pre><code>
+        <div><pre><code class="python-code">
 import tweepy, twitter_keys, time, os, glob
 import pandas as pd
 #initalize webdriver
@@ -175,7 +174,7 @@ driver_path = '/usr/bin/chromedriver'
         <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
         <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
         <hr class="hrcode">
-        <div><pre><code>
+        <div><pre><code class="python-code">
 def initalize():
     #initalize Twitter
     consumer_key = twitter_keys.consumer_key
@@ -194,7 +193,7 @@ def initalize():
     <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
     <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
     <hr class="hrcode">
-    <div><pre><code>
+    <div><pre><code class="python-code">
 def data_scraper():
     #You can first choose the interval and timespan
     interval = ["day", "month", "quarter", "halfyear", "year"]
@@ -367,7 +366,7 @@ def data_scraper():
         <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
         <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
         <hr class="hrcode">
-        <div><pre><code>
+        <div><pre><code class="python-code">
     #we open the table with pandas
     df = pd.read_csv(r'/home/felix_xrdp/python/API/energy-charts/electricity-generation.csv')
     renewable = fossil = atom = 0
@@ -389,7 +388,7 @@ def data_scraper():
     <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
     <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
     <hr class="hrcode">
-    <div><pre><code>
+    <div><pre><code class="python-code">
 def tweet(api, text, image):
     api.update_status_with_media(text, image)
     print("tweet successfully sent!")
@@ -400,7 +399,7 @@ def tweet(api, text, image):
         <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
         <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
         <hr class="hrcode">
-        <div><pre><code>
+        <div><pre><code class="python-code">
 def execution():
     #it calls the initalize function
     api = initalize()
@@ -443,7 +442,7 @@ def execution():
         <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
         <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
         <hr class="hrcode">
-        <div><pre><code>
+        <div><pre><code class="python-code">
 if __name__ == '__main__':
     execution()
 
@@ -502,12 +501,12 @@ tweet successfully sent!
         const Snippets = document.querySelectorAll('pre');
         for (let x = 0; x < Snippets.length; x++){
             var Snippet = Snippets[x];
-            var codeLines = Snippets[x].getElementsByTagName("code")[0].innerHTML.split("\n");
+            var codeLines = Snippets[x].getElementsByClassName("python-code")[0].innerHTML.split("\n");
             for (let i = 0; i < codeLines.length; i++){
                 if(codeLines[i].indexOf("#") !== -1){
                     codeLines[i] = "<span class='comment'>" + codeLines[i] + "</span>";
                 }
-        } Snippet.getElementsByTagName("code")[0].innerHTML = codeLines.join("\n");}
+        } Snippet.getElementsByClassName("python-code")[0].innerHTML = codeLines.join("\n");}
     </script>
 
     <!-- Copy a Code-Snippet -->
@@ -534,6 +533,12 @@ tweet successfully sent!
             <div class="icon"><a href="https://www.linkedin.com/in/felixburger"><i class="fa-brands fa-linkedin"></i></a></div></div>
     </footer>
     <script type="text/javascript">
+        function copy_url(){
+            navigator.clipboard.writeText(window.location.href);
+            document.getElementById("copy-url").innerHTML = '<i class="fa-solid fa-clipboard-check"></i>';
+            setTimeout(function () {
+                document.getElementById("copy-url").innerHTML = '<i class="fa-solid fa-clipboard"></i>';
+            }, 2000)}
         document.getElementById("facebook").href = "https://www.facebook.com/sharer/sharer.php?u" + window.location.href;
         document.getElementById("twitter").href = "https://twitter.com/intent/tweet?url=" + window.location.href +"&text=Check%20out%20this%20project%20by%20Felix%20Burger";
         document.getElementById("linkedin").href = "https://www.linkedin.com/shareArticle?mini=true&url=" + window.location.href;

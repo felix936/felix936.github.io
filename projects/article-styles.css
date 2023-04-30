@@ -11,7 +11,7 @@ a.article-link {
 }
 
 .article {
-    width: 80%;
+    width: 95%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -86,9 +86,8 @@ img.inline-image {
     margin-right: 0;
 }
 
-div.inline-image-left {
-    float: left;
-    width: 40%;
+div.inline-image-left, div.inline-image-right {
+    width: calc(100% - 2vw);
     height: auto;
     margin: none;
     margin-right: 2vw;
@@ -97,11 +96,10 @@ div.inline-image-left {
 
 div.inline-image-right {
     float: right;
-    width: 40%;
-    height: auto;
-    margin: none;
-    margin-right: 2vw;
-    margin-left: 2vw;
+}
+
+div.inline-image-left{
+    float: left;
 }
 
 .inline-text {
@@ -241,30 +239,41 @@ span.comment {
     left: 0;
     transform: none;
     background-color: var(--background);
-    color: var(--foreground);
     font-size: 1em;
     z-index: 0;
     cursor: default;
     position: relative;
     color: rgb(125,125,125);
+    filter: none;
     display: inline;
 }
 
-@media screen and (max-width:350px){
-    .article {width: 95%;}
+@media screen and (min-width:480px){
+    .article {width: 90%;}
+    div.inline-image-left {width: 40%;}
+    div.inline-image-right {width: 40%;}
 }
+
+@media screen and (min-width:1080px){
+    .article {width: 80%;}
+}
+
+
+
+
 
 /* Styles for Share-Function*/
 
 div.main-share{
-width: calc((6vh + 6vw) / 2);
-height: calc((6vh + 6vw) / 2);
+width: 3rem;
+max-width: 10vw;
+aspect-ratio: 1/1;
 position: fixed;
 top: 90vh;
-left: 5%;
+left: min(7.5vw, 2.25rem);
 transform: translate(-50%, -50%);
 display: flex;
-font-size: calc((3vh + 3vw) / 2);
+font-size: min(1.5rem, 5vw);
 justify-content: center;
 align-items: center;
 z-index: 1000;
@@ -283,31 +292,36 @@ border-radius: 50%;
 }
 
 span{
-width: calc((6vh + 6vw) / 2);
-height: calc((6vh + 6vw) / 2);
+width: 3rem;
+max-width: 10vw;
+aspect-ratio: 1/1;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
-background-color: rgb(230, 230, 230);
-color: #333;
+background-color: var(--articlebackground);
+-webkit-filter: invert(100%);
+filter: invert(100%);
+color: var(--foreground);
 font-size: 1em;
 z-index: 11;
 cursor: pointer;
 }
 
 .sm_list{
-width: calc((6vh + 6vw) / 2);
-height: calc((6vh + 6vw) / 2);
+width: 3rem;
+max-width: 10vw;
+aspect-ratio: 1/1;
 }
 
 .sm_list a{
-width: calc((6vh + 6vw) / 2);
-height: calc((6vh + 6vw) / 2);
+width: 3rem;
+max-width: 10vw;
+aspect-ratio: 1/1;
 border-radius: 50%;
 text-decoration: none;
 color: #fff;
 transition: all .3s;
-font-size:calc((4vh + 4vw) / 2);
+font-size: min(1.5rem, 5vw);;
 display: flex;
 align-content: center;
 justify-content: center;
@@ -317,38 +331,38 @@ cursor: pointer;
 #share_button:checked ~ .sm_list a:nth-child(1){
 background-color: #3B5998;
 transition-delay: 0.2s;
-transform: translateY(-2em);
+transform: translateY(-12vh);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(2){
 background-color: #1DA1F2;
 transition-delay: 0.2s;
-transform: translateY(-4em);
+transform: translateY(-24vh);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(3){
 background-color: #0e76a8;
 transition-delay: 0.3s;
-transform: translateY(-6em);
+transform: translateY(-36vh);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(4){
 background-color: 	#FF5700;
 transition-delay: 0.3s;
-transform: translateY(-8em);
+transform: translateY(-48vh);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(5){
 background-color: #25D366;
 transition-delay: 0.4s;
-transform: translateY(-10em);
+transform: translateY(-60vh);
 }
 
 #share_button:checked ~ .sm_list a:nth-child(6){
 background-color: darkslategrey;
 color: rgb(230, 230, 230);
 transition-delay: 0.4s;
-transform: translateY(-12em);
+transform: translateY(-72vh);
 }
 
 /* Hovering Effects */

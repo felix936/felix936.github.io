@@ -141,13 +141,6 @@ div.code {
 .code code {
     color: var(--foreground);
 }
-.code::-webkit-scrollbar {
-    display: none;
-}
-.code {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
 
 div.codeheader {
     display: flex;
@@ -281,7 +274,14 @@ span.comment {
 }
 
 
+.code::-webkit-scrollbar,  .codeheader::-webkit-scrollbar{
+    display: none;
+}
 
+.code, .codeheader {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 
 
 /* Styles for Share-Function*/

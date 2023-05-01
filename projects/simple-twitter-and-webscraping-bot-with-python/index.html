@@ -71,13 +71,13 @@
     <div class="article-header">Simple Twitter and Webscraping Bot</div>
     <div class="article-description">How to program a Bot that is able to fetch Website-Data and post it on Twitter <br><br>Note: Some of the code on this site may not longer work, because Twitter deprecated API V1 and now switched to V2</div>
     <div class="article-date">Published: 14.10.2022</div>
-    <div class="article-image-big"><img src="Twitterbot.png" alt="Twitter-Bot Symbol"></div>
+    <div class="article-image-big"><img src="Twitterbot.png" alt="Twitter-Bot Symbol" onclick="enlargeImage(this)"></div>
     <div class="article-text">I always wanted to build my own Twitter-Bot. A while ago I found the Website <a class="article-link" href="https://energy-charts.info">"energy-charts.info"</a>, a website, which publishes live energy data. It was really interesting, so I thought to myself, why not make a Twitter-Bot, so more people are able to inform themselves, about how much renewable energy is produced in their country.</div>
     <div class="article-subheader">Getting started</div>
     <div class="article-text">Before I could start programming, I first had to register on the Twitter Developer Portal to get access to the API, because i wanted to upload pictures of the data i applied for "Elevated Access". After some trying I send my first tweet via the API: <br><br>"This is my first tweet!", with a picture of a cat. <br>This is the code i used:<br></div>
     <div class="code">
         <div class="codeheader">
-        <div class="programming-language"><i class="fa-brands fa-python"> </i>&nbsp;Python</div>
+        <div class="programming-language"><i class="fa-brands fa-python"></i>&nbsp;Python</div>
         <div class="copy-code"><button class="copy-code" onClick="copy_code(this.id)"><i class="fa-solid fa-clipboard"></i>&nbsp;Copy</button></div></div>
         <hr class="hrcode">
         <div><pre><code class="python-code">
@@ -144,7 +144,7 @@ Output:<br>Welcome to the Energy-Charts
     </code></pre></div></div>
     <br>
     <div class="rectangle"> <!--inline image with text around-->
-        <div class="inline-image-left"><img class= "inline-image" src="energy-charts-home.png" alt="energy-charts homepage" loading="lazy"></div>
+        <div class="inline-image-left"><img class= "inline-image" src="energy-charts-home.png" alt="energy-charts homepage" loading="lazy" onclick="enlargeImage(this)"></div>
         <p class="inline-text">It works! The h1-Heading of the page is "Welcome to the Energy-Charts" and it took the screenshot you can see on the left. Now that we have the basics down, we can start coding the actual Bot.</p>
     </div>
     <div class="article-subheader">Programming our finished Bot</div>
@@ -487,40 +487,11 @@ tweet successfully sent!
     </div>
 
 
-    <!-- To later copy the text we need to give all the snippets an id -->
-    <script type="text/javascript">
-        var codeSnippets = document.querySelectorAll('button.copy-code');
-        for (var i = 0; i < codeSnippets.length; i++){
-            codeSnippets[i].id = 'copy-code' + i;
-        }
-        </script>
-
-    <!-- We check if line contains an '#', the character for a comment in python, then we set the style to comment -->
-    <script type="text/javascript">
-        const Snippets = document.querySelectorAll('pre');
-        for (let x = 0; x < Snippets.length; x++){
-            var Snippet = Snippets[x];
-            var codeLines = Snippets[x].getElementsByClassName("python-code")[0].innerHTML.split("\n");
-            for (let i = 0; i < codeLines.length; i++){
-                if(codeLines[i].indexOf("#") !== -1){
-                    codeLines[i] = "<span class='comment'>" + codeLines[i] + "</span>";
-                }
-        } Snippet.getElementsByClassName("python-code")[0].innerHTML = codeLines.join("\n");}
-    </script>
-
-    <!-- Copy a Code-Snippet -->
-    <script type="text/javascript">
-        function copy_code(clicked_id){
-            var copyText = document.getElementById(clicked_id).parentElement.parentElement.parentElement.getElementsByTagName('code')[0];
-            var copyText = copyText.textContent;
-            navigator.clipboard.writeText(copyText);
-            document.getElementById(clicked_id).innerHTML = '<i class="fa-solid fa-clipboard-check"></i>&nbsp;Copied';
-            setTimeout(function () {
-                document.getElementById(clicked_id).innerHTML = '<i class="fa-solid fa-clipboard"></i>&nbspCopy';
-            }, 1000)
-        }
-        </script>
+        <script src="../../copy-code.js"></script>
+        <script src="../../commentcheck.js"></script>
         <script src="../../darkmode.js"></script>
+        <script src="../../addLink.js"></script>
+        <script src="../../enlargeImage.js"></script>
     </main>
     <div class="contactme"><a href="/contact">Contact me!&nbsp;<i class="fa-solid fa-message"></i></a></div>
     <footer>
@@ -531,19 +502,5 @@ tweet successfully sent!
             <div class="icon"><a href="https://www.youtube.com/@felixburger"><i class="fa-brands fa-youtube"></i></a></div>
             <div class="icon"><a href="https://www.linkedin.com/in/felixburger"><i class="fa-brands fa-linkedin"></i></a></div></div>
     </footer>
-    <script type="text/javascript">
-        function copy_url(){
-            navigator.clipboard.writeText(window.location.href);
-            document.getElementById("copy-url").innerHTML = '<i class="fa-solid fa-clipboard-check"></i>';
-            setTimeout(function () {
-                document.getElementById("copy-url").innerHTML = '<i class="fa-solid fa-clipboard"></i>';
-            }, 2000)}
-        document.getElementById("facebook").href = "https://www.facebook.com/sharer/sharer.php?u" + window.location.href;
-        document.getElementById("twitter").href = "https://twitter.com/intent/tweet?url=" + window.location.href +"&text=Check%20out%20this%20project%20by%20Felix%20Burger";
-        document.getElementById("linkedin").href = "https://www.linkedin.com/shareArticle?mini=true&url=" + window.location.href;
-        document.getElementById("reddit").href = "https://reddit.com/submit?url=" + window.location.href + "&title=Check%20out%20this%20project%20by%20Felix%20Burger";
-        document.getElementById("whatsapp").href = " https://wa.me/?text=Check%20out%20this%20project%20by%20Felix%20Burger%3A%20" + window.location.href;
-        document.getElementById("email").href = "mailto:?subject=Check%20out%20this%20Project%20by%20Felix%20Burger&body=Here%20is%20the%20link%20to%20his%20project%3A%20" + window.location.href + ".";
-    </script>
 </body>
 </html>

@@ -8,6 +8,9 @@ a.article-link {
     display: inline;
     border: none;
     text-decoration: underline;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    border-radius: 0;
 }
 
 .article {
@@ -274,11 +277,11 @@ span.comment {
 }
 
 
-.code::-webkit-scrollbar,  .codeheader::-webkit-scrollbar{
+.code::-webkit-scrollbar,  .codeheader::-webkit-scrollbar, .output::-webkit-scrollbar{
     display: none;
 }
 
-.code, .codeheader {
+.code, .codeheader, .output {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }

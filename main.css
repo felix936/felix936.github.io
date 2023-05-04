@@ -103,7 +103,7 @@ nav {
     top: 0px;
     z-index: 100;
     background-image: var(--lineargradient);
-    padding-bottom: 5vh;
+    margin-bottom: 20px;
     font-size: min(calc((5vw + 5vh) / 2), 1.5rem);
     width: 100%;
     display: flex;
@@ -126,6 +126,13 @@ nav a{
 
 nav a:hover {
     width: 32%;
+    transition-property: all;
+    transition-duration: 1s;
+}
+nav a:not(hover) {
+    width: 28%;
+    transition-property: all;
+    transition-duration: 0.5s;
 }
 
 nav.small{
@@ -188,7 +195,7 @@ div.icon {
 }
 
 div.contactme {
-    margin: 5vh;
+    margin: 20px;
     padding: 0;
     display: flex;
     height: calc(4vh + min(calc((10vw + 10vh) / 2), 2rem));
@@ -205,4 +212,102 @@ div.contactme {
     line-height: normal;
     color: white;
     border-radius: 1vh;
+}
+
+@-webkit-keyframes contactme-hover {
+    2% {
+      -webkit-transform: translateX(3px) rotate(2deg);
+      transform: translateX(3px) rotate(2deg);
+    }
+    4% {
+      -webkit-transform: translateX(-3px) rotate(-2deg);
+      transform: translateX(-3px) rotate(-2deg);
+    }
+    6% {
+      -webkit-transform: translateX(3px) rotate(2deg);
+      transform: translateX(3px) rotate(2deg);
+    }
+    8% {
+      -webkit-transform: translateX(-3px) rotate(-2deg);
+      transform: translateX(-3px) rotate(-2deg);
+    }
+    10% {
+      -webkit-transform: translateX(2px) rotate(1deg);
+      transform: translateX(2px) rotate(1deg);
+    }
+    12% {
+      -webkit-transform: translateX(-2px) rotate(-1deg);
+      transform: translateX(-2px) rotate(-1deg);
+    }
+    14% {
+      -webkit-transform: translateX(2px) rotate(1deg);
+      transform: translateX(2px) rotate(1deg);
+    }
+    16% {
+      -webkit-transform: translateX(-2px) rotate(-1deg);
+      transform: translateX(-2px) rotate(-1deg);
+    }
+    18% {
+      -webkit-transform: translateX(1px) rotate(0);
+      transform: translateX(1px) rotate(0);
+    }
+    20% {
+      -webkit-transform: translateX(-1px) rotate(0);
+      transform: translateX(-1px) rotate(0);
+    }
+    100% {}
+  }
+  @keyframes contactme-hover {
+    2% {
+      -webkit-transform: translateX(3px) rotate(2deg);
+      transform: translateX(3px) rotate(2deg);
+    }
+    4% {
+      -webkit-transform: translateX(-3px) rotate(-2deg);
+      transform: translateX(-3px) rotate(-2deg);
+    }
+    6% {
+      -webkit-transform: translateX(3px) rotate(2deg);
+      transform: translateX(3px) rotate(2deg);
+    }
+    8% {
+      -webkit-transform: translateX(-3px) rotate(-2deg);
+      transform: translateX(-3px) rotate(-2deg);
+    }
+    10% {
+      -webkit-transform: translateX(2px) rotate(1deg);
+      transform: translateX(2px) rotate(1deg);
+    }
+    12% {
+      -webkit-transform: translateX(-2px) rotate(-1deg);
+      transform: translateX(-2px) rotate(-1deg);
+    }
+    14% {
+      -webkit-transform: translateX(2px) rotate(1deg);
+      transform: translateX(2px) rotate(1deg);
+    }
+    16% {
+      -webkit-transform: translateX(-2px) rotate(-1deg);
+      transform: translateX(-2px) rotate(-1deg);
+    }
+    18% {
+      -webkit-transform: translateX(1px) rotate(0);
+      transform: translateX(1px) rotate(0);
+    }
+    20% {
+      -webkit-transform: translateX(-1px) rotate(0);
+      transform: translateX(-1px) rotate(0);
+    }
+    100% {}
+  }
+  
+.contactme:hover, .contactme:focus, .contactme:active {
+-webkit-animation-name: contactme-hover;
+animation-name: contactme-hover;
+-webkit-animation-duration: 4s;
+animation-duration: 4s;
+-webkit-animation-timing-function: linear;
+animation-timing-function: linear;
+-webkit-animation-iteration-count: infinite;
+animation-iteration-count: infinite;
 }

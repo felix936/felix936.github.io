@@ -15,7 +15,7 @@ hr {
     color: #92D050;
     background-color: #92D050;
     width: 80%;
-    height: 1.5vh;
+    height: 10px;
     margin: 3.5vh;
     margin-left: auto;
     margin-right: auto;
@@ -23,7 +23,6 @@ hr {
 
 .picture-header {
     text-align: center;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    font-size: 5vw;
+    margin: 20px 0;
+    font-size: 3rem;
 }

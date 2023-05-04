@@ -11,7 +11,7 @@
 .indexsection {
     display: flex;
     align-items: center;
-    margin-top: 5vh;
+    margin-top: 20px;
     border-radius: 2vh;
     height: fit-content;
     padding: 2vw;
@@ -34,8 +34,8 @@ div.indexsectiontext{
 }
 
 .indexsection h2{
-    font-size: min(calc((8vw + 8vh) / 2), 2rem);
-    line-height: min(calc((10vw + 10vh) / 2), 3rem);
+    font-size: min(calc((10vw + 10vh) / 2), 2.25rem);
+    line-height: min(calc((12vw + 12vh) / 2), 3.25rem);
     overflow-wrap: break-word;
 }
 
@@ -51,6 +51,7 @@ img.indeximg {
     margin: 0;
     border-radius: 0;
 }
+
 
 div.indexicon i{
     padding: 0;

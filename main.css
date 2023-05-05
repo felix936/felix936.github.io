@@ -44,7 +44,7 @@ div {
 header {
     width: 100%;
     text-align: center;
-    align-content: center;
+    align-items: center;
     z-index: 1;
     margin: 2vh 0 2vh 0;
     display: flex;
@@ -68,32 +68,16 @@ div.home, .home a{
     align-self: center;
     justify-self: center;
     width: min(12vw, 120px);
-    height: auto;
+    height: min-content;
     z-index: 1;
     margin-left: 2vw;
+    position: relative;
 }
 
 .home img{
     width: 100%;
     height: auto;
 }
-
-
-button.dark-mode-toggle{
-    display: flex;
-    align-items: center;
-    font-size: min(3.5vw, 35px);
-    margin-right: 2vw;
-    z-index: 1;
-    border: none;
-    color: var(--foreground);
-    background: var(--background);
-}
-
-button.dark-mode-toggle:hover{
-    cursor: pointer;
-}
-
 
 
 /*Navigation-Menu*/
@@ -313,3 +297,82 @@ animation-timing-function: linear;
 -webkit-animation-iteration-count: infinite;
 animation-iteration-count: infinite;
 }
+
+
+:root{
+	--darkmode-toggle-size: 2;
+}
+
+div.darkmode-toggle {
+	margin-right: 4vw;
+}
+
+label.darkmode-toggle {
+	width: calc(10vw * var(--darkmode-toggle-size));
+	height: calc(4vw * var(--darkmode-toggle-size));
+	position: relative;
+	display: flex;
+	background: rgb(230,230,230);
+	border-radius: calc(4vw * var(--darkmode-toggle-size));
+	cursor: pointer;
+	transition: 0.3s;
+	align-content: center;
+	justify-content: space-between;
+}
+label.darkmode-toggle:after {
+	content: "";
+	width: calc(3.6vw * var(--darkmode-toggle-size));
+	height: calc(3.6vw * var(--darkmode-toggle-size));
+	position: absolute;
+	top: calc(0.2vw * var(--darkmode-toggle-size));
+	left: calc(0.2vw * var(--darkmode-toggle-size));
+	background: white;
+	border-radius: calc(3.6vw * var(--darkmode-toggle-size));
+	transition: 0.3s;
+}
+input.darkmode-toggle {
+	width: 0;
+	height: 0;
+	margin: 0;
+	display: none;
+}
+input.darkmode-toggle:checked + label {
+	background: rgb(50, 50, 50);
+}
+input.darkmode-toggle:checked + label:after {
+	left: calc(9.8vw * var(--darkmode-toggle-size));
+	transform: translateX(-100%);
+	background: #3a3a3a;
+}
+label.darkmode-toggle:active:after{
+	width: calc(5.2vw * var(--darkmode-toggle-size));
+}
+input.darkmode-toggle:checked + label + .background {
+	background:black;
+}
+label.darkmode-toggle div.sun, label div.moon {
+	width: calc(2.6vw * var(--darkmode-toggle-size));
+	z-index: 100;
+	font-size: calc(2.6vw * var(--darkmode-toggle-size));
+	height: calc(2.6vw * var(--darkmode-toggle-size));
+	color:#7e7e7e;
+	transition: 0.3s;
+	margin: calc(0.5vw * var(--darkmode-toggle-size));
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	transform: translate(0, 5%);
+}
+
+@media screen and (min-width:360px){
+	:root{
+		--darkmode-toggle-size: 1.6;}
+}	
+@media screen and (min-width:480px){
+	:root{
+		--darkmode-toggle-size: 1.3;}
+}	
+@media screen and (min-width: 720px){
+	:root{
+		--darkmode-toggle-size: 1;}
+}	

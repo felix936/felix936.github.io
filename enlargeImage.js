@@ -21,6 +21,8 @@ function enlargeImage(img) {
     enlargedImg.style.left = '0';
     enlargedImg.style.right = '0';
     enlargedImg.style.bottom = '0';
+    enlargedImg.style.transform = 'none';
+    enlargedImg.style.cursor = 'default';
   
     // Add the image element to the overlay
     overlay.appendChild(enlargedImg);

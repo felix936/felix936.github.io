@@ -1,28 +1,50 @@
 @import url("../main.css");
 
 img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+img:hover {
+    cursor: pointer;
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+div.gallery-pic {
+    display: flex;
     width: 80%;
     height: auto;
-    border-radius: 1.3rem;
-    margin-left: 10%;
-    margin-right: 10%;
+    overflow: hidden;
+    border-radius: 1vw;
+    margin: 1vw 0;
 }
 
-/* Horizontal rule */
-hr {
-    border-width: 0;
-    border-radius: 0.75vh;
-    color: #92D050;
-    background-color: #92D050;
-    width: 80%;
-    height: 10px;
-    margin: 15px;
-    margin-left: auto;
-    margin-right: auto;
+img.gallery-pic {
+    height: auto;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
 }
 
-.picture-header {
-    text-align: center;
-    margin: 20px 0;
-    font-size: 3rem;
+section.gallery {
+    width: 90%;
+    border-radius: 2vw;
+    margin: 0 auto;
+    background-color: var(--articlebackground);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1vw 2vw;
+}
+
+@media screen and (min-width:480px){
+    div.gallery-pic {width: calc(50% - 1vw);}
+}
+@media screen and (min-width:720px){
+    div.gallery-pic {width: calc(33% - 1vw);}
+}
+@media screen and (min-width:1080px){
+    div.gallery-pic {width: calc(25% - 1vw);}
 }

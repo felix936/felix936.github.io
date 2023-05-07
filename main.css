@@ -110,7 +110,6 @@ nav a{
 
 nav a:hover {
     width: 32%;
-    padding: 1% 0;
     transition-property: all;
     transition-duration: 1s;
 }

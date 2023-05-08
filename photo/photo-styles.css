@@ -7,14 +7,14 @@ img {
 	transition: .3s ease-in-out;
 }
 img:hover {
-    cursor: pointer;
+    cursor: zoom-in;
 	-webkit-transform: scale(1.1);
 	transform: scale(1.1);
 }
 
 div.gallery-pic {
     display: flex;
-    width: 80%;
+    width: 100%;
     height: auto;
     overflow: hidden;
     border-radius: 1vw;

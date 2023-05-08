@@ -70,7 +70,7 @@ img {
 	transition: .3s ease-in-out;
 }
 img:hover {
-    cursor: pointer;
+    cursor: zoom-in;
 	-webkit-transform: scale(1.1);
 	transform: scale(1.1);
 }
@@ -80,17 +80,21 @@ div.article-image-big, div.inline-image-left, div.inline-image-right {
     border-radius: 1vh;
 }
 
-.article-image-big img{
-    max-width: 100%;
-    max-height: 75vh;
-    height: auto;
-    width: auto;
-    display: block;
+div.article-image-big{
+    width: fit-content;
+    height: fit-content;
     margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
     border-radius: 1vh;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+.article-image-big img{
+    max-width: 100%;
+    max-height: 75vh;
+    width: auto;
+    height: auto;
 }
 
 .article-image-big-caption {
@@ -100,14 +104,23 @@ div.article-image-big, div.inline-image-left, div.inline-image-right {
     line-height: 1.5rem;
 }
 
-.article-image img{
-    max-width: 100%;
-    max-height: 50vh;
-    height: auto;
-    width: auto;
-    display: block;
-    margin: auto;
+div.article-image {
+    width: fit-content;
+    height: fit-content;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 1vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.article-image img {
+    max-width: 100%;
+    max-height: 75vh;
+    width: auto;
+    height: auto;
 }
 
 .article-image-caption {
@@ -120,7 +133,9 @@ div.article-image-big, div.inline-image-left, div.inline-image-right {
 }
 
 img.inline-image {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
     height: auto;
     border-radius: 1vh;
     margin-left: 0;
@@ -128,8 +143,10 @@ img.inline-image {
 }
 
 div.inline-image-left, div.inline-image-right {
-    padding: 0vw 1vw 0 1vw;
-    margin: 0;
+    margin: 0vw 1vw 0 1vw;
+    height: fit-content;
+    width: fit-content;
+    line-height: 0;
 }
 
 div.inline-image-right {
@@ -282,12 +299,10 @@ span.comment {
 
 @media screen and (min-width:480px){
     .article {width: 90%;}
-    div.inline-image-left {max-width: 40%;}
-    div.inline-image-right {max-width: 40%;}
-    div.inline-image-left img {max-height: 70vh; max-width: auto;}
-    div.inline-image-right img {max-height: 70vh; max-width: auto;}
-    .article-image img {max-width: 60%; max-height: 40vh;}
-    .article-image-caption {max-width: 60%; max-height: 40vh;}
+    div.inline-image-left {max-width: 40%; max-height: 70vh;}
+    div.inline-image-right {max-width: 40%;max-height: 70vh;}
+    div.article-image {margin: 0 20%;}
+    .article-image-caption {margin: 0 20%;}
 }
 
 @media screen and (min-width:1080px){

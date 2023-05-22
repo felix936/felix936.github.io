@@ -45,7 +45,7 @@ header {
     text-align: center;
     align-items: center;
     z-index: 1;
-    margin: 2vh 0 2vh 0;
+    margin: 2vw 0 2vw 0;
     display: flex;
     justify-content: space-between;
     overflow: hidden;
@@ -92,7 +92,7 @@ nav {
     z-index: 100;
     background-image: var(--lineargradient);
     margin-bottom: 20px;
-    font-size: min(calc((5vw + 5vh) / 2), 1.5rem);
+    font-size: min(5vw, 1.5rem);
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -107,7 +107,7 @@ nav a{
     align-items: center;
     justify-content: center;
     border-radius: 4rem;
-    padding: calc((0.5vw + 0.5vh) / 2) 0;
+    padding: 0.5vw 0;
     position: relative;
     overflow: hidden;
 }
@@ -145,7 +145,7 @@ footer {
 div.icon {
     display: inline-block;
     text-align: center;
-    border-radius: calc((6vh + 6vw) / 2);
+    border-radius: 6vw;
     overflow: hidden;
     margin-top: 2%;
     margin-left: 1%;
@@ -154,12 +154,12 @@ div.icon {
 }
 
 .icon a {
-    width: calc((6vh + 6vw) / 2);
-    height: calc((6vh + 6vw) / 2);
+    width: 6vw;
+    height: 6vw;
     background-color: darkslategrey;
     color: #ffffff;
     text-decoration: none;
-    font-size: calc((4vh + 4vw) / 2);
+    font-size: 4vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -187,7 +187,7 @@ div.contactme {
     margin: 20px;
     padding: 0;
     display: flex;
-    height: calc(4vh + min(calc((10vw + 10vh) / 2), 2rem));
+    height: calc(50px + min(10vw, 2rem));
     justify-content: center;
     align-items: center;
 }
@@ -195,12 +195,12 @@ div.contactme {
 .contactme a {
     text-align: center;
     background-color: var(--darkgreen);
-    padding: 2vh;
+    padding: 2vw;
     width: auto;
-    font-size: min(calc((10vw + 10vh) / 2), 2rem);
+    font-size: min(10vw, 2rem);
     line-height: normal;
     color: white;
-    border-radius: 1vh;
+    border-radius: 1vw;
 }
 
 @-webkit-keyframes contactme-hover {

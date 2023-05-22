@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     margin-top: 20px;
-    border-radius: 2vh;
+    border-radius: 2vw;
     height: fit-content;
     padding: 2vw;
     background-color: var(--articlebackground);
@@ -34,14 +34,14 @@ div.indexsectiontext{
 }
 
 .indexsection h2{
-    font-size: min(calc((10vw + 10vh) / 2), 2.25rem);
-    line-height: min(calc((12vw + 12vh) / 2), 3.25rem);
+    font-size: min(10vw, 2.25rem);
+    line-height: min(12vw, 3.25rem);
     overflow-wrap: break-word;
 }
 
 .indexsection p{
-    font-size: min(calc((5vw + 5vh) / 2), 1.5rem);
-    line-height: min(calc((7vw + 7vh) / 2), 2.25rem);
+    font-size: min(5vw, 1.5rem);
+    line-height: min(7vw, 2.25rem);
     overflow-wrap: break-word;
 }
 
@@ -53,12 +53,15 @@ img.indeximg {
 }
 
 
-div.indexicon i{
+div.indexicon {
     padding: 0;
-    padding-top: 5vh;
     width: min(100px, 10vw);
+    height: min(120px, 12vw);
     font-size: min(80px, 8vw);
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .skilllist {

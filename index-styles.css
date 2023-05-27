@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     margin-top: 20px;
-    border-radius: 2vw;
+    border-radius: 5vw;
     height: fit-content;
     padding: 2vw;
     background-color: var(--articlebackground);

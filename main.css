@@ -39,101 +39,136 @@ div {
     vertical-align: top;
 }
 
-/* Header with Felix Burger and logo */
-header {
-    width: 100%;
-    text-align: center;
-    align-items: center;
-    z-index: 1;
-    margin: 2vw 0 2vw 0;
-    display: flex;
-    justify-content: space-between;
-    overflow: hidden;
+header{
+  position: sticky;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vw;
+  background-color: var(--articlebackground);
+  z-index: 3;
+  overflow: hidden;
 }
-
-div.title-header {
-    display: flex;
-    align-self: center;
-    justify-self: center;
-}
-
-.title-header h1 {
-    font-size: min(8vw, 80px);
-    line-height: normal;
-}
-
-div.home, .home a{
-    display: flex;
-    align-self: center;
-    justify-self: center;
-    width: min(12vw, 120px);
-    height: min-content;
-    z-index: 1;
-    margin-left: 2vw;
-    position: relative;
-}
-
-.home img{
-    width: 100%;
-    height: auto;
-}
-.home img:hover {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  cursor: pointer;
-}
-
-
-/*Navigation-Menu*/
 nav {
-    margin-top: none;
-    position: sticky;
-    top: 0px;
-    z-index: 100;
-    background-image: var(--lineargradient);
-    margin-bottom: 20px;
-    font-size: min(5vw, 1.5rem);
-    width: 100%;
+  display: flex;
+  max-width: 80%;
+  justify-content: space-evenly;
+}
+nav a {
+  margin: 0 1vw;
+  font-size: 1.2rem;
+  color: var(--foreground);
+  padding: 0.2vw 1vw;
+  position: relative;
+  border-radius: calc(0.6rem + 0.3vw);
+}
+nav a label i{
+  font-size: 1rem;
+  align-self: center;
+}
+nav a label {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  width: fit-content;
+}
+nav a label::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 0.15rem;
+  border-radius: 0.075rem;
+  left: 0;
+  bottom: 0;
+  background: var(--foreground);
+
+  transform: scale(0, 1);
+  transform-origin: 0% 100%;
+  transition: transform 0.3s ease;
+}
+
+nav a label:hover::after, nav a label.current-page::after{
+  transform: scale(1, 1);
+}
+
+header.small{
+  display: flex;
+  justify-content: space-between;
+  overflow: visible;
+  padding: 1vw 4vw;
+}
+/* Dropdown Button */
+.dropbtn {
+  background-color: var(--articlebackground);
+  color: var(--foreground);
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border: none;
+}
+#nav-dropbtn {
+  display: none;
+}
+#expand-btn, #close-btn {
+  font-size: 1.5rem;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: -4vw;
+  top: 1.9rem;
+  background-color: var(--articlebackground);
+  z-index: 1;
+  width: 100vw;
+}
+header.small nav{
+  flex-direction: column;
+}
+
+header.normal {
+  display: none;
+}
+
+
+@media screen and (min-width: 480px){
+	header.normal {
     display: flex;
-    justify-content: space-around;
+  }
+  header.small {
+    display: none;
+  }
+}	
+
+
+/* Links inside the dropdown */
+.dropdown-content nav a {
+  color: var(--foreground);
+  text-decoration: none;
+  display: block;
+  margin: 5vh;
 }
 
-nav a{
-    color: white;
-    background-color: var(--darkgreen);
-    text-decoration: none;
-    width: 28%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4rem;
-    padding: 0.5vw 0;
-    position: relative;
-    overflow: hidden;
+#close-btn {
+  display: none;
 }
 
-nav a:hover {
-    width: 32%;
-    transition-property: all;
-    transition-duration: 1s;
+#nav-dropbtn:checked ~ .dropdown-content {
+  display: flex;
 }
-nav a:not(hover) {
-    width: 28%;
-    height: auto;
-    transition-property: all;
-    transition-duration: 0.5s;
+#nav-dropbtn:checked ~ #expand-btn {
+  display: none;
+}
+#nav-dropbtn:checked ~ #close-btn {
+  display: block;
 }
 
-nav.small{
-    visibility: hidden; 
-    display: none;}
-
-/* Changing text to font if window to small)*/
-
-@media screen and (max-width:360px){
-    nav.normal { display: none !important; }
-    nav.small  { visibility: visible; display: flex;}
-}
 
 /* Footer */
 
@@ -306,21 +341,18 @@ animation-iteration-count: infinite;
 	--darkmode-toggle-size: 2;
 }
 
-div.darkmode-toggle {
-	margin-right: 4vw;
-}
-
 label.darkmode-toggle {
 	width: calc(10vw * var(--darkmode-toggle-size));
 	height: calc(4vw * var(--darkmode-toggle-size));
 	position: relative;
 	display: flex;
-	background: rgb(230,230,230);
+	background: var(--background);
 	border-radius: calc(4vw * var(--darkmode-toggle-size));
 	cursor: pointer;
 	transition: 0.3s;
 	align-content: center;
 	justify-content: space-between;
+  margin: 0;
 }
 label.darkmode-toggle:after {
 	content: "";
@@ -329,7 +361,7 @@ label.darkmode-toggle:after {
 	position: absolute;
 	top: calc(0.2vw * var(--darkmode-toggle-size));
 	left: calc(0.2vw * var(--darkmode-toggle-size));
-	background: white;
+	background: var(--background);
 	border-radius: calc(3.6vw * var(--darkmode-toggle-size));
 	transition: 0.3s;
 }
@@ -340,12 +372,12 @@ input.darkmode-toggle {
 	display: none;
 }
 input.darkmode-toggle:checked + label {
-	background: rgb(50, 50, 50);
+	background: var(--background);
 }
 input.darkmode-toggle:checked + label:after {
 	left: calc(9.8vw * var(--darkmode-toggle-size));
 	transform: translateX(-100%);
-	background: #3a3a3a;
+	background: var(--background);
 }
 label.darkmode-toggle:active:after{
 	width: calc(5.2vw * var(--darkmode-toggle-size));
@@ -362,7 +394,7 @@ label.darkmode-toggle div.sun, label div.moon {
 	transition: 0.3s;
 	margin: calc(0.5vw * var(--darkmode-toggle-size));
 	display: flex;
-	align-content: center;
+	align-self: center;
 	justify-content: center;
 	transform: translate(0, 5%);
 }
@@ -377,5 +409,9 @@ label.darkmode-toggle div.sun, label div.moon {
 }	
 @media screen and (min-width: 720px){
 	:root{
-		--darkmode-toggle-size: 1;}
+		--darkmode-toggle-size: 0.9;}
+}	
+@media screen and (min-width: 1080px){
+	:root{
+		--darkmode-toggle-size: 0.7;}
 }	

@@ -13,24 +13,38 @@
     <title>Projects</title>
 </head>
 <body>
-    <header>
-        <div class="home"><a href="/"><img src="../icon-rounded.png" alt="Home"></a></div>
-        <div class="title-header"><h1>Felix Burger</h1></div>
+    <header class="normal">
         <div class="darkmode-toggle"><input type="checkbox" class="darkmode-toggle" id="darkmode-toggle"/>
             <label class="darkmode-toggle" for="darkmode-toggle">
                 <div class="sun"><i class="fa-solid fa-sun"></i></div>
                 <div class="moon"><i class="fa-solid fa-moon"></i></div></label></div>
+        <nav>
+            <a href="/" class="nav"><label><i class="fa-solid fa-house"></i>&nbsp;Home</label></a>
+            <a href="/about/" class="nav"><label><i class="fa-solid fa-user"></i>&nbsp;About</label></a>
+            <a href="/photo/" class="nav"><label><i class="fa-solid fa-camera"></i>&nbsp;Photos</label></a>
+            <a href="/projects/" class="nav"><label class="current-page"><i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;Projects</label></a>
+        </nav>
     </header>
-    <nav class="normal">
-        <a href="/about/" class="nav">About</a>
-        <a href="/photo/" class="nav">Photos</a>
-        <a href="/projects/" class="nav">Projects</a>
-    </nav>
-    <nav class="small">
-        <a href="/about/" class="nav"><i class="fa-solid fa-user"></i></a>
-        <a href="/photo/" class="nav"><i class="fa-solid fa-camera"></i></a>
-        <a href="/projects/" class="nav"><i class="fa-solid fa-screwdriver-wrench"></i></a>
-    </nav>
+    <header class="small">
+        <div class="darkmode-toggle"><input type="checkbox" class="darkmode-toggle" id="darkmode-toggle"/>
+            <label class="darkmode-toggle" for="darkmode-toggle">
+                <div class="sun"><i class="fa-solid fa-sun"></i></div>
+                <div class="moon"><i class="fa-solid fa-moon"></i></div></label></div>
+        <div class="dropdown">
+            <input type="checkbox" class="dropbtn" id="nav-dropbtn"/>
+            <label for="nav-dropbtn" id="expand-btn"><i class="fa-solid fa-bars"></i></label>
+            <label for="nav-dropbtn" id="close-btn"><i class="fa-solid fa-xmark"></i></label>
+            <div class="dropdown-content">
+                <nav>
+                    <a href="/" class="nav"><label><i class="fa-solid fa-house"></i>&nbsp;Home</label></a>
+                    <a href="/about/" class="nav"><label><i class="fa-solid fa-user"></i>&nbsp;About</label></a>
+                    <a href="/photo/" class="nav"><label><i class="fa-solid fa-camera"></i>&nbsp;Photos</label></a>
+                    <a href="/projects/" class="nav"><label class="current-page"><i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;Projects</label></a>
+                </nav>
+            </div>
+          </div>
+    </header>
+    <br>
     <main style="min-height: 70vh;">
     <h1 style="text-align:center;">Projects</h1>
     <a href="/projects/upto-the-stratosphere-with-a-weather-balloon/">

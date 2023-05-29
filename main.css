@@ -39,6 +39,27 @@ div {
     vertical-align: top;
 }
 
+h1.name {
+  font-size: min(1.8rem, 9vh);
+  line-height: min(2rem, 10vh);
+  color: var(--foreground);
+}
+
+@media screen and (min-width: 480px){
+	h1.name{
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+}	
+@media screen and (min-width: 720px){
+	h1.name{
+    height: auto;
+    width: auto;
+    overflow: visible;
+  }
+}	
+
 header{
   position: sticky;
   top: 0px;
@@ -51,21 +72,34 @@ header{
   z-index: 3;
   overflow: hidden;
 }
+
+header::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: min(0.15rem, 0.5vh);
+  border-radius: min(0.075rem, 0.25vh);
+  left: 0;
+  bottom: 0;
+  background: var(--lightgreen);
+}
+
 nav {
   display: flex;
-  max-width: 80%;
   justify-content: space-evenly;
 }
 nav a {
   margin: 0 1vw;
-  font-size: 1.2rem;
+  font-size: min(1.2rem, 5vh);
+  line-height: min(1.5rem, 6vh);
   color: var(--foreground);
   padding: 0.2vw 1vw;
   position: relative;
   border-radius: calc(0.6rem + 0.3vw);
 }
 nav a label i{
-  font-size: 1rem;
+  font-size: min(1rem, 4vh);
+  line-height: min(1.5rem, 6vh);
   align-self: center;
 }
 nav a label {
@@ -78,7 +112,7 @@ nav a label::after {
   content: '';
   position: absolute;
   width: 100%;
-  height: 0.15rem;
+  height: min(0.15rem, 0.5vh);
   border-radius: 0.075rem;
   left: 0;
   bottom: 0;
@@ -94,10 +128,9 @@ nav a label:hover::after, nav a label.current-page::after{
 }
 
 header.small{
-  display: flex;
-  justify-content: space-between;
+  width: auto;
+  height: auto;
   overflow: visible;
-  padding: 1vw 4vw;
 }
 /* Dropdown Button */
 .dropbtn {
@@ -111,21 +144,30 @@ header.small{
   display: none;
 }
 #expand-btn, #close-btn {
-  font-size: 1.5rem;
+  font-size: min(1.8rem, 8vh);
+  height: min(1.8rem, 8vh);
+  width: min(1.8rem, 8vh);
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-  display: inline-block;
+  display: flex;
+  overflow: visible;
+  justify-content: space-between;
+  width: 98vw;
+  height: fit-content;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
   position: absolute;
-  right: -4vw;
-  top: 1.9rem;
+  left: -1vw;
+  top: 1.8rem;
   background-color: var(--articlebackground);
-  z-index: 1;
+  z-index: 30;
   width: 100vw;
 }
 header.small nav{
@@ -155,17 +197,20 @@ header.normal {
   margin: 5vh;
 }
 
-#close-btn {
+#close-btn, #div-darkmode-toggle {
   display: none;
 }
 
 #nav-dropbtn:checked ~ .dropdown-content {
   display: flex;
 }
-#nav-dropbtn:checked ~ #expand-btn {
+#nav-dropbtn:checked ~ #expand-btn,  #nav-dropbtn:checked ~ .name{
   display: none;
 }
 #nav-dropbtn:checked ~ #close-btn {
+  display: flex;
+}
+#nav-dropbtn:checked ~ #div-darkmode-toggle {
   display: block;
 }
 
@@ -361,7 +406,7 @@ label.darkmode-toggle:after {
 	position: absolute;
 	top: calc(0.2vw * var(--darkmode-toggle-size));
 	left: calc(0.2vw * var(--darkmode-toggle-size));
-	background: var(--background);
+	background: var(--articlebackground);
 	border-radius: calc(3.6vw * var(--darkmode-toggle-size));
 	transition: 0.3s;
 }
@@ -372,7 +417,7 @@ input.darkmode-toggle {
 	display: none;
 }
 input.darkmode-toggle:checked + label {
-	background: var(--background);
+	background: var(--articlebackground);
 }
 input.darkmode-toggle:checked + label:after {
 	left: calc(9.8vw * var(--darkmode-toggle-size));
@@ -394,9 +439,9 @@ label.darkmode-toggle div.sun, label div.moon {
 	transition: 0.3s;
 	margin: calc(0.5vw * var(--darkmode-toggle-size));
 	display: flex;
-	align-self: center;
+	align-content: center;
 	justify-content: center;
-	transform: translate(0, 5%);
+  transform: translate(0, 5%);
 }
 
 @media screen and (min-width:360px){
@@ -405,7 +450,11 @@ label.darkmode-toggle div.sun, label div.moon {
 }	
 @media screen and (min-width:480px){
 	:root{
-		--darkmode-toggle-size: 1.3;}
+		--darkmode-toggle-size: 1.2;}
+}	
+@media screen and (min-width:640px){
+	:root{
+		--darkmode-toggle-size: 1;}
 }	
 @media screen and (min-width: 720px){
 	:root{

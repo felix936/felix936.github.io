@@ -40,8 +40,8 @@ div {
 }
 
 h1.name {
-  font-size: min(1.8rem, 9vh);
-  line-height: min(2rem, 10vh);
+  font-size: min(1.8rem, 13.5vh);
+  line-height: min(2rem, 15vh);
   color: var(--foreground);
 }
 
@@ -80,7 +80,7 @@ header::after {
   height: min(0.15rem, 0.5vh);
   border-radius: min(0.075rem, 0.25vh);
   left: 0;
-  bottom: 0;
+  bottom: calc(min(0.15rem, 0.5vh) * -1);
   background: var(--lightgreen);
 }
 
@@ -90,16 +90,16 @@ nav {
 }
 nav a {
   margin: 0 1vw;
-  font-size: min(1.2rem, 5vh);
-  line-height: min(1.5rem, 6vh);
+  font-size: min(1.2rem, 9vh);
+  line-height: min(1.5rem, 11vh);
   color: var(--foreground);
-  padding: 0.2vw 1vw;
+  padding: 0.2vw 1.5vw;
   position: relative;
   border-radius: calc(0.6rem + 0.3vw);
 }
 nav a label i{
-  font-size: min(1rem, 4vh);
-  line-height: min(1.5rem, 6vh);
+  font-size: min(1rem, 7.5vh);
+  line-height: min(1.5rem, 10vh);
   align-self: center;
 }
 nav a label {
@@ -113,7 +113,7 @@ nav a label::after {
   position: absolute;
   width: 100%;
   height: min(0.15rem, 0.5vh);
-  border-radius: 0.075rem;
+  border-radius:  min(0.075rem, 0.25vh);
   left: 0;
   bottom: 0;
   background: var(--foreground);
@@ -131,6 +131,7 @@ header.small{
   width: auto;
   height: auto;
   overflow: visible;
+  padding: 0;
 }
 /* Dropdown Button */
 .dropbtn {
@@ -144,9 +145,9 @@ header.small{
   display: none;
 }
 #expand-btn, #close-btn {
-  font-size: min(1.8rem, 8vh);
-  height: min(1.8rem, 8vh);
-  width: min(1.8rem, 8vh);
+  font-size: min(1.8rem, 13.5vh);
+  height: min(1.8rem, 13.5vh);
+  width: min(1.8rem, 13.5vh);
   display: flex;
   align-content: center;
   justify-content: center;
@@ -156,19 +157,21 @@ header.small{
   display: flex;
   overflow: visible;
   justify-content: space-between;
-  width: 98vw;
+  align-items: center;
+  width: 100%;
   height: fit-content;
+  padding: 1vw;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
   position: absolute;
-  left: -1vw;
-  top: 1.8rem;
+  left: 0;
+  top: calc(max((4vw * var(--darkmode-toggle-size)), min(1.8rem, 13.5vh)) + 2vw + min(0.15rem, 0.5vh));
   background-color: var(--articlebackground);
   z-index: 30;
-  width: 100vw;
+  width: 100%;
 }
 header.small nav{
   flex-direction: column;
@@ -195,6 +198,7 @@ header.normal {
   text-decoration: none;
   display: block;
   margin: 5vh;
+  margin-left: 0;
 }
 
 #close-btn, #div-darkmode-toggle {
@@ -399,7 +403,7 @@ label.darkmode-toggle {
 	justify-content: space-between;
   margin: 0;
 }
-label.darkmode-toggle:after {
+label.darkmode-toggle::after {
 	content: "";
 	width: calc(3.6vw * var(--darkmode-toggle-size));
 	height: calc(3.6vw * var(--darkmode-toggle-size));
@@ -416,15 +420,12 @@ input.darkmode-toggle {
 	margin: 0;
 	display: none;
 }
-input.darkmode-toggle:checked + label {
-	background: var(--background);
-}
-input.darkmode-toggle:checked + label:after {
+input.darkmode-toggle:checked + label.darkmode-toggle::after {
 	left: calc(9.8vw * var(--darkmode-toggle-size));
 	transform: translateX(-100%);
 	background: var(--articlebackground);
 }
-label.darkmode-toggle:active:after{
+label.darkmode-toggle:active::after{
 	width: calc(5.2vw * var(--darkmode-toggle-size));
 }
 input.darkmode-toggle:checked + label + .background {
@@ -446,7 +447,7 @@ label.darkmode-toggle div.sun, label div.moon {
 
 @media screen and (min-width:360px){
 	:root{
-		--darkmode-toggle-size: 1.6;}
+		--darkmode-toggle-size: 1.4;}
 }	
 @media screen and (min-width:480px){
 	:root{

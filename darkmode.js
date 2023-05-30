@@ -1,5 +1,7 @@
 let darkMode = localStorage.getItem('darkMode');
+
 const darkModeToggle = document.querySelector('#darkmode-toggle');
+const darkModeToggleSmall = document.querySelector('#darkmode-toggle-small');
 
 const enableDarkMode = () => {
     document.documentElement.style.setProperty('--foreground', 'var(--white)');
@@ -8,6 +10,7 @@ const enableDarkMode = () => {
     document.documentElement.style.setProperty('--articlebackground', 'var(--darkgrey)');
     document.documentElement.style.setProperty('--cvleftyearcolor', '#ab0e8e');
     document.getElementById("darkmode-toggle").checked = true;
+    document.getElementById("darkmode-toggle-small").checked = true;
     localStorage.setItem('darkMode', 'enabled');
 }
 const disableDarkMode = () => {
@@ -17,6 +20,7 @@ const disableDarkMode = () => {
     document.documentElement.style.setProperty('--articlebackground', 'var(--lightgrey)');
     document.documentElement.style.setProperty('--cvleftyearcolor', '#5c1f7d');
     document.getElementById("darkmode-toggle").checked = false;
+    document.getElementById("darkmode-toggle-small").checked = false;
     localStorage.setItem('darkMode', 'null');
 }
 
@@ -28,6 +32,17 @@ else {
 }
 
 darkModeToggle.addEventListener('click', () => {
+    darkMode = localStorage.getItem('darkMode')
+    if (darkMode !== 'enabled') {
+        enableDarkMode();
+        console.log('Dark-Mode: ' + localStorage.getItem('darkMode'));
+    }
+    else {
+        disableDarkMode();
+        console.log('Dark-Mode: ' + localStorage.getItem('darkMode'));
+    }
+})
+darkModeToggleSmall.addEventListener('click', () => {
     darkMode = localStorage.getItem('darkMode')
     if (darkMode !== 'enabled') {
         enableDarkMode();

@@ -163,6 +163,18 @@ div.inline-image-left{
     padding-top: 0;
 }
 
+iframe{
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1vh;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: auto;
+}
+
+
 div.code {
     margin: 1vw;
     padding: 1vw;
@@ -341,7 +353,7 @@ z-index: 1000;
 display: none;
 }
 
-span,a{
+span.sharebtn, a{
 position: absolute;
 display: flex;
 justify-content: center;
@@ -349,7 +361,7 @@ align-items: center;
 border-radius: 50%;
 }
 
-span{
+span.sharebtn{
 height: 3rem;
 max-height: 10vh;
 aspect-ratio: 1/1;

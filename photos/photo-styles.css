@@ -1,0 +1,50 @@
+@import url("../main.css");
+
+img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+img:hover {
+    cursor: zoom-in;
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+div.gallery-pic {
+    display: flex;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 1vw;
+    margin: 1vw 0;
+}
+
+img.gallery-pic {
+    height: auto;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+section.gallery {
+    width: 90%;
+    border-radius: 2vw;
+    margin: 0 auto;
+    background-color: var(--articlebackground);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1vw 2vw;
+}
+
+@media screen and (min-width:480px){
+    div.gallery-pic {width: calc(50% - 1vw);}
+}
+@media screen and (min-width:720px){
+    div.gallery-pic {width: calc(33% - 1vw);}
+}
+@media screen and (min-width:1080px){
+    div.gallery-pic {width: calc(25% - 1vw);}
+}

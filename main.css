@@ -87,6 +87,7 @@ header::after {
 nav {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 nav a {
   margin: 0 1vw;
@@ -96,18 +97,18 @@ nav a {
   padding: 0.2vw 1.5vw;
   position: relative;
 }
-nav a label i{
+nav a p i{
   font-size: min(1rem, 7.5vh);
   line-height: min(1.5rem, 10vh);
   align-self: center;
 }
-nav a label {
+nav a p {
   position: relative;
   display: flex;
   cursor: pointer;
   width: fit-content;
 }
-nav a label::after {
+nav a p::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -122,7 +123,7 @@ nav a label::after {
   transition: transform 0.3s ease;
 }
 
-nav a label:hover::after, nav a label.current-page::after{
+nav a p:hover::after, nav a p.current-page::after{
   transform: scale(1, 1);
 }
 
@@ -404,6 +405,9 @@ animation-iteration-count: infinite;
 	--darkmode-toggle-size: 2;
 }
 
+div.darkmode-toggle {
+  height: fit-content;
+}
 label.darkmode-toggle {
 	width: calc(10vw * var(--darkmode-toggle-size));
 	height: calc(4vw * var(--darkmode-toggle-size));

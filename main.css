@@ -224,6 +224,7 @@ header.normal {
 footer {
     width: 100%;
     background-color: var(--darkgreen);
+    position: relative;
 }
 
 div.icon {
@@ -256,6 +257,12 @@ div.icon {
 		width: 6vw;
     height: 6vw;
     font-size: 4vw;}
+}	
+@media screen and (min-width:1080px){
+	.icon a {
+		width: 4vw;
+    height: 4vw;
+    font-size: 2.7vw;}
 }	
 
 .icon a:hover {
@@ -468,7 +475,11 @@ label.darkmode-toggle div.sun, label div.moon {
 	:root{
 		--darkmode-toggle-size: 0.9;}
 }	
-@media screen and (min-width: 1080px){
+@media screen and (min-width: 900px){
 	:root{
 		--darkmode-toggle-size: 0.7;}
+}	
+@media screen and (min-width: 1080px){
+	:root{
+		--darkmode-toggle-size: 0.6;}
 }	

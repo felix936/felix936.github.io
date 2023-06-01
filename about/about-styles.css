@@ -6,12 +6,13 @@
 }
 
 div.cvleft-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     left: 1%;
     font-weight: bold;
     display: inline-block;
-    width: calc(140px + 5%);
+    width: calc(100px + 5%);
     text-align: left;
+    overflow-wrap: break-word;
 }
 
 div.cvleft-year {
@@ -20,20 +21,21 @@ div.cvleft-year {
     font-weight: normal;
     color: var(--cvleftyearcolor);
     display: inline-block;
-    width: calc(140px + 5%);
+    width: calc(100px + 5%);
     text-align: left;
 }
 
 div.cvright {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     display: inline-block;
-    width: calc(90% - 150px);
+    width: calc(90% - 100px);
     height: max-content;
     position: relative;
     left: 2%;
     text-align: left;
     padding-bottom: 1rem;
     line-height: 1.5rem;
+    overflow-wrap: break-word;
 }
 
 dl {

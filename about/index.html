@@ -12,7 +12,7 @@
     <script data-goatcounter="https://felixburger.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </head>
-<body>
+<body onresize="CvHeight()">
     <header class="normal">
         <h1 class="name">Felix Burger</h1>
         <nav>
@@ -133,11 +133,14 @@
                     <div class="cvleft-year"></div>
                     <div class="cvright"><p>Latin</p></div></div>
             </section>
-            <script>var article_height = document.getElementById("cv").offsetHeight;
+            <script>
+                CvHeight();
+                function CvHeight() {
+                var article_height = document.getElementById("cv").offsetHeight;
                 article_height = (article_height-70);
                 article_height = article_height + "px";
                 var vl = document.getElementById("vl");
-                vl.style.height = article_height;</script>
+                vl.style.height = article_height;}</script>
         </article>
         <div class="contactme"><a href="/contact">Contact me!&nbsp;<i class="fa-solid fa-message"></i></a></div>
         <script src="../darkmode.js"></script>

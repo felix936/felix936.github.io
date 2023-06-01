@@ -172,6 +172,7 @@ iframe{
     justify-content: center;
     width: 50%;
     height: auto;
+    aspect-ratio: 16/9;
 }
 
 

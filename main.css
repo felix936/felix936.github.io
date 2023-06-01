@@ -238,18 +238,25 @@ div.icon {
 }
 
 .icon a {
-    width: 6vw;
-    height: 6vw;
+    width: 12vw;
+    height: 12vw;
     background-color: darkslategrey;
     color: #ffffff;
     text-decoration: none;
-    font-size: 4vw;
+    font-size: 8vw;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
     position: relative;
 }
+
+@media screen and (min-width:720px){
+	.icon a {
+		width: 6vw;
+    height: 6vw;
+    font-size: 4vw;}
+}	
 
 .icon a:hover {
     background-color: white;

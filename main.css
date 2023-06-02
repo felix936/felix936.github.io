@@ -112,8 +112,8 @@ nav a p::after {
   content: '';
   position: absolute;
   width: 100%;
-  height: 0.15rem;
-  border-radius: 0.075rem;
+  height: min(0.15rem, 1.2vh);
+  border-radius: min(0.075rem, 0.6vh);
   left: 0;
   bottom: 0;
   background: var(--white);
@@ -173,9 +173,13 @@ header.small{
   background-color: var(--darkgreen);
   z-index: 30;
   width: 100%;
+  max-height: calc(100vh - (max((4vw * var(--darkmode-toggle-size)), min(2rem, 15vh)) + 2vw + min(0.15rem, 0.5vh)));
 }
+
+
 header.small nav{
   flex-direction: column;
+  align-items: flex-start;
 }
 
 header.normal {

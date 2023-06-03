@@ -34,8 +34,13 @@ div.indexsectiontext{
 }
 
 .indexsection h2{
+    line-height: min(12vw, 2.7rem);
     font-size: min(10vw, 2.25rem);
-    line-height: min(12vw, 3.25rem);
+    overflow-wrap: break-word;
+}
+.indexsection h3{
+    font-size: min(8vw, 1.8rem);
+    line-height: min(10vw, 2.25rem);
     overflow-wrap: break-word;
 }
 
@@ -43,6 +48,10 @@ div.indexsectiontext{
     font-size: min(5vw, 1.5rem);
     line-height: min(7vw, 2.25rem);
     overflow-wrap: break-word;
+}
+
+li p i {
+    width: min(6vw, 1.8rem);
 }
 
 img.indeximg {

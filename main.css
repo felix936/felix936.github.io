@@ -73,17 +73,6 @@ header{
   overflow: hidden;
 }
 
-/* header::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: min(0.15rem, 0.5vh);
-  border-radius: min(0.075rem, 0.25vh);
-  left: 0;
-  bottom: calc(min(0.15rem, 0.5vh) * -1);
-  background: var(--lightgreen);
-} */
-
 nav {
   display: flex;
   justify-content: space-evenly;

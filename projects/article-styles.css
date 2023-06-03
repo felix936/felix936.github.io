@@ -355,7 +355,7 @@ z-index: 1000;
 display: none;
 }
 
-span.sharebtn, a{
+span.sharebtn, a.share {
 position: absolute;
 display: flex;
 justify-content: center;
@@ -385,7 +385,7 @@ max-height: 10vh;
 aspect-ratio: 1/1;
 }
 
-.sm_list a{
+.sm_list a.share{
 height: 3rem;
 max-height: 10vh;
 aspect-ratio: 1/1;
@@ -400,44 +400,44 @@ justify-content: center;
 cursor: pointer;
 }
 
-#share_button:checked ~ .sm_list a:nth-child(1){
+#share_button:checked ~ .sm_list a.share:nth-child(1){
     background-color: darkslategrey;
     color: rgb(230, 230, 230);
     transition-delay: 0.4s;
     transform: translateY(-12vh);
 }
 
-#share_button:checked ~ .sm_list a:nth-child(2){
+#share_button:checked ~ .sm_list a.share:nth-child(2){
 background-color: #3B5998;
 transition-delay: 0.2s;
 transform: translateY(-24vh);
 }
 
-#share_button:checked ~ .sm_list a:nth-child(3){
+#share_button:checked ~ .sm_list a.share:nth-child(3){
 background-color: #1DA1F2;
 transition-delay: 0.2s;
 transform: translateY(-36vh);
 }
 
-#share_button:checked ~ .sm_list a:nth-child(4){
+#share_button:checked ~ .sm_list a.share:nth-child(4){
 background-color: #0e76a8;
 transition-delay: 0.3s;
 transform: translateY(-48vh);
 }
 
-#share_button:checked ~ .sm_list a:nth-child(5){
+#share_button:checked ~ .sm_list a.share:nth-child(5){
 background-color: 	#FF5700;
 transition-delay: 0.3s;
 transform: translateY(-60vh);
 }
 
-#share_button:checked ~ .sm_list a:nth-child(6){
+#share_button:checked ~ .sm_list a.share:nth-child(6){
 background-color: #25D366;
 transition-delay: 0.4s;
 transform: translateY(-72vh);
 }
 
-#share_button:checked ~ .sm_list a:nth-child(7){
+#share_button:checked ~ .sm_list a.share:nth-child(7){
 background-color: darkslategrey;
 color: rgb(230, 230, 230);
 transition-delay: 0.4s;
@@ -447,41 +447,41 @@ transform: translateY(-84vh);
 /* Hovering Effects */
 
 
-#share_button:checked ~ .sm_list a:nth-child(1):hover{
+#share_button:checked ~ .sm_list a.share:nth-child(1):hover{
     background-color: rgb(230, 230, 230);
     color: darkslategrey;
     }
 
-#share_button:checked ~ .sm_list a:nth-child(2):hover{
+#share_button:checked ~ .sm_list a.share:nth-child(2):hover{
 background-color: #ffffff;
 color: #3B5998;
 }
 
-#share_button:checked ~ .sm_list a:nth-child(3):hover{
+#share_button:checked ~ .sm_list a.share:nth-child(3):hover{
 color: #1DA1F2;
 background-color: #fff;
 }
 
-#share_button:checked ~ .sm_list a:nth-child(4):hover{
+#share_button:checked ~ .sm_list a.share:nth-child(4):hover{
 color: #0e76a8;
 background-color: #fff;
 }
 
-#share_button:checked ~ .sm_list a:nth-child(5):hover{
+#share_button:checked ~ .sm_list a.share:nth-child(5):hover{
 color: 	#FF5700;
 background-color: #fff;
 }
 
-#share_button:checked ~ .sm_list a:nth-child(6):hover{
+#share_button:checked ~ .sm_list a.share:nth-child(6):hover{
 color: #25D366;
 background-color: #fff;
 }
 
-#share_button:checked ~ .sm_list a:nth-child(7):hover{
+#share_button:checked ~ .sm_list a.share:nth-child(7):hover{
 background-color: rgb(230, 230, 230);
 color: darkslategrey;
 }
 
-span:visited{
+span.sharebtn:visited{
 background-color: #000f94;
 }

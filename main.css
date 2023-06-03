@@ -88,9 +88,21 @@ nav a {
 }
 nav a p i{
   font-size: min(1rem, 7.5vh);
-  line-height: min(1.5rem, 10vh);
+  line-height: min(1.5rem, 10vh) !important;
   align-self: center;
 }
+
+@media screen and (min-width: 1080px){
+	nav a {
+    font-size: min(1.6rem, 12vh);
+    line-height: min(1.8rem, 13.5vh);
+  }
+  nav a p i{
+    font-size: min(1.3rem, 7.5vh);
+    line-height: min(1.8rem, 13.5vh) !important;
+  }
+}	
+
 nav a p {
   position: relative;
   display: flex;
@@ -236,12 +248,10 @@ footer {
 div.icon {
     display: inline-block;
     text-align: center;
+    vertical-align: middle;
     border-radius: 6vw;
     overflow: hidden;
-    margin-top: 2%;
-    margin-left: 1%;
-    margin-right: 1%;
-    margin-bottom: 2%;
+    margin: min(2%, 20px) min(1%, 10px);
 }
 
 .icon a {
@@ -254,8 +264,13 @@ div.icon {
     display: flex;
     justify-content: center;
     align-items: center;
+    align-content: center;
     z-index: 1;
     position: relative;
+}
+
+.icon a i{
+  line-height: 0;
 }
 
 @media screen and (min-width:720px){
@@ -263,12 +278,25 @@ div.icon {
 		width: 6vw;
     height: 6vw;
     font-size: 4vw;}
+  
+    div.icon {
+      border-radius: 3vw;}
 }	
 @media screen and (min-width:1080px){
 	.icon a {
 		width: 4vw;
     height: 4vw;
     font-size: 2.7vw;}
+    div.icon {
+      border-radius: 2vw;}
+}	
+@media screen and (min-width:1440px){
+	.icon a {
+		width: 2vw;
+    height: 2vw;
+    font-size: 1.3vw;}
+    div.icon {
+      border-radius: 1vw;}
 }	
 
 .icon a:hover {
@@ -288,7 +316,7 @@ div.icon {
 }
 
 div.contactme {
-    margin: 20px;
+    margin: max(20px, 2vw);
     padding: 0;
     display: flex;
     height: calc(50px + min(10vw, 2rem));
@@ -462,12 +490,13 @@ span.sun, span.moon {
 	height: calc(2.6vw * var(--darkmode-toggle-size));
 	color:#7e7e7e;
 	transition: 0.3s;
-	margin: calc(0.5vw * var(--darkmode-toggle-size));
+	margin: 0 calc(0.5vw * var(--darkmode-toggle-size));
 	display: flex;
 	align-content: center;
 	justify-content: center;
   transform: translate(0, 5%);
 }
+
 
 @media screen and (min-width:360px){
 	:root{
@@ -492,4 +521,8 @@ span.sun, span.moon {
 @media screen and (min-width: 1080px){
 	:root{
 		--darkmode-toggle-size: 0.6;}
+}	
+@media screen and (min-width: 1440px){
+	:root{
+		--darkmode-toggle-size: 0.5;}
 }	

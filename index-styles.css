@@ -12,9 +12,9 @@
     display: flex;
     align-items: center;
     margin-top: 20px;
-    border-radius: 5vw;
+    border-radius: min(50px, 5vw);
     height: fit-content;
-    padding: 2vw;
+    padding: min(20px, 2vw);
     background-color: var(--articlebackground);
 }
 
@@ -55,7 +55,7 @@ li p i {
 }
 
 img.indeximg {
-    width: 30%;
+    width: min(30%, 250px);
     object-fit: contain;
     margin: 0;
     border-radius: 0;

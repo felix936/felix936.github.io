@@ -2,27 +2,36 @@
 
 /* Contact Form Styles */
 
+div.form-background {
+    width: 90%;
+    background-color: var(--articlebackground);
+    border-radius: 1vw;
+    margin: 5vw auto;
+}
+
+
 #contact {
-    width: min(80%, 800px);
-    height: auto;
     margin-left: auto;
     margin-right: auto;
-    padding: none;
+    padding: min(2vw, 30px);
 }
 
 input, textarea {
     margin: 0;
-    margin-top: 2vh;
+    margin-top: min(2vw, 30px);
     display: block;
     padding: 1vw;
     font-size: 1rem;
     border-radius: 0.2em;
-    border: 0.5px solid #696969;
-    background-color: var(--articlebackground);
+    border: 0.5px solid #757575;
+    background-color: var(--background);
     width: 100%;
     color: var(--foreground);
 }
 
+legend {
+    font-size: 1.5rem;
+}
 
 p.name-box {
     display: flex;
@@ -34,7 +43,7 @@ p.name-box {
 input.name {
     width: calc(50% - 0.5vw);
     margin: 0;
-    margin-top: 2vh;
+    margin-top: min(2vw, 30px);
     padding: 1vw;
 }
 
@@ -46,14 +55,17 @@ fieldset{
     margin: 0;
 }
 
+textarea { resize: vertical; }
+
 button.submit {
-    margin-top: 2vh;
-    margin-bottom: 5vh;
+    margin: min(2vw, 30px) auto 0 auto;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     width: 50%;
-    font-size: 5vh;
+    max-width: 250px;
+    font-size: 1.5rem;
+    border: none;
     border-radius: 0.2em;
     padding: 0.5rem;
+    color: white;
+    background-color: var(--darkgreen);
 }

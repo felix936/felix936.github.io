@@ -110,11 +110,10 @@
         result = 'You Win.';
         score.wins += 1;
       }
-
       localStorage.setItem('score', JSON.stringify(score));
 
       document.querySelector('.result').innerHTML = `${result}`;
-      document.querySelector('.moves').innerHTML = `You <img src="${playerMove}-emoji.png" alt="${playerMove}"> <img src="${computerMove}-emoji.png" alt="${computerMove}"> God`;
+      document.querySelector('.moves').innerHTML = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You <img src="${playerMove}-emoji.png" alt="${playerMove}"> <img src="${computerMove}-emoji.png" alt="${computerMove}"> Computer`;
       document.querySelector('.score').innerHTML = `Wins: ${score.wins}, Ties: ${score.ties}, Losses: ${score.losses}`;
 
     }

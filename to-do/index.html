@@ -54,8 +54,9 @@
     }
 
     .input-date-div{
-        width: calc(100% - 0.4rem);
+        width: calc(100%);
         background-color: white;
+        border-radius: 0.2rem;
     }
 
     button {
@@ -65,6 +66,10 @@
         border-radius: 0.2rem;
         color: black;
         cursor: pointer;
+    }
+    .sort-by {
+        color: white;
+        background-color: rgb(100, 100, 100);
     }
     .add {
         background-color: rgb(170, 255, 0);
@@ -83,19 +88,26 @@
     <div class="to-do-input-grid">
         <input type="text" placeholder="To-Do" class="to-do-input" onkeydown="if (event.keyCode === 13) {addToDo()}">
         <div class="input-date-div"><input type="date" class="due-date-input"  onkeydown="if (event.keyCode === 13) {addToDo()}"></div>
-        <button onclick="addToDo()" class="add">Add</button></div>
+        <button onclick="addToDo();" class="add">Add</button>
+        <div><button id="recent" class="sort-by recent" onclick="activeSort('recent'); renderToDo();">Recent</button>
+        <button id="dateDown" class="sort-by date" onclick="activeSort('dateUp'); renderToDo(sortToDoByDateUp()); document.getElementById('dateDown').style.display = 'none'; document.getElementById('dateUp').style.display = 'inline';">Date ↓</button>
+        <button id="dateUp" class="sort-by date" onclick="activeSort('dateDown'); renderToDo(sortToDoByDateDown()); document.getElementById('dateUp').style.display = 'none'; document.getElementById('dateDown').style.display = 'inline';" style="display: none;" >Date ↑</button>
+        <button id="alphabeticallyDown" class="sort-by alphabet" onclick="activeSort('alphabeticallyUp');  renderToDo(sortToDoByAlphabetUp()); document.getElementById('alphabeticallyDown').style.display = 'none'; document.getElementById('alphabeticallyUp').style.display = 'inline';">A→Z ↓</button>
+        <button id="alphabeticallyUp" class="sort-by alphabet" onclick="activeSort('alphabeticallyDown'); renderToDo(sortToDoByAlphabetDown()); document.getElementById('alphabeticallyUp').style.display = 'none'; document.getElementById('alphabeticallyDown').style.display = 'inline';" style="display: none;" >A→Z ↑</button>
+    </div>
+    </div>
     <section class="to-do-list-elements to-do-grid"></section>
     <script>
     const toDoList = JSON.parse(localStorage.getItem('toDoList')) || [];
     document.querySelector(".due-date-input").valueAsDate = new Date();
-
+    let sorted = '';
     renderToDo();
 
-    function renderToDo() {
+    function renderToDo(toDoListRender = toDoList) {
         let htmlCode = '';
-        for (let i = 0; i < toDoList.length; i++) {
-            const toDoName = toDoList[i].name;
-            let toDoDate = toDoList[i].dueDate;
+        for (let i = 0; i < toDoListRender.length; i++) {
+            const toDoName = toDoListRender[i].name;
+            let toDoDate = toDoListRender[i].dueDate;
             const options = {year: 'numeric', month: '2-digit', day: '2-digit' };
             const dateFormat = navigator.language;
             toDoDate = new Date(toDoDate).toLocaleDateString(dateFormat, options);
@@ -109,10 +121,76 @@
         const toDoElement = document.querySelector('.to-do-input');
         const dueDateElement = document.querySelector('.due-date-input');
         if (toDoElement.value != ''){
-            toDoList.push({name: toDoElement.value, dueDate: dueDateElement.value});
+            toDoList.splice(0, 0, ({name: toDoElement.value, dueDate: dueDateElement.value}));
         }
+
         toDoElement.value = '';
         renderToDo();
+        activeSort('recent');
+    }
+
+    let toDoListSorted = [];
+    function sortToDoByDateUp () {
+        toDoListSorted = [];
+        toDoListSorted.push({name: toDoList[0].name, dueDate: toDoList[0].dueDate})
+        for(let i = 1; i < toDoList.length; i++) {
+            let date1 = new Date(toDoList[i].dueDate);
+            for(let k = 0; k < toDoList.length; k++) {
+                let date2 = new Date(toDoList[k].dueDate);
+                if (date1 > date2) {
+                    toDoListSorted.splice(k, 0, {name: toDoList[i].name, dueDate: toDoList[i].dueDate})
+                    break
+                }
+                else if (k === toDoList.length - 1){
+                    toDoListSorted.splice(k + 1, 0, {name: toDoList[i].name, dueDate: toDoList[i].dueDate})
+                }
+            }
+        }  
+        return(toDoListSorted);
+    }
+
+    function sortToDoByDateDown() {
+        toDoListSorted = sortToDoByDateUp();
+        return(toDoListSorted.reverse());
+    }
+
+    function sortToDoByAlphabetUp () {
+        toDoListSorted = [];
+        toDoListSorted.push({name: toDoList[0].name, dueDate: toDoList[0].dueDate})
+        for(let i = 1; i < toDoList.length; i++) {
+            let name1 = toDoList[i].name;
+            for(let k = 0; k < toDoListSorted.length; k++) {
+                let name2 = toDoListSorted[k].name;
+                if (name1.toLowerCase() > name2.toLowerCase()) {
+                    toDoListSorted.splice(k, 0, {name: toDoList[i].name, dueDate: toDoList[i].dueDate})
+                    break
+                }
+                else if (k === toDoListSorted.length - 1){
+                    toDoListSorted.splice(k + 1, 0, {name: toDoList[i].name, dueDate: toDoList[i].dueDate})
+                    break
+                }
+            }
+        }  
+        toDoListSorted = toDoListSorted.reverse();
+        return(toDoListSorted);
+    }
+
+    function sortToDoByAlphabetDown () {
+        toDoListSorted = sortToDoByAlphabetUp().reverse();
+        return(toDoListSorted);
+    }
+
+    function activeSort(active) {
+        const ids = ['recent', 'dateUp', 'dateDown', 'alphabeticallyUp', 'alphabeticallyDown'];
+        for (let i = 0; i < ids.length; i++) {
+            let id = ids[i];
+            document.getElementById(id).style.color = "white";
+            document.getElementById(id).style.backgroundColor = "rgb(100, 100, 100)";
+        }
+
+        document.getElementById(active).style.color = "black";
+        document.getElementById(active).style.backgroundColor = "white";
+        sorted = active;
     }
   </script>
 </body>

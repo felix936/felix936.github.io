@@ -87,6 +87,7 @@
     <section class="to-do-list-elements to-do-grid"></section>
     <script>
     const toDoList = JSON.parse(localStorage.getItem('toDoList')) || [];
+    document.querySelector(".due-date-input").valueAsDate = new Date();
 
     renderToDo();
 

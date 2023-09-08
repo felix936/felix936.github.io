@@ -50,13 +50,21 @@
     }
     .due-date-input {
         width: calc(100% - 0.4rem);
+        cursor: pointer;
     }
+
+    .input-date-div{
+        width: calc(100% - 0.4rem);
+        background-color: white;
+    }
+
     button {
         font-size: 1.2rem;
         padding: 0.2rem;
         border: none;
         border-radius: 0.2rem;
         color: black;
+        cursor: pointer;
     }
     .add {
         background-color: rgb(170, 255, 0);
@@ -74,7 +82,7 @@
     <h1>To-Do List</h1>
     <div class="to-do-input-grid">
         <input type="text" placeholder="To-Do" class="to-do-input" onkeydown="if (event.keyCode === 13) {addToDo()}">
-        <input type="date" class="due-date-input"  onkeydown="if (event.keyCode === 13) {addToDo()}">
+        <div class="input-date-div"><input type="date" class="due-date-input"  onkeydown="if (event.keyCode === 13) {addToDo()}"></div>
         <button onclick="addToDo()" class="add">Add</button></div>
     <section class="to-do-list-elements to-do-grid"></section>
     <script>
@@ -87,7 +95,7 @@
         for (let i = 0; i < toDoList.length; i++) {
             const toDoName = toDoList[i].name;
             let toDoDate = toDoList[i].dueDate;
-            const options = {year: 'numeric', month: 'numeric', day: 'numeric' };
+            const options = {year: 'numeric', month: '2-digit', day: '2-digit' };
             const dateFormat = navigator.language;
             toDoDate = new Date(toDoDate).toLocaleDateString(dateFormat, options);
             htmlCode = htmlCode + `<div>${toDoName}</div> <div>${toDoDate}</div><button class="remove" onclick="toDoList.splice(${i}, 1); renderToDo();">Delete</button>`;

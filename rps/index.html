@@ -49,6 +49,7 @@
 
     .reset-button, .auto-play-button {
       font-size: 1.5rem;
+      color: black;
       background-color: lightgray;
       padding: 0.5rem;
       border-radius: 1.75rem;
@@ -136,7 +137,7 @@
     };
 
     document.querySelector('#speedSlider').addEventListener('input', () => {
-      delay = parseInt(document.querySelector('#speedSlider').value, 10);
+      delay = 1000 - parseInt(document.querySelector('#speedSlider').value, 10);
       if (intervalId) {
         clearInterval(intervalId);
         intervalId = setInterval(() => rps(['rock', 'paper', 'scissor'][Math.floor(Math.random() * 3)]), delay);

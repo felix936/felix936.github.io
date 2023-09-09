@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock Paper Scissors</title>
+  <title>Rock Paper Scissor</title>
   <style>
     body {
       background-color:   rgb(25, 25, 25);
@@ -23,7 +23,7 @@
     }
 
     p {
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 600;
     }
 
@@ -47,12 +47,10 @@
         width: 20%;
       }}
 
-    .reset-button {
+    .reset-button, .auto-play-button {
       font-size: 1.5rem;
-      color: black;
       background-color: lightgray;
       padding: 0.5rem;
-      border: none;
       border-radius: 1.75rem;
       font-weight: 600;
       cursor: pointer;
@@ -79,6 +77,8 @@
 <p class="moves"></p>
 <p class="score"></p>
 <p class="flex"><button class="reset-button" onclick="score.wins = 0; score.ties = 0; score.losses = 0; localStorage.removeItem('score'); document.querySelector('.score').innerHTML = `Wins: ${score.wins} Ties: ${score.ties} Losses: ${score.losses}`;">Reset score</button></p>
+<p class="flex"><button class="auto-play-button" onclick="toggleAutoPlay();">Auto Play</button></p>
+<p class="flex"><input id="speedSlider" type="range" min="1" max="1000" value="500" style="display:  none;"></p>
 
   <script> 
     
@@ -112,13 +112,36 @@
         result = 'You Win.';
         score.wins += 1;
       }
+
       localStorage.setItem('score', JSON.stringify(score));
 
       document.querySelector('.result').innerHTML = `${result}`;
-      document.querySelector('.moves').innerHTML = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You <img src="${playerMove}-emoji.png" alt="${playerMove}"> <img src="${computerMove}-emoji.png" alt="${computerMove}"> Computer`;
+      document.querySelector('.moves').innerHTML = `You <img src="${playerMove}-emoji.png" alt="${playerMove}"> <img src="${computerMove}-emoji.png" alt="${computerMove}"> God`;
       document.querySelector('.score').innerHTML = `Wins: ${score.wins}, Ties: ${score.ties}, Losses: ${score.losses}`;
 
     }
+
+    let intervalId;
+    let delay = parseInt(document.querySelector('#speedSlider').value, 10);
+    const toggleAutoPlay = () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+        document.querySelector('#speedSlider').style.display = "none";
+      } else {
+        document.querySelector('#speedSlider').style.display = "block";
+        intervalId = setInterval(() => rps(['rock', 'paper', 'scissor'][Math.floor(Math.random() * 3)]), delay);
+      }
+      document.querySelector('.auto-play-button').textContent = intervalId ? 'Stop Auto Play' : 'Auto Play';
+    };
+
+    document.querySelector('#speedSlider').addEventListener('input', () => {
+      delay = parseInt(document.querySelector('#speedSlider').value, 10);
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = setInterval(() => rps(['rock', 'paper', 'scissor'][Math.floor(Math.random() * 3)]), delay);
+      }
+    });
 
   </script>
 </body>

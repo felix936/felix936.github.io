@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+    <main>
+      <div class="menu" id="menu">
+        <button class="colorpicker">
+          <input type="color" id="colorpicker" name="colorpicker" value="#0015ff" />
+          <p>Color</p>
+        </button>
+        <div id="colors">
+          <button id="color1" onclick="changeColor('color1')"></button>
+          <button id="color2" onclick="changeColor('color2')"></button>
+          <button id="color3" onclick="changeColor('color3')"></button>
+          <button id="color4" onclick="changeColor('color4')"></button>
+          <button id="color5" onclick="changeColor('color5')"></button>
+          <button id="color6" onclick="changeColor('color6')"></button>
+          <button id="color7" onclick="changeColor('color7')"></button>
+          <button id="color8" onclick="changeColor('color8')"></button>
+          <button id="color9" onclick="changeColor('color9')"></button>
+          <button id="color10" onclick="changeColor('color10')"></button>
+          <button id="color11" onclick="changeColor('color11')"></button>
+          <button id="color12" onclick="changeColor('color12')"></button>
+        </div>
+      </div>
+      <canvas id="p5Canvas"></canvas>
+    </main>
+    <script src="sketch.js"></script>
+    <script>
+      function changeColor(colorElement) {
+        let color, r, g, b;
+        color = window.getComputedStyle(document.getElementById(colorElement), "").getPropertyValue("background-color");
+        color = color.replace("rgb(", "");
+        color = color.replace(")", "");
+        color = color.split(", ");
+        r = parseInt(color[0]);
+        g = parseInt(color[1]);
+        b = parseInt(color[2]);
+        console.log(color);
+        hexColor = rgbToHex(r, g, b);
+        document.getElementById('colorpicker').value = hexColor;
+      }
+      function componentToHex(c) {
+        var hex = c.toString(16);
+        return hex.length == 1 ? "0" + hex : hex;
+      }
+
+      function rgbToHex(r, g, b) {
+        return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+      }
+    </script>
+  </body>
+</html>

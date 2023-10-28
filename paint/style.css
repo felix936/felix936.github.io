@@ -1,0 +1,82 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+canvas {
+  display: block;
+}
+
+.menu {
+  display: flex;
+  min-width: 100%;
+  min-height: 15vh;
+  justify-content: space-evenly;
+}
+
+button.colorpicker{
+  height: 13vh;
+  margin: auto 0;
+  padding: 0;
+  border-width: 0.05vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 0.5vh;
+}
+.colorpicker p {
+  margin: 0;
+}
+input#colorpicker {
+  padding: 0;
+  margin: 0;
+  width: 8vh;
+  height: 8vh;
+  border: none;
+  border-radius: 0.5vh;
+}
+
+#colors {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  height: 13vh;
+  width: 17vh;
+  margin: auto 0;
+  align-content: space-between;
+  row-gap: 0.5vh;
+}
+
+#colors button {
+  width: 4vh;
+  height: 4vh;
+  border-width: 0.05vh;
+  border-radius: 0.5vh;
+}
+
+#colors #color1 {
+  background-color: red;
+}#colors #color2 {
+  background-color: orange;
+}#colors #color3 {
+  background-color: yellow;
+}#colors #color4 {
+  background-color: lightgreen;
+}#colors #color5 {
+  background-color: green;
+}#colors #color6 {
+  background-color: lightblue;
+}#colors #color7 {
+  background-color: blue;
+}#colors #color8 {
+  background-color: pink;
+}#colors #color9 {
+  background-color: purple;
+}#colors #color10 {
+  background-color: brown;
+}#colors #color11 {
+  background-color: black;
+}#colors #color12 {
+  background-color: white;
+}

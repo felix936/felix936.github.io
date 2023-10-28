@@ -12,12 +12,13 @@ canvas {
   display: flex;
   min-width: 100%;
   min-height: 15vh;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  gap: 2vh;
 }
 
 button.colorpicker{
   height: 13vh;
-  margin: auto 0;
+  margin: auto 0 auto 2vh;
   padding: 0;
   border-width: 0.05vh;
   display: flex;

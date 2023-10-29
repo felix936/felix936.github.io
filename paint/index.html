@@ -29,11 +29,55 @@
           <button id="color11" onclick="changeColor('color11')"></button>
           <button id="color12" onclick="changeColor('color12')"></button>
         </div>
+        <div id="tools">
+          <label class="container">
+            <input type="radio" name="toolSelect" value="tool1" onclick="toolSelected()" checked="checked">
+            <span class="checkmark"><span class="toolIcon" id="tool1"></span></span>
+          </label>
+          <label class="container">
+            <input type="radio" name="toolSelect" value="tool2" onclick="toolSelected()">
+            <span class="checkmark"><span class="toolIcon" id="tool2"></span></span>
+          </label>
+          <label class="container">
+            <input type="radio" name="toolSelect" value="tool3" onclick="toolSelected()">
+            <span class="checkmark"><span class="toolIcon" id="tool3"></span></span>
+          </label>
+          <label class="container">
+            <input type="radio" name="toolSelect"  value="tool4" onclick="toolSelected()">
+            <span class="checkmark"><span class="toolIcon" id="tool4"></span></span>
+          </label>
+          <label class="container">
+            <input type="radio" name="toolSelect" value="tool5" onclick="toolSelected()">
+            <span class="checkmark"><span class="toolIcon" id="tool5"></span></span>
+          </label>
+          <label class="container">
+            <input type="radio" name="toolSelect" value="tool6" onclick="toolSelected()">
+            <span class="checkmark"><span class="toolIcon" id="tool6"></span></span>
+          </label>
+        </div>
+        <input type="range" value="10" min="1" max="50" name="strokeSelect" id="strokeSelect" orient="vertical" oninput="strokeSelected()">
       </div>
+      <hr>
       <canvas id="p5Canvas"></canvas>
     </main>
     <script src="sketch.js"></script>
     <script>
+      let tool;
+      let backgroundColor;
+      toolSelected();
+      function toolSelected() {
+        tool = document.querySelector('input[name="toolSelect"]:checked').value;
+        console.log(tool);
+
+        if (tool === "tool3") {
+          document.getElementById("p5Canvas").style.background = document.getElementById("colorpicker").value;;
+        }
+      }
+
+      function strokeSelected() {
+        strokeW = document.getElementById("strokeSelect").value/10;
+      }
+
       function changeColor(colorElement) {
         let color, r, g, b;
         color = window.getComputedStyle(document.getElementById(colorElement), "").getPropertyValue("background-color");
@@ -46,6 +90,10 @@
         console.log(color);
         hexColor = rgbToHex(r, g, b);
         document.getElementById('colorpicker').value = hexColor;
+
+        if (tool === "tool3") {
+          document.getElementById("p5Canvas").style.background = document.getElementById("colorpicker").value;
+        }
       }
       function componentToHex(c) {
         var hex = c.toString(16);

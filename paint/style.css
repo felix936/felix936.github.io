@@ -8,6 +8,18 @@ html, body {
 }
 canvas {
   display: block;
+  background-color: white;
+}
+
+hr {
+  position: absolute;
+  margin: 0;
+  top: 15vh;
+  left: 0;
+  width: 100vw;
+  height: 0.05vh;
+  border: none;
+  background-color: black;
 }
 
 .menu {
@@ -36,7 +48,8 @@ button.colorpicker{
 }
 input#colorpicker {
   padding: 0;
-  margin: 0;
+  margin: 0.5vh;
+  margin-bottom: 0;
   width: 8vh;
   height: 8vh;
   border: none;
@@ -85,4 +98,96 @@ input#colorpicker {
   background-color: black;
 }#colors #color12 {
   background-color: white;
+}
+
+#tools {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  height: 13vh;
+  width: 19vh;
+  margin: auto 0;
+  row-gap: 0.5vh;
+}
+
+#tools input[type=radio] {
+  width: 6vh;
+  height: 6vh;
+  margin: 0;
+}
+
+.container {
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6vh;
+  width: 6vh;
+  margin: auto;
+  border-radius: 0.5vh;
+}
+.toolIcon {
+  display: block;
+  width: 5vh;
+  height: 5vh;
+  margin: 0.5vh;
+  background-repeat: no-repeat;
+}
+
+#tool1 {
+  background-image: url("/icons/pen-solid.svg");
+}#tool2 {
+  background-image: url("/icons/pencil-solid.svg");
+}#tool3 {
+  background-image: url("/icons/fill-solid.svg");
+}#tool4 {
+  background-image: url("/icons/eraser-solid.svg");
+}#tool5 {
+  background-image: url("/icons/spray-can-solid.svg");
+}#tool6 {
+  background-image: url("/icons/paintbrush-solid.svg");
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: lightgrey;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+input[type=range][orient=vertical] {
+  appearance: slider-vertical;
+  width: 2vh;
+  height: 13vh;
+  margin: 1vh;
 }

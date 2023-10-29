@@ -6,6 +6,7 @@ html, body {
   overflow: hidden;
   overscroll-behavior-y: none;
 }
+
 canvas {
   display: block;
   background-color: white;

@@ -151,17 +151,17 @@ input#colorpicker {
 }
 
 #tool1 {
-  background-image: url("/icons/pen-solid.svg");
+  background-image: url("icons/pen-solid.svg");
 }#tool2 {
-  background-image: url("/icons/pencil-solid.svg");
+  background-image: url("icons/pencil-solid.svg");
 }#tool3 {
-  background-image: url("/icons/fill-solid.svg");
+  background-image: url("icons/fill-solid.svg");
 }#tool4 {
-  background-image: url("/icons/eraser-solid.svg");
+  background-image: url("icons/eraser-solid.svg");
 }#tool5 {
-  background-image: url("/icons/spray-can-solid.svg");
+  background-image: url("icons/spray-can-solid.svg");
 }#tool6 {
-  background-image: url("/icons/paintbrush-solid.svg");
+  background-image: url("icons/paintbrush-solid.svg");
 }
 
 /* On mouse-over, add a grey background color */

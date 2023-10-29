@@ -5,6 +5,7 @@ html, body {
   width: 100%;
   overflow: hidden;
   overscroll-behavior-y: none;
+  box-sizing: border-box;
 }
 
 canvas {
@@ -31,7 +32,7 @@ button.colorpicker{
   align-items: center;
   justify-content: flex-start;
   border-radius: 0.5vh;
-  border-color: 	black;
+  border-color: black;
 }
 .colorpicker p {
   margin: 1vh;

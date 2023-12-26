@@ -1,5 +1,5 @@
 let ball, floors, floor, bg, balloon,  sandbagstate, txt, score, totalFrames, debugstate, testing;
-let shot, shooterShots, shooterShot, lasers, birds;
+let shot, shooterShots, shooterShot, lasers, birds, time, timeNormal, timeSlow;
 let endScreen, lost, endfade;
 let balloonscale = 0.7;
 sandbagstate = true;
@@ -10,10 +10,12 @@ debugstate = false;
 testing = false;
 staticstate = 's';
 kineticstate = 'k';
+time = timeNormal = 1;
+timeSlow = 0.1;
+
 
 function setup() {
 	new Canvas(1920, 1080);
-	world.gravity.y = 30;
 
 	backgroundSky = new Sprite();
 	backgroundSky.img = 'assets/sky.jpg';
@@ -235,33 +237,44 @@ function setup() {
 function draw() {
 	clear();
 	background(79, 56, 98);
+	world.gravity.y = 30 * time;
 	totalFrames +=1;
 	camera.y = balloon.y - 250;
 	balloon.img = 'assets/balloon-default.png';
 
-	if (balloon.vel.y < -50){
-		balloon.vel.y = -50;
+	if (balloon.vel.y < -30 * time){
+		balloon.vel.y = -30 * time;
 	}
 
 	if (kb.pressing('space') || kb.pressing('up')) {
 		balloon.bearing = -90;
-		balloon.applyForce(50);
+		balloon.applyForce(50 * time);
 		balloon.img = 'assets/balloon-default-fire.png';
 	}
 
 	if (kb.pressing('right')) {
 		balloon.bearing = 0;
-		balloon.applyForce(20);
+		balloon.applyForce(20 * time);
 	}
 	if (kb.pressing('left')) {
 		balloon.bearing = 180;
-		balloon.applyForce(20);
+		balloon.applyForce(20 * time);
+	}
+	if (mouse.pressing()){
+		if (time == timeNormal){
+			time = timeSlow;
+			balloon.vel.y *= time;
+			balloon.vel.x *= time;
+		}
+	}
+	else {
+		time = timeNormal;
 	}
 	if (kb.presses('b') && (sandbagstate == true)){
 		sandbagstate = false;
 		balloon.bearing = -90;
-		balloon.applyForce(3000);
-		sandBag.vel.y = 20;
+		balloon.applyForce(3000 * time);
+		sandBag.vel.y = 20 * time;
 		sandBag.collider = 'none';
 	}
 	if (sandbagstate == true) {
@@ -289,6 +302,7 @@ function draw() {
 	laseringUfo();
 
 	if (score > 12000){
+		score = totalFrames / frameRate();
 		if (ended == false && testing == false){
 		end("won");}
 	}
@@ -308,7 +322,7 @@ function draw() {
 }
 
 function shootingShooter() {
-	shooterShot.vel.x = -30;
+	shooterShot.vel.x = -30 * time;
 	if(shooterShot.x < 0){
 		shooterShot.x = 1790;
 	}
@@ -319,10 +333,10 @@ function shootingShooter() {
 }
 function angryHeli(){
 	if (balloon.y < -200 && balloon.y > -2500){
-		heli.moveTowards(balloon, 0.007);
+		heli.moveTowards(balloon, 0.007 * time);
 	}
 	else{
-		heli.moveTowards(360, -400, 0.01);
+		heli.moveTowards(360, -400, 0.01 * time);
 	}
 	if(int(totalFrames/5) % 2 == 0){
 		heli.img = 'assets/heli2.png';
@@ -337,33 +351,33 @@ function angryHeli(){
 }
 
 function flyingBirds(){
-	bird1.vel.x = 10;
+	bird1.vel.x = 10 * time;
 	if(bird1.x > 1920){
 		bird1.x = 0;}
-	bird2.vel.x = 14;
+	bird2.vel.x = 14 * time;
 	if(bird2.x > 1920){
 		bird2.x = 0;}
-	bird3.vel.x = 12;
+	bird3.vel.x = 12 * time;
 	if(bird3.x > 1920){
 		bird3.x = 0;}
 
-	bird4.vel.x = 9;
+	bird4.vel.x = 9 * time;
 	if(bird4.x > 1920){
 		bird4.x = 0;}
-	bird5.vel.x = 13;
+	bird5.vel.x = 13 * time;
 	if(bird5.x > 1920){
 		bird5.x = 0;}
-	bird6.vel.x = 11;
+	bird6.vel.x = 11 * time;
 	if(bird6.x > 1920){
 		bird6.x = 0;}
 
-	bird7.vel.x = 11;
+	bird7.vel.x = 11 * time;
 	if(bird7.x > 1920){
 		bird7.x = 0;}
-	bird8.vel.x = 15;
+	bird8.vel.x = 15 * time;
 	if(bird8.x > 1920){
 		bird8.x = 0;}
-	bird9.vel.x = 13;
+	bird9.vel.x = 13 * time;
 	if(bird9.x > 1920){
 		bird9.x = 0;}
 
@@ -374,27 +388,27 @@ function flyingBirds(){
 }
 
 function laseringUfo() {
-	ufoLaser.vel.x = -22;
+	ufoLaser.vel.x = -22 * time;
 	if(ufoLaser.x < 0){
 		ufoLaser.x = 1620;
 	}
-	ufoLaser2.vel.x = 22;
+	ufoLaser2.vel.x = 22 * time;
 	if(ufoLaser2.x > 1920){
 		ufoLaser2.x = 200;
 	}
-	ufoLaser3.vel.x = -24;
+	ufoLaser3.vel.x = -24 * time;
 	if(ufoLaser3.x < 0){
 		ufoLaser3.x = 1620;
 	}
-	ufoLaser4.vel.x = 24;
+	ufoLaser4.vel.x = 24 * time;
 	if(ufoLaser4.x > 1920){
 		ufoLaser4.x = 200;
 	}
-	ufoLaser5.vel.x = -25;
+	ufoLaser5.vel.x = -25 * time;
 	if(ufoLaser5.x < 0){
 		ufoLaser5.x = 1620;
 	}
-	ufoLaser6.vel.x = 20;
+	ufoLaser6.vel.x = 20 * time;
 	if(ufoLaser6.x > 1920){
 		ufoLaser6.x = 200;
 	}
@@ -412,6 +426,9 @@ function end(result){
 	endScreen.collider = 'none';
 	endScreen.textSize = 100;
 	endScreen.textColor = 'white';
-	endScreen.text = "You " + result + "! \n Score: " + score + "\nPress anything to restart";
+	if (result == 'won'){
+		endScreen.text = "You won! \n Time: " + score + "\nPress anything to restart";}
+	else{
+		endScreen.text = "You lost! \n Score: " + score + "\nPress anything to restart";}
 	ended = true;
 }

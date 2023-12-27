@@ -15,7 +15,7 @@ timeSlow = 0.1;
 
 
 function setup() {
-	new Canvas(1920, 1080);
+	new Canvas(1920, 1080, 'fullscreen');
 
 	backgroundSky = new Sprite();
 	backgroundSky.img = 'assets/sky.jpg';
@@ -237,6 +237,7 @@ function setup() {
 function draw() {
 	clear();
 	background(79, 56, 98);
+	console.log(touches);
 	world.gravity.y = 30 * time;
 	totalFrames +=1;
 	camera.y = balloon.y - 250;
@@ -245,24 +246,34 @@ function draw() {
 	if (balloon.vel.y < -30 * time){
 		balloon.vel.y = -30 * time;
 	}
+	else if ((balloon.vel.y < -10 * time) && (touches.length >= 1)){
+		balloon.vel.y = -10 * time;
+	}
 
-	if (kb.pressing('space') || kb.pressing('up')) {
+	if (kb.pressing('space') || kb.pressing('up') || touches.length >= 1) {
 		balloon.bearing = -90;
 		balloon.applyForce(50 * time);
 		balloon.img = 'assets/balloon-default-fire.png';
 	}
 
-	if (kb.pressing('right')) {
+	if (kb.pressing('right') || (touches.length == 1 && touches[0]['winX'] > windowWidth / 2)) {
 		balloon.bearing = 0;
 		balloon.applyForce(20 * time);
 	}
-	if (kb.pressing('left')) {
+	if (kb.pressing('left') || (touches.length == 1 && touches[0]['winX'] < windowWidth / 2)) {
 		balloon.bearing = 180;
 		balloon.applyForce(20 * time);
 	}
-	if (mouse.pressing()){
+	if (mouse.pressing() && touches.length == 0){
 		if (time == timeNormal){
 			time = timeSlow;
+			balloon.vel.y *= time;
+			balloon.vel.x *= time;
+		}
+	}
+	else if (mouse.pressing() && touches.length >= 1){
+		if (time == timeNormal){
+			time = timeNormal * 0.8;
 			balloon.vel.y *= time;
 			balloon.vel.x *= time;
 		}
@@ -270,7 +281,7 @@ function draw() {
 	else {
 		time = timeNormal;
 	}
-	if (kb.presses('b') && (sandbagstate == true)){
+	if ((kb.presses('b')  || (touches.length == 1 && touches[0]['winY'] < (windowHeight / 3))) && (sandbagstate == true)){
 		sandbagstate = false;
 		balloon.bearing = -90;
 		balloon.applyForce(3000 * time);
@@ -302,7 +313,7 @@ function draw() {
 	laseringUfo();
 
 	if (score > 12000){
-		score = totalFrames / frameRate();
+		score = Number((totalFrames / frameRate()).toFixed(2));
 		if (ended == false && testing == false){
 		end("won");}
 	}
@@ -315,7 +326,7 @@ function draw() {
 			endScreen.color = color(endcolor);
 			endfade += 1;
 		}
-		if (keyIsPressed === true && endfade > 99){
+		if (((keyIsPressed === true) || (touches.length >= 1)) && endfade > 99){
 			location.reload();
 		}
 	}

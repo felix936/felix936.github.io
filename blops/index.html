@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.1/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+    <main>
+    </main>
+    <script src="sketch.js"></script>
+    <div class="dropdown">
+      <div class="dropdown-content" id="dropdown-content">
+        <p class="sliderHeading">Aggresiveness: <span id="aggresivenessValue"></span></p>
+        <input type="range" min="0" max="255" value="128" class="slider" id="aggresivenessSlider">
+        <p class="sliderHeading">Attractiveness: <span id="attractivenessValue"></span></p>
+        <input type="range" min="0" max="255" value="128" class="slider" id="attractivenessSlider">
+        <p class="sliderHeading">Intelligence: <span id="intelligenceValue"></span></p>
+        <input type="range" min="0" max="255" value="128" class="slider" id="intelligenceSlider">
+        <p class="sliderHeading">Size: <span id="sizeValue"></span></p>
+        <input type="range" min="1" max="200" value="30" class="slider" id="sizeSlider">
+        <p class="sliderHeading">Resulting Blop: </p>
+        <div class="displayBlop">
+        <div class="resultingBlop" id="resultingBlop"></div></div>
+        <hr>
+        <p class="sliderHeading">Amount of Random Blops: <span id="amountValue"></span></p>
+        <input type="range" min="1" max="100" value="20" class="slider" id="amountSlider">
+        <button onclick="spawnRandomBlops(document.getElementById('amountSlider').value)">Spawn Random Blops</button>
+      </div>
+      <button class="dropbtn">+</button>
+    </div>
+    <script src="animal.js"></script>
+  </body>
+</html>

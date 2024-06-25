@@ -1,0 +1,135 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  font-size: 20px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: 80%;
+  margin: 0 0 10px 0;
+  padding: 5px;
+}
+
+.dropbtn {
+  font-size: 60px;
+  font-weight: 900;
+  border: none;
+  padding: 0px;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 0px;
+  left: 1840px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: absolute;
+  display: flex;
+  top: 0;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 1580px;
+  background-color: #f1f1f1;
+  width: 260px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 5px;
+  padding: 10px 0 0 0;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: flex; flex-direction: column; justify-items: center; align-items: center;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+hr{
+  width: 100%;
+}
+
+.sliderHeading{
+  align-self: flex-start;
+  justify-self: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  padding: 0;
+  margin: 0 0 0 10px;
+}
+
+
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 240px; /* Full-width */
+  height: 25px; /* Specified height */
+  outline: none; /* Remove outline */
+  margin: 0 0 10px 0;
+  border-radius: 3px;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #ccc;
+  cursor: pointer; /* Cursor on hover */
+  opacity: 1;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #ccc;
+  cursor: pointer; /* Cursor on hover */
+  opacity: 1;
+}
+
+#aggresivenessSlider{
+  background-color: rgba(255,0,0,1);
+}
+#attractivenessSlider{
+  background-color: rgba(0,255,0,1);
+}
+#intelligenceSlider{
+  background-color: rgba(0,0,255,1);
+}
+#sizeSlider{
+  background-color: rgba(50, 50, 50,1);
+}
+#amountSlider{
+  background-color: rgba(50, 50, 50,1);
+}
+
+
+.displayBlop{
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.resultingBlop{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #04AA6D;
+  margin: 0 0 10px 0;
+}

@@ -37,9 +37,9 @@ function draw() {
   background(200);
   for (var i=0; i < animals.length; i++){
     let a = animals[i];
+    a.checknearest();
     a.update();
     a.show();
-    a.checknearest();
   }
 
 
@@ -198,7 +198,7 @@ function sliders(){
 
   const amountSlider = document.getElementById("amountSlider");
   const amountValue = document.getElementById("amountValue");
-  amountValue.innerHTML = sizeSlider.value;
+  amountValue.innerHTML = amountSlider.value;
   amountSlider.style.backgroundColor = "rgba(50, 50, 50, " + sizeSlider.value/255 + ")";
 
   amountSlider.oninput = function() {
